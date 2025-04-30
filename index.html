@@ -3,34 +3,1248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi, there!</title>
-    <style>
-        *{
-            padding:0;
-            margin: 0;
-        }
-        body{
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .break{
-            flex-basis: 100%;
-            width: 0;
-        }
-    </style>
+    <title>Khoa Nguyen - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-        <h1>Hello! My stunning portfolio is updating.</h1>
-        <div class="break"></div>
-        <p style="text-align: center; margin-top: 10px;">
-            <a href="https://github.com/Khoa15">My Git</a>
-            |
-            <a href="/cv">Full CV</a>
-        </p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Khoa Nguyen</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Khoa Nguyen</h1>
+                    <h2>AI & Software Developer</h2>
+                    <p class="lead">Passionate about creating innovative solutions through artificial intelligence and software development</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Khoa15" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>Khoa15</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ntd-khoa" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>ntd-khoa</span>
+                        </a>
+                        <a href="mailto:nguyentrongdangkhoa15@gmail.com">
+                            <i class="fas fa-envelope"></i>
+                            <span>nguyentrongdangkhoa15@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    A dedicated Information Technology student with a passion for AI and software development. I combine theoretical knowledge with practical experience through hands-on projects and competitions. My focus areas include neural networks, software architecture, and full-stack development. I believe in continuous learning and growth, always seeking new challenges to expand my skills and contribute to innovative technological solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Age Classification</h3>
+                            <p class="card-text">Developed a CNN model for age prediction using the UTKFace dataset, achieving 75% accuracy.</p>
+                            <a href="https://github.com/Khoa15/huit-ai.git" class="btn btn-outline-primary" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Shop With Activation Code System</h3>
+                            <p class="card-text">Cross-platform application with .NET MAUI featuring admin system and mobile app for product management.</p>
+                            <a href="#" class="btn btn-outline-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Sentiment Classification</h3>
+                            <p class="card-text">RNN model for sentiment analysis using financial news dataset.</p>
+                            <a href="https://github.com/Khoa15/text-classification" class="btn btn-outline-primary" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Image Retrieval</h3>
+                            <p class="card-text">Implemented L1, L2, and cosine similarity methods for image comparison.</p>
+                            <a href="https://github.com/Khoa15/image-retrieval" class="btn btn-outline-primary" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Programming Languages</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-code"></i> Python (Proficient)</li>
+                        <li><i class="fas fa-code"></i> Java</li>
+                        <li><i class="fas fa-code"></i> C#</li>
+                        <li><i class="fas fa-code"></i> JavaScript</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Frameworks & Tools</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-cogs"></i> Flask</li>
+                        <li><i class="fas fa-cogs"></i> PyTorch</li>
+                        <li><i class="fas fa-cogs"></i> .NET</li>
+                        <li><i class="fas fa-cogs"></i> Git</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Languages</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-language"></i> Vietnamese (Native)</li>
+                        <li><i class="fas fa-language"></i> English: TOEIC(L&R) 720, IELTS 6.0</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="learning-roadmap" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Learning Roadmap</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">AI & Machine Learning</h3>
+                            <ul class="roadmap-list">
+                                <li data-bs-toggle="modal" data-bs-target="#deepLearningModal">
+                                    <i class="fas fa-check-circle"></i> Deep Learning Fundamentals
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#neuralNetworksModal">
+                                    <i class="fas fa-check-circle"></i> Neural Networks Architecture
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#nlpModal">
+                                    <i class="fas fa-circle"></i> Advanced NLP Techniques
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#cvModal">
+                                    <i class="fas fa-circle"></i> Computer Vision Applications
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#rlModal">
+                                    <i class="fas fa-circle"></i> Reinforcement Learning
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#mlopsModal">
+                                    <i class="fas fa-circle"></i> Model Deployment & MLOps
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#cloudAIModal">
+                                    <i class="fas fa-circle"></i> Cloud AI Services (AWS, GCP)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Software Engineering</h3>
+                            <ul class="roadmap-list">
+                                <li data-bs-toggle="modal" data-bs-target="#oopModal">
+                                    <i class="fas fa-check-circle"></i> Object-Oriented Programming
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#webDevModal">
+                                    <i class="fas fa-check-circle"></i> Basic Web Development
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#systemDesignModal">
+                                    <i class="fas fa-circle"></i> System Design & Architecture
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#microservicesModal">
+                                    <i class="fas fa-circle"></i> Microservices & APIs
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#dbOptimizationModal">
+                                    <i class="fas fa-circle"></i> Database Optimization
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#devopsModal">
+                                    <i class="fas fa-circle"></i> DevOps & CI/CD
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#cloudModal">
+                                    <i class="fas fa-circle"></i> Cloud Computing
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Technical Skills</h3>
+                            <ul class="roadmap-list">
+                                <li data-bs-toggle="modal" data-bs-target="#pythonModal">
+                                    <i class="fas fa-check-circle"></i> Python Programming
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#mlFrameworksModal">
+                                    <i class="fas fa-check-circle"></i> Basic ML Frameworks
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#dataStructuresModal">
+                                    <i class="fas fa-circle"></i> Advanced Data Structures
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#distributedSystemsModal">
+                                    <i class="fas fa-circle"></i> Distributed Systems
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#dockerModal">
+                                    <i class="fas fa-circle"></i> Containerization (Docker)
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#kubernetesModal">
+                                    <i class="fas fa-circle"></i> Kubernetes
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#bigDataModal">
+                                    <i class="fas fa-circle"></i> Big Data Technologies
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Soft Skills & Professional Development</h3>
+                            <ul class="roadmap-list">
+                                <li data-bs-toggle="modal" data-bs-target="#techCommModal">
+                                    <i class="fas fa-check-circle"></i> Technical Communication
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#teamCollabModal">
+                                    <i class="fas fa-check-circle"></i> Team Collaboration
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#projectMgmtModal">
+                                    <i class="fas fa-circle"></i> Project Management
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#agileModal">
+                                    <i class="fas fa-circle"></i> Agile Methodologies
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#techWritingModal">
+                                    <i class="fas fa-circle"></i> Technical Writing
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#publicSpeakingModal">
+                                    <i class="fas fa-circle"></i> Public Speaking
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#leadershipModal">
+                                    <i class="fas fa-circle"></i> Leadership Skills
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI & ML Modals -->
+    <div class="modal fade" id="deepLearningModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Deep Learning Fundamentals</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Neural Network Mathematics</li>
+                                <li>Backpropagation Algorithms</li>
+                                <li>Activation Functions</li>
+                                <li>Loss Functions</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>TensorFlow/PyTorch Implementation</li>
+                                <li>Model Training Best Practices</li>
+                                <li>Hyperparameter Tuning</li>
+                                <li>Performance Optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="neuralNetworksModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Neural Networks Architecture</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>CNN Architectures</li>
+                                <li>RNN/LSTM Networks</li>
+                                <li>Transformer Models</li>
+                                <li>Attention Mechanisms</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Architecture Selection</li>
+                                <li>Model Compression</li>
+                                <li>Transfer Learning</li>
+                                <li>Custom Architecture Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="nlpModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Advanced NLP Techniques</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Word Embeddings</li>
+                                <li>Sequence Models</li>
+                                <li>Language Models</li>
+                                <li>Text Classification</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>BERT/GPT Implementation</li>
+                                <li>Text Preprocessing</li>
+                                <li>Sentiment Analysis</li>
+                                <li>Chatbot Development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cvModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Computer Vision Applications</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Image Processing Fundamentals</li>
+                                <li>Feature Detection & Extraction</li>
+                                <li>Object Detection & Recognition</li>
+                                <li>Image Segmentation</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>OpenCV Implementation</li>
+                                <li>Real-time Video Processing</li>
+                                <li>Face Recognition Systems</li>
+                                <li>Image Classification Pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="rlModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Reinforcement Learning</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Markov Decision Processes</li>
+                                <li>Q-Learning & Deep Q-Networks</li>
+                                <li>Policy Gradient Methods</li>
+                                <li>Multi-agent Systems</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Game AI Development</li>
+                                <li>Robotics Control Systems</li>
+                                <li>Resource Optimization</li>
+                                <li>Simulation Environments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mlopsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Model Deployment & MLOps</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Model Versioning</li>
+                                <li>Model Monitoring</li>
+                                <li>Data Pipeline Management</li>
+                                <li>Model Lifecycle</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Docker & Kubernetes</li>
+                                <li>CI/CD for ML</li>
+                                <li>Model Serving</li>
+                                <li>Monitoring Tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cloudAIModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cloud AI Services</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Cloud Computing Basics</li>
+                                <li>Distributed Systems</li>
+                                <li>Cloud Architecture</li>
+                                <li>Security & Compliance</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>AWS AI Services</li>
+                                <li>Google Cloud AI</li>
+                                <li>Azure ML Services</li>
+                                <li>Serverless Computing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Software Engineering Modals -->
+    <div class="modal fade" id="oopModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Object-Oriented Programming</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Design Patterns</li>
+                                <li>SOLID Principles</li>
+                                <li>UML Diagrams</li>
+                                <li>Software Architecture</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Clean Code Practices</li>
+                                <li>Code Refactoring</li>
+                                <li>Test-Driven Development</li>
+                                <li>Code Review Process</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="webDevModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Basic Web Development</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>HTML5 & CSS3</li>
+                                <li>JavaScript Fundamentals</li>
+                                <li>Web Standards</li>
+                                <li>Browser APIs</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Responsive Design</li>
+                                <li>Cross-browser Compatibility</li>
+                                <li>Web Performance Optimization</li>
+                                <li>Basic SEO Principles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="systemDesignModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">System Design & Architecture</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>System Architecture Patterns</li>
+                                <li>Design Principles</li>
+                                <li>Performance Analysis</li>
+                                <li>Scalability Concepts</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>System Requirements Analysis</li>
+                                <li>Architecture Documentation</li>
+                                <li>Technical Decision Making</li>
+                                <li>System Integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Skills Modals -->
+    <div class="modal fade" id="pythonModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Python Programming</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Python Syntax & Semantics</li>
+                                <li>Data Structures</li>
+                                <li>Algorithms</li>
+                                <li>Computational Complexity</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Code Optimization</li>
+                                <li>Debugging Techniques</li>
+                                <li>Package Management</li>
+                                <li>Python Best Practices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mlFrameworksModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Basic ML Frameworks</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>TensorFlow Basics</li>
+                                <li>PyTorch Fundamentals</li>
+                                <li>Scikit-learn</li>
+                                <li>Model Evaluation</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Model Deployment</li>
+                                <li>Framework Selection</li>
+                                <li>Performance Optimization</li>
+                                <li>Production Pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soft Skills Modals -->
+    <div class="modal fade" id="techCommModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Technical Communication</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Technical Writing</li>
+                                <li>Presentation Skills</li>
+                                <li>Documentation Standards</li>
+                                <li>Research Communication</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Stakeholder Communication</li>
+                                <li>Technical Documentation</li>
+                                <li>Code Comments</li>
+                                <li>Team Communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="teamCollabModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Team Collaboration</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Group Dynamics</li>
+                                <li>Conflict Resolution</li>
+                                <li>Team Leadership</li>
+                                <li>Project Coordination</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Version Control Workflow</li>
+                                <li>Code Review Process</li>
+                                <li>Team Meetings</li>
+                                <li>Collaborative Tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:nguyentrongdangkhoa15@gmail.com">nguyentrongdangkhoa15@gmail.com</a>
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i>
+                    (+84) 938-928-064
+                </p>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ho Chi Minh City, Vietnam
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Khoa Nguyen. All rights reserved.</p>
+            <p class="credit">Portfolio designed with assistance from <a href="https://cursor.sh" target="_blank">Cursor AI Assistant</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Microservices & APIs Modal -->
+    <div class="modal fade" id="microservicesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Microservices & APIs</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Microservices Architecture</li>
+                                <li>API Design Principles</li>
+                                <li>Service Communication</li>
+                                <li>Distributed Systems</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>RESTful API Development</li>
+                                <li>Service Discovery</li>
+                                <li>Load Balancing</li>
+                                <li>API Documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Database Optimization Modal -->
+    <div class="modal fade" id="dbOptimizationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Database Optimization</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Database Design</li>
+                                <li>Query Optimization</li>
+                                <li>Indexing Strategies</li>
+                                <li>Normalization</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Performance Tuning</li>
+                                <li>Query Analysis</li>
+                                <li>Database Monitoring</li>
+                                <li>Backup Strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DevOps & CI/CD Modal -->
+    <div class="modal fade" id="devopsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">DevOps & CI/CD</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>DevOps Principles</li>
+                                <li>Continuous Integration</li>
+                                <li>Continuous Deployment</li>
+                                <li>Infrastructure as Code</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>CI/CD Pipeline Setup</li>
+                                <li>Automated Testing</li>
+                                <li>Deployment Automation</li>
+                                <li>Monitoring & Logging</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cloud Computing Modal -->
+    <div class="modal fade" id="cloudModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cloud Computing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Cloud Architecture</li>
+                                <li>Virtualization</li>
+                                <li>Cloud Security</li>
+                                <li>Cloud Economics</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>AWS Services</li>
+                                <li>Azure Services</li>
+                                <li>Google Cloud</li>
+                                <li>Cloud Migration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Data Structures Modal -->
+    <div class="modal fade" id="dataStructuresModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Advanced Data Structures</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Advanced Trees</li>
+                                <li>Graph Algorithms</li>
+                                <li>Hash Tables</li>
+                                <li>Memory Management</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Performance Analysis</li>
+                                <li>Memory Optimization</li>
+                                <li>Data Structure Selection</li>
+                                <li>Real-world Applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Distributed Systems Modal -->
+    <div class="modal fade" id="distributedSystemsModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Distributed Systems</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Distributed Algorithms</li>
+                                <li>Consensus Protocols</li>
+                                <li>Fault Tolerance</li>
+                                <li>Scalability</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>System Design</li>
+                                <li>Load Balancing</li>
+                                <li>Data Replication</li>
+                                <li>Monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Containerization Modal -->
+    <div class="modal fade" id="dockerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Containerization (Docker)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Container Technology</li>
+                                <li>Virtualization</li>
+                                <li>Network Isolation</li>
+                                <li>Resource Management</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Docker Implementation</li>
+                                <li>Container Orchestration</li>
+                                <li>Docker Compose</li>
+                                <li>CI/CD Integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kubernetes Modal -->
+    <div class="modal fade" id="kubernetesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Kubernetes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Cluster Architecture</li>
+                                <li>Resource Management</li>
+                                <li>Service Discovery</li>
+                                <li>Scaling Strategies</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Cluster Deployment</li>
+                                <li>Service Management</li>
+                                <li>Monitoring & Logging</li>
+                                <li>Security Configuration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Big Data Technologies Modal -->
+    <div class="modal fade" id="bigDataModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Big Data Technologies</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Data Processing</li>
+                                <li>Storage Systems</li>
+                                <li>Analytics</li>
+                                <li>Machine Learning</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Hadoop Ecosystem</li>
+                                <li>Spark Implementation</li>
+                                <li>Data Pipeline</li>
+                                <li>Real-time Processing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Management Modal -->
+    <div class="modal fade" id="projectMgmtModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Project Management</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Project Planning</li>
+                                <li>Risk Management</li>
+                                <li>Resource Allocation</li>
+                                <li>Quality Assurance</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Project Tracking</li>
+                                <li>Team Coordination</li>
+                                <li>Budget Management</li>
+                                <li>Stakeholder Communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agile Methodologies Modal -->
+    <div class="modal fade" id="agileModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agile Methodologies</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Agile Principles</li>
+                                <li>Scrum Framework</li>
+                                <li>Kanban Method</li>
+                                <li>Lean Development</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Sprint Planning</li>
+                                <li>Daily Standups</li>
+                                <li>Retrospectives</li>
+                                <li>Agile Tools</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Writing Modal -->
+    <div class="modal fade" id="techWritingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Technical Writing</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Documentation Standards</li>
+                                <li>Technical Style</li>
+                                <li>Research Writing</li>
+                                <li>Publication Process</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>API Documentation</li>
+                                <li>User Guides</li>
+                                <li>Technical Reports</li>
+                                <li>Knowledge Base</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Public Speaking Modal -->
+    <div class="modal fade" id="publicSpeakingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Public Speaking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Presentation Skills</li>
+                                <li>Audience Analysis</li>
+                                <li>Speech Structure</li>
+                                <li>Visual Aids</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Conference Speaking</li>
+                                <li>Team Presentations</li>
+                                <li>Technical Demos</li>
+                                <li>Stakeholder Updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leadership Skills Modal -->
+    <div class="modal fade" id="leadershipModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Leadership Skills</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="learning-path">
+                        <div class="academic-focus">
+                            <h6>Academic Focus</h6>
+                            <ul>
+                                <li>Leadership Theories</li>
+                                <li>Team Dynamics</li>
+                                <li>Decision Making</li>
+                                <li>Change Management</li>
+                            </ul>
+                        </div>
+                        <div class="industrial-skills">
+                            <h6>Industrial Skills</h6>
+                            <ul>
+                                <li>Team Leadership</li>
+                                <li>Project Direction</li>
+                                <li>Mentoring</li>
+                                <li>Strategic Planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

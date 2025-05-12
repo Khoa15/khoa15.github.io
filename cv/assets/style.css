@@ -186,7 +186,7 @@ a:hover{
     /* position: absolute; */
     width: 100px;
     height: 100px;
-    background-image: url('/cv/assets/khoa-no-bg.jpg');
+    background-image: url('/assets/khoa-no-bg.png');
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;

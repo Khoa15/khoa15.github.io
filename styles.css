@@ -550,3 +550,19 @@ body {
         border-radius: 10px;
     }
 } 
+
+.tech-stack{
+    font-size: 14px;
+    color:#0077b5;
+}
+
+@media (max-width: 500px){
+    .hero-text h1 span:nth-child(2),span:nth-child(3){
+        display: none;
+    }
+    
+}
+.hero-text h1 span:nth-child(1):hover,span:nth-child(3):hover{
+    color: #0077b5;
+}
+    

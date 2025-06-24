@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Khoa Nguyen</a>
+            <a class="navbar-brand" href="#">Nguyen</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,7 +38,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Khoa Nguyen</h1>
+                    <h1>
+                        <span data-bs-toggle="tooltip" data-bs-title="My Firstname" data-bs-placement="bottom">Khoa</span>
+                        <span>-</span>
+                        <span  data-bs-toggle="tooltip" data-bs-title="My Lastname" data-bs-placement="bottom">Nguyen Trong Dang</span>
+                    </h1>
                     <h2>AI & Software Engineer</h2>
                     <p class="lead">Passionate about creating innovative solutions through artificial intelligence and software development</p>
                     <div class="social-links">
@@ -50,7 +54,7 @@
                             <i class="fab fa-linkedin"></i>
                             <span>ntd-khoa</span>
                         </a>
-                        <a href="mailto:nguyentrongdangkhoa15@gmail.com">
+                        <a href="mailto:khoa15503.work@gmail.com">
                             <i class="fas fa-envelope"></i>
                             <span>khoa15503.work@gmail.com</span>
                         </a>
@@ -100,7 +104,7 @@
                     <ul class="list-unstyled">
                         <li><i class="fas fa-language"></i> Vietnamese (Native)</li>
                         <li>
-                            <i class="fas fa-language"></i> English: <b>TOEIC(L&R) 720</b>, <b>IELTS 6.0</b>
+                            <i class="fas fa-language"></i> English: <b>TOEIC(L&R) 720, IELTS 6.0</b>
                         </li>
                     </ul>
                 </div>
@@ -115,18 +119,20 @@
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h3 class="card-title">Age Classification</h3>
-                            <p class="card-text">Developed a CNN model for age prediction using the UTKFace dataset, achieving 75% accuracy.</p>
-                            <a href="https://github.com/Khoa15/huit-ai.git" class="btn btn-outline-primary" target="_blank">View Project</a>
+                            <h3 class="card-title">Shop With Activation Code System</h3>
+                            <p class="card-text">Cross-platform application with .NET MAUI featuring admin system and mobile app for product management.</p>
+                            <p class="tech-stack">C#, MAUI .NET, MySQL</p>
+                            <a href="javascript:;" class="btn btn-outline-info">Updating..</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h3 class="card-title">Shop With Activation Code System</h3>
-                            <p class="card-text">Cross-platform application with .NET MAUI featuring admin system and mobile app for product management.</p>
-                            <a href="#" class="btn btn-outline-primary">This is our graduation project so we can't provide the source</a>
+                            <h3 class="card-title">Age Classification</h3>
+                            <p class="card-text">Developed a CNN model for age prediction using the UTKFace dataset, achieving 75% accuracy.</p>
+                            <p class="tech-stack">Python, React Native, Tensorflow, Flask</p>
+                            <a href="https://github.com/Khoa15/huit-ai.git" class="btn btn-outline-primary" target="_blank">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -135,6 +141,7 @@
                         <div class="card-body">
                             <h3 class="card-title">Sentiment Classification</h3>
                             <p class="card-text">RNN model for sentiment analysis using financial news dataset.</p>
+                            <p class="tech-stack">Python, numpy, sklearn, pandas</p>
                             <a href="https://github.com/Khoa15/text-classification" class="btn btn-outline-primary" target="_blank">View Project</a>
                         </div>
                     </div>
@@ -144,6 +151,7 @@
                         <div class="card-body">
                             <h3 class="card-title">Image Retrieval</h3>
                             <p class="card-text">Implemented L1, L2, and cosine similarity methods for image comparison.</p>
+                            <p class="tech-stack">Python, numpy</p>
                             <a href="https://github.com/Khoa15/image-retrieval" class="btn btn-outline-primary" target="_blank">View Project</a>
                         </div>
                     </div>
@@ -153,6 +161,7 @@
                         <div class="card-body">
                             <h3 class="card-title">Mini game SQL Injection</h3>
                             <p class="card-text">A simple game helps we understand SQL injection(mutiplayer).</p>
+                            <p class="tech-stack">Express.JS, HTML, CSS, Javascript, SQL Server</p>
                             <a href="https://github.com/Khoa15/mini-game-sql-injection.git" class="btn btn-outline-primary" target="_blank">View Project</a>
                         </div>
                     </div>
@@ -162,6 +171,7 @@
                         <div class="card-body">
                             <h3 class="card-title">2HK Informatics</h3>
                             <p class="card-text">A fullstack e-commercial project.</p>
+                            <p class="tech-stack">PHP, HTML, CSS, javascript, jQuery, Bootstrap, MySQL</p>
                             <a href="https://github.com/Khoa15/2hkinformatics.git" class="btn btn-outline-primary" target="_blank">View Project</a>
                         </div>
                     </div>
@@ -1276,5 +1286,11 @@
             </div>
         </div>
     </div>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
 </body>
 </html>

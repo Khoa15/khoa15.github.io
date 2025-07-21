@@ -7,6 +7,9 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
+    body{
+        margin-top: -10px;
+    }
 }
 body{
     font-family: 'Times New Roman', Times, serif;
@@ -266,4 +269,9 @@ a:hover{
 
 .achievement{
     text-align: left;
+}
+
+
+.br-left{
+    border-left: 1px solid #000;
 }

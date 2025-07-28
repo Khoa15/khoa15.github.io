@@ -275,3 +275,19 @@ a:hover{
 .br-left{
     border-left: 1px solid #000;
 }
+
+.text-python{
+    color: #3572A5;
+}
+
+.text-js{
+    color: #746c35;
+}
+
+.modal-body *{
+    font-size: 16px;
+}
+
+.modal-header *{
+    font-size: 25px!important;
+}

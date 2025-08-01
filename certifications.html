@@ -3,14 +3,14 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M1SZPBLKB0"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1SZPBLKB0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-M1SZPBLKB0');
-</script>
+</script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoa Nguyen - Certifications</title>
@@ -74,43 +74,7 @@
     <div class="section">
         <div class="container">
             <h1 class="text-center">My Certified</h1>
-            <div class="row">
-                <div class="column">
-                    <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex"
-                        href="https://www.datacamp.com/completed/statement-of-accomplishment/course/60e28c9a528deea1e23666631c62291926cecf33"
-                        target="_blank">
-                        <img class="lazy" data-src="/cv/assets/my_courses/statement-of-accomplishment-unsupervised-learning-in-python.png"
-                            width="100%" alt="">
-                    </a>
-                    <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex"
-                        href="https://www.datacamp.com/completed/statement-of-accomplishment/course/ea1f5b7a79383369564236c64dc30a3ad6dd663c"
-                        target="_blank">
-                        <img class="lazy" data-src="/cv/assets/my_courses/statement-of-accomplishment-introduction-to-deep-learning-with-pytorch.png"
-                            width="100%" alt="">
-                    </a>
-                </div>
-                <div class="column">
-                    <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex"
-                        href="https://www.datacamp.com/completed/statement-of-accomplishment/course/14806f2b8ae128f19c561261cb08287e2dc6512b"
-                        target="_blank">
-                        <img class="lazy" data-src="/cv/assets/my_courses/statement-of-accomplishment-supervised-learning-with-scikit-learn.png"
-                            width="100%" alt="">
-                    </a>
-                    <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex"
-                        href="https://www.datacamp.com/completed/statement-of-accomplishment/course/780219498b2fb07072627c26041af9a63198af17"
-                        target="_blank">
-                        <img class="lazy" data-src="/cv/assets/my_courses/statement-of-accomplishment-working-with-hugging-face.png"
-                            width="100%" alt="">
-                    </a>
-                </div>
-                <div class="column">
-                    <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex"
-                        href="https://www.datacamp.com/completed/statement-of-accomplishment/course/6e1e167bd3a8b7c14feb418e3071c3d6c39e4799"
-                        target="_blank">
-                        <img class="lazy" data-src="/cv/assets/my_courses/statement-of-accomplishment-data-manipulation-with-pandas.png"
-                            width="100%" alt="">
-                    </a>
-                </div>
+            <div class="row" id="myCourses">
             </div>
         </div>
     </div>
@@ -119,8 +83,6 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
     <script>
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
         document.addEventListener("DOMContentLoaded", function () {
             var lazyloadImages = document.querySelectorAll("img.lazy");
@@ -151,6 +113,74 @@
             window.addEventListener("resize", lazyload);
             window.addEventListener("orientationChange", lazyload);
         });
+
+        var myCourses = [
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-unsupervised-learning-in-python.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/60e28c9a528deea1e23666631c62291926cecf33",
+                "title": "Unsupervised Learning in Python"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-introduction-to-deep-learning-with-pytorch.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/ea1f5b7a79383369564236c64dc30a3ad6dd663c",
+                "title": "Introduction to Deep Learning with PyTorch"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-responsible-AI-data-management.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/3842992885ae46bc216df00ca0fe7d0e965adf91",
+                "title": "Responsible AI Data Management"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-supervised-learning-with-scikit-learn.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/14806f2b8ae128f19c561261cb08287e2dc6512b",
+                "title": "Supervised Learning with Scikit-Learn"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-working-with-hugging-face.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/780219498b2fb07072627c26041af9a63198af17",
+                "title": "Working with Hugging Face"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-data-manipulation-with-pandas.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/6e1e167bd3a8b7c14feb418e3071c3d6c39e4799",
+                "title": "Data Manipulation with Pandas"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-intermediate-deep-learning-with-pyTorch.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/5a094d36998e323794877105aa5342078a810e74",
+                "title": "Intermediate Deep Learning with PyTorch"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-introduction-to-llms-in-python.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/f4251b58b064a6d797046b6b78b9dcda7ad77364",
+                "title": "Introduction to LLMs in Python"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-responsible-AI-data-management.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/3842992885ae46bc216df00ca0fe7d0e965adf91",
+                "title": "Responsible AI Data Management"
+            },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-working-with-llama-3.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/016075fd222f9ecd8299b12f31bd5abc1c59ef78",
+                "title": "Working with Llama 3"
+            },
+        ]
+        var container = document.querySelector('.container #myCourses');
+        myCourses.forEach(function (course) {
+            var courseDiv = document.createElement('div');
+            courseDiv.className = 'col-md-4 p-1';
+            courseDiv.innerHTML = `
+                <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex" href="${course.link}" target="_blank">
+                    <img class="lazy" data-src="${course.img}" width="100%" alt="${course.title}">
+                </a>
+            `;
+            container.appendChild(courseDiv);
+
+        });
+        
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
 </body>
 

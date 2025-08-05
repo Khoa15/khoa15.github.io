@@ -618,3 +618,46 @@ span:nth-child(3):hover {
         transform: translateX(-100%);
     }
 }
+
+
+.bottom-nav{
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.bottom-nav ul{
+    border-radius: 25px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.bottom-nav ul li{
+    list-style: none;
+}
+
+.bottom-nav ul li a{
+    padding: 5px 10px;
+    display: flex;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bottom-nav ul li a:hover{
+    background-color: #007bff;
+    color: #ffffff;
+}

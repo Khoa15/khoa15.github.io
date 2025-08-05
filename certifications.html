@@ -3,14 +3,14 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1SZPBLKB0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M1SZPBLKB0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-  gtag('config', 'G-M1SZPBLKB0');
-</script> -->
+        gtag('config', 'G-M1SZPBLKB0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoa Nguyen - Certifications</title>
@@ -50,7 +50,17 @@
             </div>
         </div>
     </nav>
-    <div class="section">
+    <nav class="bottom-nav">
+        <ul>
+            <li>
+                <a href="#myCertifications">Certification</a>
+            </li>
+            <li>
+                <a href="#myCourses">Courses</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="section" id="myCertifications">
         <div class="container">
             <div class="row">
                 <div class="column">
@@ -71,10 +81,10 @@
             </div>
         </div>
     </div>
-    <div class="section">
+    <div class="section" id="myCourses">
         <div class="container">
             <h1 class="text-center">My Certified</h1>
-            <div class="row" id="myCourses">
+            <div class="row" id="myCourseslist">
             </div>
         </div>
     </div>
@@ -165,8 +175,13 @@
                 "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/016075fd222f9ecd8299b12f31bd5abc1c59ef78",
                 "title": "Working with Llama 3"
             },
+            {
+                "img": "/cv/assets/my_courses/statement-of-accomplishment-associate-AI-engineer-for-data-scientists.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/5ed32002ddaba3be2782b6ee99bb097bed584c59",
+                "title": "Associate AI Engineer for Data Scientists"
+            },
         ]
-        var container = document.querySelector('.container #myCourses');
+        var container = document.querySelector('.container #myCourseslist');
         myCourses.forEach(function (course) {
             var courseDiv = document.createElement('div');
             courseDiv.className = 'col-md-4 p-1';

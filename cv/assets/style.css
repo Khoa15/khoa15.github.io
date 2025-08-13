@@ -11,8 +11,13 @@
         margin-top: -10px;
     }
 }
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+  }
 body{
-    font-family: 'Times New Roman', Times, serif;
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-family: JetBrains Mono;
     /* font-family: monospace; */
     font-size: 13px;
     background-color: #fff;
@@ -290,4 +295,9 @@ a:hover{
 
 .modal-header *{
     font-size: 25px!important;
+}
+
+.text-sm {
+    font-weight: normal;
+
 }

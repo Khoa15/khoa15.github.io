@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Nguyen Trong Dang-Khoa</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 10.5pt;
+            line-height: 1.3;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            background-color: #fff;
+        }
+        .cv-container {
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 1cm;
+        }
+        h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 18pt;
+            text-align: center;
+            margin-bottom: 5pt;
+            color: #003366; /* Deep blue color for the name */
+        }
+        .header-info {
+            text-align: center;
+            margin-bottom: 3pt;
+            font-size: 9pt;
+            color: #555;
+        }
+        .header-info a {
+            color: #0066cc; /* Standard blue for links */
+            text-decoration: none;
+        }
+        .section {
+            margin-bottom: 6pt;
+        }
+        h2 {
+            font-size: 12pt;
+            color: #003366; /* Deep blue color for section titles */
+            border-bottom: 1px solid #003366; /* Matching border color */
+            padding-bottom: 2pt;
+            margin-bottom: 5pt;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 10.5pt;
+            font-weight: bold;
+            display: inline;
+        }
+        .item-details {
+            margin-bottom: 3pt;
+        }
+        .item-details p {
+            margin: 0;
+            padding: 0;
+        }
+        .role-details{
+            margin-top: 5px;
+        }
+        .role-details p {
+            margin: 0;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20pt;
+        }
+        ul li {
+            margin-bottom: 1pt;
+        }
+        .job-title, .project-title {
+            font-weight: bold;
+            font-size: 12pt; /* Increased font size for project titles */
+        }
+        .dates {
+            font-style: italic;
+            float: right;
+        }
+        .tech-stack {
+            font-size: 9pt;
+            color: #000;
+            margin-top: 2pt;
+        }
+        .role-details {
+            margin-left: 10pt;
+        }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .cv-container {
+                padding: 1cm;
+            }
+        }
+        /* New styles for skills section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+        }
+        .skill-item {
+            position: relative;
+            margin: 0;
+        }
+        .skill-item.full-width {
+            grid-column: span 2;
+        }
+        a {
+            color: #0066cc; /* Standard blue for all links */
+            text-decoration: none;
+        }
+        @media print {
+            .page, .page-break { break-after: page; }
+        }
+        @media print and (color) {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        .image-avatar{
+            width: 100px;
+            height: 100px;
+            background-image: url('/cv/assets/khoa-no-bg.png');
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container" style="margin-top: -30px;">
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <div class="image-avatar"></div>
+        <!-- <h1>xxxxxx</h1> -->
+        <h1>NGUYEN TRONG DANG-KHOA</h1>
+    </div>
+    <div class="header-info">
+        <!-- <p>Fresher AI Engineer</p> -->
+        <p>Ho Chi Minh City, Vietnam | (+84) 938-928-064 | <a href="mailto:khoa15503.work@gmail.com">khoa15503.work@gmail.com</a> | <a href="https://linkedin.com/in/ntd-khoa">linkedin.com/in/ntd-khoa</a> | <a href="https://github.com/Khoa15">github.com/Khoa15</a></p>
+        <!-- <p>Ho Chi Minh City, Vietnam | xxxx | <a href="mailto:xxxx@gmail.com">xxxxx@gmail.com</a></p> -->
+    </div>
+
+    <div class="section">
+        <h2>Career Objective</h2>
+        <p>A highly <strong>motivated IT fresh-graduate</strong> with a strong foundation in <strong>software development</strong> and a keen interest in <strong>Artificial Intelligence</strong>. Eager to apply <strong>problem-solving</strong> and <strong>quick learning skills</strong> to build <strong>innovative, robust, and scalable solutions</strong> in any field. Seeking a <strong>Intern</strong> position where I can contribute to the development of high-performance products, leveraging my experience with <strong>AI/ML</strong>.</p>
+        <!-- <p>
+            Recent IT graduate with a strong foudation in software development especially in Python, Java, SQL, and a basic understanding of object-oriented design, cloud concepts, and microservices. Interested in agile development and eager to learn SAP technologies such as SAP BTP to contribute to building scalable, secure software in a collaborative environment.
+        </p> -->
+
+
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <div class="item-details">
+            <p>
+                <h3>Ho Chi Minh City University of Industry and Trade</h3>
+                <span class="dates">2021 – 2025</span>
+            </p>
+            <p>Bachelor of Information Technology | GPA: 3.23/4</p>
+            <!-- <p><i>Relevant courses: Artificial Intelligence, Web Development</i></p> -->
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Awards and Honors</h2>
+        <ul>
+            <li>Encouragement Award for "Emergent products and topics in the information technology field", HUIT <span class="dates">7/2023</span></li>
+            <li>First prize in "Young coder's Competition: Finding the Best and Brightest", HUIT <span class="dates">6/2023</span></li>
+            <li>Third prize in "Science Fair" <span class="dates">11/2020</span></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <!-- <p class="skill-item full-width" style="color: #0066cc;"><strong>IoT</strong>: Arduino, ESP8266, MQTT</p> -->
+            <p class="skill-item"><strong>Languages</strong>: Python, Javascript, C++</p>
+            <p class="skill-item"><strong>Backend</strong>: FastAPI</p>
+            <p class="skill-item"><strong>Frontend</strong>: ReactJS, HTML/CSS, Bootstrap</p>
+            <p class="skill-item"><strong>Databases</strong>: MySQL, MongoDB, Redis</p>
+            <p class="skill-item"><strong>AI/ML</strong>: PyTorch, LangChain, Ollama</p>
+            <!-- <div class="skill-item full-width">
+                <hr>
+            </div>
+            <p class="skill-item full-width"><strong>Machine Learning</strong>: Logistic Regression, K-NN, Decision Tree, Random Forest, SVM</p>
+            <p class="skill-item full-width"><strong>Deep Learning</strong>: CNN, RNN, LSTM, Transformer, CLIP, YOLO</p>
+            <p class="skill-item full-width"><strong>Library & Framework</strong>: Pytorch, Tensorflow, Opencv, Scikit-learn, ONNX</p>
+            <div class="skill-item full-width">
+                <hr>
+            </div> -->
+            <p class="skill-item"><strong>DevOps</strong>: Linux, Docker, GitHub Actions (CI), Bash</p>
+            <p class="skill-item"><strong>Testing</strong>: Pytest, Locust, Playwright, Selenium</p>
+            <p class="skill-item"><strong>Soft skills</strong>: Teamwork, Research skills, Growth mindset</p>
+            <p class="skill-item"><strong>Tools</strong>: Git, Copilot, VSCode, Postman</p>
+            <p class="skill-item"><strong>English</strong>: TOEIC(Listening & Reading) 720 / IELTS overall 6.0</p>
+            <p class="skill-item full-width"><strong>Certifications</strong>: <a href="http://khoa15.github.io/certifications.html">khoa15.github.io/certifications.html - IELTS/ TOEIC/ Awards</a></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Professional Experience</h2>
+        <div class="item-details">
+            <p class="job-title">Backend Intern | EdunetJSC <span class="dates">08/2021 – 04/2025</span></p>
+            <p class="tech-stack">Tech Stack: Python, FastAPI, Docker, Linux, MQTT, ONNX</p>
+            <ul>
+                <li>Optimized the Frigate <strong>object-detection</strong> pipeline, improving accuracy by <strong>2%</strong> through <strong>data-augmentation</strong> and <strong>hyperparameter tuning</strong>.</li>
+                <li>Assisted in the maintenance of IoT water quality monitoring stations, gaining practical experience in a small-scale production environment.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Projects</h2>
+
+        <div class="item-details">
+            <p class="project-title">SIML RAG – Retrieval-Augmented Generation System <span class="dates">Personal Project</span></p>
+            <p><a href="https://github.com/Khoa15/simpl-RAG">github.com/Khoa15/simpl-RAG</a> | <a href="https://github.com/Khoa15/simpl-RAG/blob/main/be/test/report/Locust.pdf">Locust Performance Report</a></p>
+            <p class="tech-stack">Tech Stack: Python, FastAPI, React, LangChain, GeminiAPI, Redis, Celery, Docker, Pytest, Locust</p>
+            <div class="role-details">
+                <p><strong>Problem & Objective</strong>: Recognizing that existing RAG systems often suffer from high latency and resource inefficiency, I aimed to design and implement an efficient, scalable RAG system capable of handling multiple concurrent users while minimizing response time and resource consumption.</p>
+                <p><strong>Result</strong>: Developed a multi-instance RAG system using Python, FastAPI, and LangChain. Integrated the Gemini API for text generation. Implemented a custom caching mechanism and request pooling to reduce median query latency to less than 300ms.</p>
+                <p><strong>My Role & Responsibilities</strong>: Solely responsible for the system's design, from backend development with FastAPI to the implementation of caching and resource management. Also developed an auto-delete feature for inactive users.</p>
+            </div>
+        </div>
+        <div class="page"></div>
+        <!-- <div class="item-details" style="margin-top: 30px">
+            <p class="project-title">Warning Device <span class="dates">Side Project</span></p>
+            <p class="tech-stack">Tech Stack: MySQL, HTML/CSS/JS, ESP8266, Arduino, C++</p>
+            <div class="role-details">
+                <p><strong>Problem & Objective</strong>: Many environments lack a low-cost, real-time vibration alert system that can operate offline and still provide online monitoring. The goal was to build a device capable of detecting abnormal vibrations and notifying users via a web interface.</p>
+                <p><strong>Result</strong>: Built a prototype device using ESP8266, a vibration sensor, a speaker, and Arduino. Implemented Wi-Fi connectivity in C/C++ to transmit sensor data to a web server. Designed a web-based alert system and stored sensor data in a MySQL database.</p>
+                <p><strong>My Role & Responsibilities</strong>: Designed and implemented the entire system, including hardware setup, firmware programming, backend database integration, and frontend alert interface.</p>
+            </div>
+        </div> -->
+        
+        <div class="item-details" style="margin-top: 30px">
+            <p class="project-title">Exci – AI-Powered English Learning App <span class="dates">University Project</span></p>
+            <p><a href="https://github.com/Khoa15/exci.git">github.com/Khoa15/exci.git</a> | Team Lead (Score: 9.5/10)</p>
+            <p class="tech-stack">Tech Stack: Flutter, ASP .NET, Winform .NET, Ollama, Python</p>
+            <div class="role-details">
+                <p><strong>Problem & Objective</strong>: To address the lack of personalized and engaging tools for English learners, I aimed to build an AI-driven mobile application that enhances the vocabulary learning experience through a chatbot and spaced repetition functionality.</p>
+                <p><strong>Result</strong>: Developed a learning app with a chatbot AI and spaced repetition functionality. Integrated Ollama models for the chatbot and vocabulary search. The backend was built using ASP.NET to manage user data, achieving chatbot response times of 0.5–1s.</p>
+                <p><strong>My Role & Responsibilities</strong>: As Team Lead, I was responsible for the backend development, integrating the AI models, and ensuring the seamless operation of the user data management system. Managed team workflow and performed code reviews.</p>
+            </div>
+        </div>
+
+        <div class="item-details">
+            <p class="project-title">Note-Taking App with OCR <span class="dates">University Project</span></p>
+            <p><a href="https://github.com/Khoa15/dury.git">github.com/Khoa15/dury.git</a> | Team Lead (Score: 9.8/10)</p>
+            <p class="tech-stack">Tech Stack: Spring, MongoDB, Firebase, Android (Java), Flask</p>
+            <div class="role-details">
+                <p><strong>Problem & Objective</strong>: Recognizing that converting text from images into editable notes is a manual and time-consuming process, I aimed to streamline this by integrating a highly accurate Optical Character Recognition (OCR) system into a comprehensive note-taking application.</p>
+                <p><strong>Result</strong>: Developed a comprehensive note-taking application with a robust Spring Boot backend. We created a dedicated Flask microservice for Optical Character Recognition (OCR) using the Tesseract library, which demonstrated a high degree of precision, achieving approximately 92% accuracy when digitizing text from printed sources.</p>
+                <p><strong>My Role & Responsibilities</strong>: Led the team, designed the backend architecture, and was directly responsible for developing the Flask microservice for OCR. Also managed the team's workflow and conducted code reviews.</p>
+            </div>
+        </div>
+
+        <div class="item-details">
+            <p class="project-title">Age Classification with CNN <span class="dates">University Project</span></p>
+            <p><a href="https://github.com/Khoa15/huit-ai.git">github.com/Khoa15/huit-ai.git</a> | Team Lead (Score: 9.0/10)</p>
+            <p class="tech-stack">Tech Stack: Python, React native, Tensorflow, Flask</p>
+            <div class="role-details">
+                <p><strong>Problem & Objective</strong>: To address the complexity of accurately classifying human age from facial images, I aimed to build a complete, end-to-end computer vision system that demonstrates proficiency in model training and full-stack integration.</p>
+                <p><strong>Result</strong>: Trained a CNN model on the UTKFace dataset, achieving a test set accuracy of 40%. Built a Flask server to handle classification requests and integrated it with a React Native client, creating a complete end-to-end system.</p>
+                <p><strong>My Role & Responsibilities</strong>: Responsible for leading the team, training and fine-tuning the CNN model, and building the Flask server to serve the model. Demonstrated the ability to develop a full-stack AI application from research to deployment.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

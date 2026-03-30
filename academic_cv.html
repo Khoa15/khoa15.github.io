@@ -14,6 +14,7 @@
             line-height: 1.35;
             color: #000;
             width: 210mm; /* Standard A4 Width */
+            max-width: 100%; /* Prevent horizontal scrollbars on smaller screens */
             min-height: 297mm; /* Standard A4 Height */
             margin: 2rem auto;
             padding: 15mm 20mm;
@@ -101,6 +102,19 @@
             color: #666;
             font-style: italic;
         }
+        .two-cols-list li > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+        .two-cols-list .col-title {
+            flex: 1;
+        }
+        .two-cols-list .col-date {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body>
@@ -132,19 +146,27 @@
         Deep Learning, Machine Learning, Computer Vision, Applied Artificial Intelligence, Autonomous Systems, Systems Architecture, Optimization.
     </div>
 
-    <div class="section-title">Academic Presentations</div>
-    <div class="entry">
-        <ul>
-            <li><strong>Khoa Nguyen Trong Dang</strong>, et al. "Facial Recognition for Masked and Unmasked Subjects". Presented at <em>Euréka Scientific Research Student Award</em> &mdash; Vietnam <span style="float:right;">2023</span></li>
-        </ul>
-    </div>
-
     <div class="section-title">Honors & Awards</div>
     <div class="entry">
-        <ul>
-            <li>Encouragement Award for <em>"Emergent Products and Topics in the Information Technology Field"</em> &mdash; HUIT <span style="float:right;">2023</span></li>
-            <li>First Prize, <em>"Young Coder's Competition"</em> &mdash; HUIT <span style="float:right;">2023</span></li>
-            <li>Third Prize, <em>"Science Fair"</em> &mdash; Tran Khai Nguyen High School <span style="float:right;">2020</span></li>
+        <ul class="two-cols-list">
+            <li>
+                <div>
+                    <span class="col-title">Encouragement Award for <em>"Emergent Products and Topics in the Information Technology Field"</em> &mdash; HUIT</span>
+                    <span class="col-date">2023</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="col-title">First Prize, <em>"Young Coder's Competition"</em> &mdash; HUIT</span>
+                    <span class="col-date">2023</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="col-title">Third Prize, <em>"Science Fair"</em> &mdash; Tran Khai Nguyen High School</span>
+                    <span class="col-date">2020</span>
+                </div>
+            </li>
         </ul>
     </div>
 

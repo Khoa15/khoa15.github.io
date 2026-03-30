@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar Navigation -->
@@ -15,17 +17,17 @@
             <div class="profile-header">
                 <h1 class="name">Khoa Nguyen</h1>
                 <p class="title" style="margin-bottom: 0.5rem;">Engineer & Researcher</p>
-                
-                
+
+
             </div>
-            
+
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-item">Home</a></li>
                 <li><a href="projects.html" class="nav-item">Projects</a></li>
                 <li><a href="publications.html" class="nav-item active">Publications</a></li>
                 <li><a href="cv.html" class="nav-item">Curriculum Vitae</a></li>
                 <li><a href="contact.html" class="nav-item">Contact</a></li>
-                <li><a href="old/certificates.html" class="nav-item external">Certificates</a></li>
+                <li><a href="certifications.html" class="nav-item">Certificates</a></li>
             </ul>
 
             <div class="sidebar-footer">
@@ -37,13 +39,63 @@
         <main class="main-content">
             <div class="fade-in">
                 <h2 class="section-title">Publications</h2>
-                <div style="margin-top: 3rem; padding: 2rem; text-align: center; border: 1px dashed #ccc; border-radius: 8px;">
-                    <i class="fas fa-file-alt" style="font-size: 3rem; color: #888; margin-bottom: 1rem;"></i>
-                    <h3 style="margin-bottom: 0.5rem; font-family: 'Times New Roman', serif;">In Preparation</h3>
-                    <p style="color: #666; font-family: 'Times New Roman', serif;">There are currently no published papers. I am actively working on my academic research and will update this space soon.</p>
+                <!-- Publication 1 -->
+                <div class="publication-item"
+                    style="margin-top: 2rem; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; transition: transform 0.2s; background: #fff;">
+                    <h3 style="margin-bottom: 0.25rem; font-family: 'Times New Roman', serif; font-size: 1.25rem;">
+                        <a href="publications/dataset_paper.html"
+                            style="color: #0056b3; text-decoration: none;">Vietnamese Beverage Dataset (Data in Brief)</a>
+                    </h3>
+                    <p
+                        style="color: #666; font-family: 'Times New Roman', serif; margin-bottom: 1rem; font-size: 0.95rem;">
+                        <span style="display: inline-block; background-color: #f0ad4e; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem; margin-right: 0.5rem; position: relative; top: -1px;">In Preparation</span>
+                        A comprehensive data article covering the methodology and statistical insights for building a high-quality domestic datasets in Vietnam.
+                    </p>
+                    <a href="publications/dataset_paper.html"
+                        style="display: inline-block; padding: 0.5rem 1rem; background: #0056b3; color: white; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-family: 'Times New Roman', serif;">View
+                        Details</a>
+                </div>
+
+                <!-- Publication 2 -->
+                <div class="publication-item"
+                    style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; transition: transform 0.2s; background: #fff;">
+                    <h3 style="margin-bottom: 0.25rem; font-family: 'Times New Roman', serif; font-size: 1.25rem;">
+                        <a href="publications/text_compression_paper.html"
+                            style="color: #0056b3; text-decoration: none;">Optimizing Arithmetic Compression Pipeline using MLM</a>
+                    </h3>
+                    <p
+                        style="color: #666; font-family: 'Times New Roman', serif; margin-bottom: 1rem; font-size: 0.95rem;">
+                        <span style="display: inline-block; background-color: #f0ad4e; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem; margin-right: 0.5rem; position: relative; top: -1px;">In Preparation</span>
+                        Research presenting a novel approach to parallelize full-sentence processing with standard batch token generation effectively tackling mathematical drifts.
+                    </p>
+                    <a href="publications/text_compression_paper.html"
+                        style="display: inline-block; padding: 0.5rem 1rem; background: #0056b3; color: white; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-family: 'Times New Roman', serif;">View
+                        Details</a>
+                </div>
+
+                <!-- Publication 3 -->
+                <div class="publication-item"
+                    style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; transition: transform 0.2s; background: #fff;">
+                    <h3 style="margin-bottom: 0.25rem; font-family: 'Times New Roman', serif; font-size: 1.25rem;">
+                        <a href="publications/efficientnetb0_domestic_products.html"
+                            style="color: #0056b3; text-decoration: none;">My First Publication: EfficientNetB0 Domestic
+                            Products</a>
+                    </h3>
+                    <div style="margin-bottom: 0.75rem; color: #888; font-size: 0.85rem; font-family: 'Times New Roman', serif;">
+                        <i class="fas fa-calendar-alt"></i> March 2026
+                    </div>
+                    <p
+                        style="color: #666; font-family: 'Times New Roman', serif; margin-bottom: 1rem; font-size: 0.95rem;">
+                        A detailed study on applying the EfficientNetB0 architecture for classifying and recognizing
+                        domestic products.
+                    </p>
+                    <a href="publications/efficientnetb0_domestic_products.html"
+                        style="display: inline-block; padding: 0.5rem 1rem; background: #0056b3; color: white; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-family: 'Times New Roman', serif;">View
+                        Details</a>
                 </div>
             </div>
         </main>
     </div>
 </body>
+
 </html>

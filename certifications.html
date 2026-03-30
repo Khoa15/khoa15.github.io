@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khoa Nguyen - Certifications</title>
+    <!-- System Fonts Used (Times New Roman) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .column, .row { padding: 0 4px; }
+        .row { display: flex; flex-wrap: wrap; margin-left: 0; margin-right: 0;}
+        .column { flex: 33.333%; max-width: 33.333%; }
+        .column img { margin-top: 8px; vertical-align: middle; border-radius: 4px; border: 1px solid #ddd; }
+        @media (max-width: 800px) { .column { flex: 50%; max-width: 50%; } }
+        @media (max-width: 600px) { .column { flex: 100%; max-width: 100%; } }
+        
+        .certification-section { margin-top: 2rem; background: #fff; padding: 2rem; border-radius: 8px; border: 1px solid #eee; }
+        .course-item { margin-bottom: 1rem; transition: transform 0.2s; }
+        .course-item:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="profile-header">
+                <h1 class="name">Khoa Nguyen</h1>
+                <p class="title" style="margin-bottom: 0.5rem;">Engineer & Researcher</p>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="projects.html" class="nav-item">Projects</a></li>
+                <li><a href="publications.html" class="nav-item">Publications</a></li>
+                <li><a href="cv.html" class="nav-item">Curriculum Vitae</a></li>
+                <li><a href="contact.html" class="nav-item">Contact</a></li>
+                <li><a href="certifications.html" class="nav-item active">Certificates</a></li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <p>&copy; 2026 Khoa Nguyen.</p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="fade-in">
+                <h2 class="section-title">Certifications & Courses</h2>
+                
+                <div class="certification-section" id="myCertifications">
+                    <h3 style="font-family: 'Times New Roman', serif; margin-bottom: 1.5rem;">Professional Certifications</h3>
+                    <div class="row">
+                        <div class="column">
+                            <img src="old/cv/assets/certifications/IELTS_NguyenTrongDangKhoa_10.jpg" fetchpriority="high" width="100%" alt="IELTS Certification">
+                            <img src="old/cv/assets/certifications/CompetitiveProgramming_NguyenTrongDangKhoa.jpg" width="100%" alt="Competitive Programming">
+                        </div>
+                        <div class="column">
+                            <img src="old/cv/assets/certifications/TOEIC_NguyenTrongDangKhoa_10.jpg" width="100%" alt="TOEIC Certification">
+                            <img src="old/cv/assets/certifications/Eureka_2023_NguyenTrongDangKhoa.jpg" width="100%" alt="Eureka 2023">
+                            <img src="old/cv/assets/certifications/Program_NguyenTrongDangKhoa.jpg" width="100%" alt="Program">
+                        </div>
+                        <div class="column">
+                            <img src="old/cv/assets/certifications/IntermediateAlgorithm_NguyenTrongDangKhoa.jpg" width="100%" alt="Intermediate Algorithm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-section" id="myCourses" style="margin-top: 2rem;">
+                    <h3 style="font-family: 'Times New Roman', serif; margin-bottom: 1.5rem;">Course Certificates</h3>
+                    <div class="row" id="myCourseslist">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper (for Tooltips) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Lazy Loading implementation
+        document.addEventListener("DOMContentLoaded", function () {
+            var lazyloadImages = document.querySelectorAll("img.lazy");
+            var lazyloadThrottleTimeout;
+
+            function lazyload() {
+                if (lazyloadThrottleTimeout) {
+                    clearTimeout(lazyloadThrottleTimeout);
+                }
+
+                lazyloadThrottleTimeout = setTimeout(function () {
+                    var scrollTop = window.pageYOffset;
+                    lazyloadImages.forEach(function (img) {
+                        if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                        }
+                    });
+                    if (lazyloadImages.length == 0) {
+                        document.removeEventListener("scroll", lazyload);
+                        window.removeEventListener("resize", lazyload);
+                        window.removeEventListener("orientationChange", lazyload);
+                    }
+                }, 20);
+            }
+
+            document.addEventListener("scroll", lazyload);
+            window.addEventListener("resize", lazyload);
+            window.addEventListener("orientationChange", lazyload);
+        });
+
+        // DataCamp Courses Database
+        var myCourses = [
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-unsupervised-learning-in-python.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/60e28c9a528deea1e23666631c62291926cecf33",
+                "title": "Unsupervised Learning in Python"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-introduction-to-deep-learning-with-pytorch.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/ea1f5b7a79383369564236c64dc30a3ad6dd663c",
+                "title": "Introduction to Deep Learning with PyTorch"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-responsible-AI-data-management.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/3842992885ae46bc216df00ca0fe7d0e965adf91",
+                "title": "Responsible AI Data Management"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-supervised-learning-with-scikit-learn.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/14806f2b8ae128f19c561261cb08287e2dc6512b",
+                "title": "Supervised Learning with Scikit-Learn"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-working-with-hugging-face.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/780219498b2fb07072627c26041af9a63198af17",
+                "title": "Working with Hugging Face"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-data-manipulation-with-pandas.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/6e1e167bd3a8b7c14feb418e3071c3d6c39e4799",
+                "title": "Data Manipulation with Pandas"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-intermediate-deep-learning-with-pyTorch.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/5a094d36998e323794877105aa5342078a810e74",
+                "title": "Intermediate Deep Learning with PyTorch"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-introduction-to-llms-in-python.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/f4251b58b064a6d797046b6b78b9dcda7ad77364",
+                "title": "Introduction to LLMs in Python"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-responsible-AI-data-management.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/3842992885ae46bc216df00ca0fe7d0e965adf91",
+                "title": "Responsible AI Data Management (2)"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-working-with-llama-3.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/016075fd222f9ecd8299b12f31bd5abc1c59ef78",
+                "title": "Working with Llama 3"
+            },
+            {
+                "img": "old/cv/assets/my_courses/statement-of-accomplishment-associate-AI-engineer-for-data-scientists.png",
+                "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/5ed32002ddaba3be2782b6ee99bb097bed584c59",
+                "title": "Associate AI Engineer for Data Scientists"
+            }
+        ];
+        
+        var container = document.getElementById('myCourseslist');
+        myCourses.forEach(function (course) {
+            var courseDiv = document.createElement('div');
+            courseDiv.className = 'col-md-4 p-2 course-item';
+            courseDiv.innerHTML = `
+                <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex" href="${course.link}" target="_blank">
+                    <img class="lazy" data-src="${course.img}" width="100%" alt="${course.title}" style="border-radius: 4px; border: 1px solid #ddd; object-fit: contain;">
+                </a>
+            `;
+            container.appendChild(courseDiv);
+        });
+        
+        // Initialize tooltips
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+</body>
+</html>

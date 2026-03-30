@@ -170,7 +170,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Harvard CV Iframe Container */
+/* Academic CV Iframe Container */
 .iframe-container {
     width: 100%;
     aspect-ratio: 1 / 1.414; /* Standard A4 Aspect Ratio */

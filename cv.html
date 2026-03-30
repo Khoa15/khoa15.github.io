@@ -7,6 +7,25 @@
     <!-- System Fonts Used (Times New Roman) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .main-content {
+            /* Fit exactly one A4 page with margins */
+            max-width: calc(210mm + 4rem) !important;
+        }
+        .iframe-container {
+            width: 100%;
+            height: calc(297mm + 4rem);
+            min-height: auto;
+            aspect-ratio: auto;
+        }
+        @media (min-width: 900px) {
+            .iframe-container {
+                /* On large screens, lock exactly to standard A4 width + PDF viewer margins */
+                width: calc(210mm + 4rem);
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="app-container">
@@ -25,7 +44,7 @@
                 <li><a href="publications.html" class="nav-item">Publications</a></li>
                 <li><a href="cv.html" class="nav-item active">Curriculum Vitae</a></li>
                 <li><a href="contact.html" class="nav-item">Contact</a></li>
-                <li><a href="old/certificates.html" class="nav-item external">Certificates</a></li>
+                <li><a href="certifications.html" class="nav-item">Certificates</a></li>
             </ul>
 
             <div class="sidebar-footer">
@@ -39,13 +58,13 @@
                 <div class="cv-header-flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                     <h2 class="section-title" style="margin-bottom: 0;">Curriculum Vitae</h2>
                     <div>
-                        <a href="harvard_cv.html" class="btn-download" target="_blank"><i class="fas fa-expand"></i> Full Screen</a>
-                        <a href="harvard_cv.html#print" target="_blank" class="btn-download" style="margin-left: 10px;"><i class="fas fa-file-pdf"></i> Download PDF</a>
+                        <a href="academic_cv.html" class="btn-download" target="_blank"><i class="fas fa-expand"></i> Full Screen</a>
+                        <a href="academic_cv.html#print" target="_blank" class="btn-download" style="margin-left: 10px;"><i class="fas fa-file-pdf"></i> Download PDF</a>
                     </div>
                 </div>
                 
                 <div class="iframe-container">
-                    <iframe src="harvard_cv.html" title="Khoa Nguyen Harvard CV"></iframe>
+                    <iframe src="academic_cv.html" title="Khoa Nguyen - Curriculum Vitae"></iframe>
                 </div>
             </div>
         </main>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khoa Nguyen - Curriculum Vitae</title>
+    <style>
+        html {
+            background: #f0f2f5;
+            /* Grey background like a PDF viewer */
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 11pt;
+            line-height: 1.35;
+            color: #000;
+            width: 210mm;
+            /* Standard A4 Width */
+            max-width: 100%;
+            /* Prevent horizontal scrollbars on smaller screens */
+            min-height: 297mm;
+            /* Standard A4 Height */
+            margin: 2rem auto;
+            padding: 15mm 20mm;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            /* Paper shadow */
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm 20mm;
+        }
+
+        @media print {
+            html {
+                background: none;
+            }
+
+            body {
+                width: auto;
+                min-height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .contact-info a {
+                color: #000 !important;
+                text-decoration: none;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 16pt;
+            margin-bottom: 0.2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 11pt;
+        }
+
+        .contact-info a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1.5px solid #000;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .entry {
+            margin-bottom: 1.25rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: bold;
+        }
+
+        .entry-sub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-style: italic;
+            margin-bottom: 0.25rem;
+        }
+
+        ul {
+            margin-top: 0.25rem;
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        li {
+            margin-bottom: 0.35rem;
+            text-align: justify;
+        }
+
+        .text-list {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+        }
+
+        .skills-grid>div {
+            line-height: 1.5;
+        }
+
+        .placeholder {
+            color: #666;
+            font-style: italic;
+        }
+
+        .two-cols-list li>div {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+
+        .two-cols-list .col-title {
+            flex: 1;
+        }
+
+        .two-cols-list .col-date {
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h1>Khoa Nguyen Trong Dang</h1>
+    <div class="contact-info">
+        Ho Chi Minh City, Vietnam &bull; (+84) 938-928-064 &bull; <a
+            href="mailto:khoa15503.work@gmail.com">khoa15503.work@gmail.com</a><br>
+        <a href="https://khoa15.github.io" target="_blank">khoa15.github.io</a> &bull; <a
+            href="https://github.com/Khoa15" target="_blank">github.com/Khoa15</a> &bull; <a
+            href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa</a>
+    </div>
+
+    <div class="section-title">Education</div>
+    <div class="entry">
+        <div class="entry-header">
+            <span>Ho Chi Minh City University of Industry and Trade</span>
+            <span>08/2021 &ndash; 04/2025</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Bachelor of Science in Information Technology</span>
+            <span>Ho Chi Minh City, Vietnam</span>
+        </div>
+    </div>
+    <!-- <div class="section-title">Research Interests</div>
+    <div class="entry" style="margin-top: 0.25rem;">
+        Deep Learning, Machine Learning, Computer Vision, Applied Artificial Intelligence, Autonomous Systems, Systems
+        Architecture, Optimization.
+    </div> -->
+
+    <div class="section-title">Professional Experience</div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>Software Engineer Intern</span>
+            <span>OPPO VIET NAM</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Ho Chi Minh City, Vietnam</span>
+            <span>12/2025 &ndash; Present</span>
+        </div>
+        <ul>
+            <li>Engineered robust backend systems utilizing PHP, Zend Framework, and MySQL to support large-scale
+                enterprise operations.</li>
+            <!-- <li>Architected and deployed automated N8N workflows for real-time synchronization of warehouse inventory,
+                product catalogs, and order processing.</li> -->
+            <li>Executed comprehensive maintenance protocols to ensure the high availability and resilience of both the
+                core infrastructure and automated N8N pipelines.</li>
+            <!-- <li>Design an AI agent for a full-pipeline CV scanner to enhance recruitment.</li> -->
+            <li>Developed an optimized return order workflow to increase operational efficiency and accelerate processing speed.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>Software Engineer Intern</span>
+            <span>Beready Technology</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Ho Chi Minh City, Vietnam</span>
+            <span>09/2025 &ndash; 11/2025</span>
+        </div>
+        <ul>
+            <li>Developed an AI agent using n8n to automate task management and enhance user productivity.</li>
+            <li>Developed custom n8n nodes to extend platform capabilities and integrate proprietary APIs.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>Backend Intern</span>
+            <span>EdunetJSC</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Ho Chi Minh City, Vietnam</span>
+            <span>09/2024 &ndash; 12/2024</span>
+        </div>
+        <ul>
+            <li>Conducted empirical optimizations on the Frigate object-detection pipeline, systematically enhancing
+                model inference accuracy via data-augmentation and hyperparameter tuning.</li>
+            <li>Supported the architectural maintenance and deployment of edge IoT water quality monitoring sensing
+                stations, ensuring high-fidelity data processing streams.</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Honors & Awards</div>
+    <div class="entry">
+        <ul class="two-cols-list">
+            <li>
+                <div>
+                    <span class="col-title">Encouragement Award for <em>"Emergent Products and Topics in the Information
+                            Technology Field"</em> &mdash; HUIT</span>
+                    <span class="col-date">2023</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="col-title">First Prize, <em>"Young Coder's Competition"</em> &mdash; HUIT</span>
+                    <span class="col-date">2023</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="col-title">Third Prize, <em>"Science Fair"</em> &mdash; Tran Khai Nguyen High
+                        School</span>
+                    <span class="col-date">2020</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    
+
+
+
+    <div class="section-title">Skills</div>
+    <div class="entry skills-grid">
+        <div><strong>Programming:</strong> PHP, Python, Javascript, Zend Framework, Laravel, FastAPI</div>
+        <div><strong>Machine Learning:</strong> PyTorch, LlamaIndex, LangChain, Matlab</div>
+        <div><strong>Database:</strong> MySQL, PostgreSQL, Faiss, Qdrant</div>
+        <div><strong>Language:</strong> Vietnamese(native), English Proficiency (IELTS: 6.0, TOEIC: 720)</div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            if (window.location.hash === '#print') {
+                setTimeout(function () { window.print(); }, 500);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -46,6 +46,7 @@
                 margin: 0;
                 padding: 0;
                 box-shadow: none;
+                background: #fff;
             }
 
             .contact-info a {
@@ -83,6 +84,46 @@
             margin-bottom: 0.75rem;
             padding-bottom: 0.2rem;
             letter-spacing: 0.05em;
+        }
+
+        /* Skills redesign */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 1.5rem;
+        }
+        .skill-category {
+            margin-bottom: 0.25rem;
+        }
+        .skill-category-label {
+            font-weight: bold;
+            margin-bottom: 0.1rem;
+            font-size: 11pt;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.2rem;
+        }
+        .skill-category.full-width {
+            grid-column: 1 / -1;
+        }
+        .skill-category.full-width .skill-tags {
+            flex-wrap: nowrap;
+        }
+        .skill-tag {
+            display: inline-block;
+            font-size: 10pt;
+            line-height: 1.4;
+        }
+        .skill-tag.lang {
+            /* no color differentiation */
+        }
+        .skill-note {
+            font-size: 9.5pt;
+            color: #333;
+            font-style: italic;
+            margin-left: 0.2rem;
         }
 
         .entry {
@@ -156,7 +197,7 @@
 <body>
 
 
-    <h1>Khoa Nguyen Trong Dang</h1>
+    <h1>Nguyen Trong Dang Khoa</h1>
     <div class="contact-info">
         Ho Chi Minh City, Vietnam &bull; (+84) 938-928-064 &bull; <a
             href="mailto:khoa15503.work@gmail.com">khoa15503.work@gmail.com</a><br>
@@ -170,9 +211,21 @@
         Architecture, Optimization.
     </div> -->
 
-    <div class="section-title">CAREER OBJECT</div>
+    <div class="section-title">SUMMARY</div>
     <div class="entry" style="margin-top: 0.25rem;">
         Stronger and stronger in the world of software engineering, with a focus on backend development and automation. Especially interested in the application of AI agents to optimize workflows and enhance user productivity. Eager to contribute to innovative projects and continuously expand my skill set in a dynamic and collaborative environment.
+    </div>
+
+    <div class="section-title">Education</div>
+    <div class="entry">
+        <div class="entry-header">
+            <span>Ho Chi Minh City University of Industry and Trade</span>
+            <span>08/2021 &ndash; 04/2025</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Bachelor of Science in Information Technology</span>
+            <span>Ho Chi Minh City, Vietnam</span>
+        </div>
     </div>
 
     <div class="section-title">Professional Experience</div>
@@ -188,12 +241,8 @@
         </div>
         <ul>
             <li>Supported users from various departments, providing technical assistance and resolving issues related to the system.</li>
-            <!-- <li>Architected and deployed automated N8N workflows for real-time synchronization of warehouse inventory,
-                product catalogs, and order processing.</li> -->
-            <li>Executed comprehensive maintenance protocols to ensure the high availability and resilience of both the
-                core infrastructure and automated N8N pipelines.</li>
+            <li>Executed comprehensive maintenance protocols to ensure the high availability and resilience of both the core infrastructure and automated N8N pipelines.</li>
             <li>Worked with large data in N8N and MySQL, optimizing performance workflows and database queries.</li>
-            <!-- <li>Design an AI agent for a full-pipeline CV scanner to enhance recruitment.</li> -->
             <li>Developed an optimized return order workflow, including optimized SQL query to increase operational efficiency and accelerate processing speed with just few clicks.</li>
         </ul>
     </div>
@@ -223,22 +272,85 @@
             <span>09/2024 &ndash; 12/2024</span>
         </div>
         <ul>
-            <li>Conducted empirical optimizations on the Frigate object-detection pipeline, systematically enhancing
-                model inference accuracy via data-augmentation and hyperparameter tuning.</li>
-            <li>Supported the architectural maintenance and deployment of edge IoT water quality monitoring sensing
-                stations, ensuring high-fidelity data processing streams.</li>
+            <li>Conducted empirical optimizations on the Frigate object-detection pipeline, systematically enhancing model inference accuracy via data-augmentation and hyperparameter tuning.</li>
+            <li>Supported the architectural maintenance and deployment of edge IoT water quality monitoring sensing stations, ensuring high-fidelity data processing streams.</li>
         </ul>
     </div>
 
-    <div class="section-title">Education</div>
+
+    <div class="section-title" style="page-break-before: always;">Skills</div>
+    <div class="entry skills-container">
+        <div class="skill-category">
+            <div class="skill-category-label">Programming</div>
+            <div class="skill-tags">
+                PHP, Python, JavaScript, C#
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-category-label">Framework</div>
+            <div class="skill-tags">
+                Zend Framework, Laravel, FastAPI, N8N, .NET
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-category-label">Database</div>
+            <div class="skill-tags">
+                MySQL, PostgreSQL
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-category-label">Tools & Other</div>
+            <div class="skill-tags">
+                Git, HTML, CSS, VS Code, Agile/Scrum, Research
+            </div>
+        </div>
+        <div class="skill-category full-width">
+            <div class="skill-category-label">Language</div>
+            <div class="skill-tags">
+                Vietnamese (native), English (IELTS 6.0, TOEIC 720)
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div style="break-after: always; visibility: hidden;"></div> -->
+
+    <div class="section-title">Projects</div>
+
     <div class="entry">
         <div class="entry-header">
-            <span>Ho Chi Minh City University of Industry and Trade</span>
-            <span>08/2021 &ndash; 04/2025</span>
+            <span>MediRent</span>
+            <span>Thesis Project</span>
         </div>
         <div class="entry-sub-header">
-            <span>Bachelor of Science in Information Technology</span>
-            <span>Ho Chi Minh City, Vietnam</span>
+            <span><a href="https://github.com/ThaoTo2806/DoAnChuyenNganh" target="_blank">github.com/ThaoTo2806/DoAnChuyenNganh</a></span>
+            <span>Team size: 3</span>
+        </div>
+        <ul>
+            <li>Developed a fullstack e-commerce platform for renting medical equipment, featuring a mobile app for customers and a desktop app for administrators using .NET MAUI.</li>
+            <li>Implemented secure API communication between client apps and the ASP.NET Core backend for data management and transactions.</li>
+            <li>Integrated face recognition for admin login and identity verification through external AI APIs.</li>
+            <li>Designed and managed MySQL databases, handled deployment, and ensured responsive and reliable user experience across platforms.</li>
+        </ul>
+        <div style="margin-top: 0.25rem; font-size: 9.5pt;">
+            .NET MAUI, ASP.NET Core, Python, MySQL, Face Recognition API
+        </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>2HKinformatics</span>
+            <span>Tran Khai Nguyen High School</span>
+        </div>
+        <div class="entry-sub-header">
+            <span><a href="https://github.com/Khoa15/2hkinformatics" target="_blank">github.com/Khoa15/2hkinformatics</a></span>
+            <span>10/2020 - 02/2021</span>
+        </div>
+        <ul>
+            <li>Designed and developed complete management functionalities for administrators and user-centric business logic, including features for sales and product management.</li>
+            <li>Configured and maintained the website to ensure optimal performance.</li>
+        </ul>
+        <div style="margin-top: 0.25rem; font-size: 9.5pt;">
+            PHP, HTML, CSS, JavaScript, MySQL, Bootstrap, jQuery
         </div>
     </div>
 
@@ -247,8 +359,7 @@
         <ul class="two-cols-list">
             <li>
                 <div>
-                    <span class="col-title">Encouragement Award for <em>"Emergent Products and Topics in the Information
-                            Technology Field"</em> &mdash; HUIT</span>
+                    <span class="col-title">Encouragement Award for <em>"Emergent Products and Topics in the Information Technology Field"</em> &mdash; HUIT</span>
                     <span class="col-date">2023</span>
                 </div>
             </li>
@@ -260,25 +371,11 @@
             </li>
             <li>
                 <div>
-                    <span class="col-title">Third Prize, <em>"Science Fair"</em> &mdash; Tran Khai Nguyen High
-                        School</span>
+                    <span class="col-title">Third Prize, <em>"Science Fair"</em> &mdash; Tran Khai Nguyen High School</span>
                     <span class="col-date">2020</span>
                 </div>
             </li>
         </ul>
-    </div>
-
-    
-
-
-
-    <div class="section-title">Skills</div>
-    <div class="entry skills-grid">
-        <div><strong>Programming:</strong> PHP, Python, Javascript</div>
-        <div><strong>Framework:</strong> Zend Framework, Laravel, FastAPI</div>
-        
-        <div><strong>Database:</strong> MySQL, PostgreSQL</div>
-        <div><strong>Language:</strong> Vietnamese(native), English Proficiency (IELTS: 6.0, TOEIC: 720)</div>
     </div>
 
     <script>

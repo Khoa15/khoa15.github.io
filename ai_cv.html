@@ -87,23 +87,33 @@
             gap: 0.3rem 1.5rem;
         }
         .skill-category {
+            display: flex;
+            align-items: baseline;
+            gap: 0.1rem;
             margin-bottom: 0.25rem;
         }
         .skill-category-label {
             font-weight: bold;
-            margin-bottom: 0.1rem;
+            margin-bottom: 0;
             font-size: 11pt;
+            white-space: nowrap;
+            flex: 0 0 auto;
+        }
+        .skill-category-label::after {
+            content: ":";
         }
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.2rem;
+            gap: 0.15rem;
+            flex: 0 1 auto;
+            min-width: 0;
         }
         .skill-category.full-width {
             grid-column: 1 / -1;
         }
         .skill-category.full-width .skill-tags {
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
         }
         .skill-tag {
             display: inline-block;
@@ -205,10 +215,10 @@
 href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa</a>
     </div>
 
-    <div class="section-title">SUMMARY</div>
+    <!-- <div class="section-title">SUMMARY</div>
     <div class="entry" style="margin-top: 0.25rem;">
         Software Engineer with experience in Computer Vision and Generative AI. Proficient in Python, PyTorch, LangChain, and REST API design. Hands‑on with Vision-Language Models based on CLIP architecture, object detection pipelines, OCR systems, and AI automation workflows. Familiar with building embedding vectors for RAG tasks.
-    </div>
+    </div> -->
 
     <div class="section-title">Education</div>
     <div class="entry">
@@ -226,7 +236,7 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
 
     <div class="entry">
         <div class="entry-header">
-            <span>Software Engineer - Collaborative</span>
+            <span>Software Engineer</span>
             <span>OPPO VIET NAM</span>
         </div>
         <div class="entry-sub-header">
@@ -234,19 +244,16 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
             <span>12/2025 &ndash; Present</span>
         </div>
         <ul>
-            <li>Supported users from various departments, providing technical assistance and resolving issues related to the system.</li>
-            <li>Executed comprehensive maintenance protocols to ensure the high availability and resilience of both the core infrastructure and automated N8N pipelines.</li>
-            <li>Worked with large data in N8N and MySQL, optimizing performance workflows and database queries.</li>
-            <li>Developed an optimized return order workflow, including optimized SQL query to increase operational efficiency and accelerate processing speed with just few clicks.</li>
+            <li>Supported users across multiple departments and resolved system-related issues in a timely manner.</li>
+            <li>Maintained core services and automation workflows to improve availability and operational reliability.</li>
+            <li>Handled large operational datasets and improved workflow performance through process optimization.</li>
+            <li>Streamlined the return-order process to reduce manual effort and accelerate daily operations.</li>
         </ul>
-        <p class="tech-stack">
-            <strong>Tech stack:</strong> Python, N8N, MySQL, SQL Optimization, Pipeline Automation
-        </p>
     </div>
 
     <div class="entry">
         <div class="entry-header">
-            <span>Software Engineer - Remote</span>
+            <span>Software Engineer</span>
             <span>Beready Technology</span>
         </div>
         <div class="entry-sub-header">
@@ -254,12 +261,9 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
             <span>09/2025 &ndash; 11/2025</span>
         </div>
         <ul>
-            <li>Developed an AI agent using n8n to automate task management and enhance user productivity.</li>
-            <li>Developed custom n8n nodes to extend platform capabilities and integrate proprietary APIs.</li>
+            <li>Built an AI-driven assistant to automate task management and improve user productivity.</li>
+            <li>Extended platform capabilities with reusable integrations and custom workflow components.</li>
         </ul>
-        <p class="tech-stack">
-            <strong>Tech stack:</strong> Python, N8N, LangChain, ReAct, RAG, Automation, API Integration
-        </p>
     </div>
 
     <div class="entry">
@@ -272,45 +276,48 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
             <span>09/2024 &ndash; 12/2024</span>
         </div>
         <ul>
-            <li>Optimized the Frigate object-detection training and inference pipeline, systematically enhancing model accuracy via data augmentation and hyperparameter tuning.</li>
-            <li>Supported the architectural maintenance and deployment of edge IoT water quality monitoring sensing stations, ensuring high-fidelity data processing streams.</li>
+            <li>Improved an object-detection training and inference pipeline, increasing model accuracy through data augmentation and parameter tuning.</li>
+            <li>Supported maintenance and deployment of remote monitoring stations to ensure reliable data collection and processing.</li>
         </ul>
-        <p class="tech-stack">
-            <strong>Tech stack:</strong> Python, PyTorch, Frigate, Computer Vision, Object Detection, Edge IoT, Data Augmentation
-        </p>
     </div>
 
 
-    <div class="section-title" style="page-break-before: always;">Skills</div>
+    <div class="section-title">Skills</div>
     <div class="entry skills-container">
         <div class="skill-category">
-            <div class="skill-category-label">AI & Machine Learning</div>
+            <div class="skill-category-label">AI</div>
             <div class="skill-tags">
-                VietOCR, CNN, CLIP, YOLO, Embedding Vectors, RAG, LangChain, ReAct
+                LangChain, LlamaIndex, Llama, RAG
             </div>
         </div>
         <div class="skill-category">
-            <div class="skill-category-label">Programming</div>
+            <div class="skill-category-label">Backend</div>
             <div class="skill-tags">
-                Python, C#, JavaScript, PHP
+                Python, FastAPI, NodeJS
             </div>
         </div>
         <div class="skill-category">
-            <div class="skill-category-label">Frameworks & Tools</div>
+            <div class="skill-category-label">Frontend</div>
             <div class="skill-tags">
-                FastAPI, N8N, .NET
+                React
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-category-label">Automation</div>
+            <div class="skill-tags">
+                N8N
             </div>
         </div>
         <div class="skill-category">
             <div class="skill-category-label">Database</div>
             <div class="skill-tags">
-                MySQL, PostgreSQL, Redis, Kafka, Qdrant
+                MySQL, PostgreSQL, Qdrant
             </div>
         </div>
         <div class="skill-category">
-            <div class="skill-category-label">Tools & DevOps</div>
+            <div class="skill-category-label">Tools</div>
             <div class="skill-tags">
-                Git, Docker, Linux, VS Code, Agile/Scrum
+                Git, Docker, Linux, VS Code, Codex CLI
             </div>
         </div>
         <div class="skill-category full-width">
@@ -319,13 +326,10 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
                 Vietnamese (native), English (IELTS 6.0, TOEIC 720)
             </div>
         </div>
-        <div class="skill-category full-width">
-            <a href="https://khoa15.github.io/certifications.html" target="_blank">My Certificates: khoa15.github.io/certifications.html</a>
-        </div>
     </div>
     
 
-    <div class="section-title">Projects</div>
+    <!-- <div class="section-title">Projects</div>
 
     
 
@@ -343,23 +347,12 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
             <li>Integrated RAG with the Gemini API for accurate, contextually relevant responses, utilizing in-memory processing for low-latency data handling.</li>
             <li>Developed key features including multi-instance support to improve throughput and an auto-delete function to optimize resources and data security.</li>
         </ul>
-        <div style="margin-top: 0.25rem; font-size: 9.5pt;">
-            Python, FastAPI, LangChain, Gemini API, Redis, ChromaDB, FAISS, RAG, Multi-Instance Architecture
-        </div>
-    </div>
+    </div> -->
 
     <div class="section-title">Publications</div>
     <div class="entry">
-        <div class="entry-header">
-            <span>EfficientNet‑B0 for Domestic Product Recognition</span>
-            <span>2026</span>
-        </div>
-        <div class="entry-sub-header">
-            <span><a href="https://khoa15.github.io/publications/efficientnetb0_domestic_products.html" target="_blank">khoa15.github.io/publications/efficientnetb0_domestic_products.html</a></span>
-        </div>
         <ul>
-            <li><em>ỨNG DỤNG CÔNG NGHỆ SỐ TRONG PHÁT TRIỂN KHOA HỌC VÀ ĐỔI MỚI SÁNG TẠO TRÍ TUỆ NHÂN TẠO VÀ CHUYỂN ĐỔI SỐ TRONG CÁC NGÀNH KINH TẾ - KỸ THUẬT VÀ ĐỜI SỐNG</em>, TDMU, 2026</li>
-            <li>ISBN: 978-604-72-8845-8</li>
+            <li>Ngoc Cuong Pham, Phat Hien Le, Thanh Tuan Tai, Trong Dang Khoa Nguyen, Thi Cam Tu Lu, and Duc Luu Ngo. <em>A Vietnamese Beverage Product Dataset for Retail Recognition. In Proceedings of the 7th International Conference on Data Analytics &amp; Management (ICDAM 2026)</em>, 2026.</li>
         </ul>
     </div>
     <div class="section-title">Honors & Awards</div>

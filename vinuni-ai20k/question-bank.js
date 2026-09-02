@@ -6,239 +6,231 @@ window.VINUNI_QUESTION_BANK = {
   "scope": "Lý thuyết về LLM API, AI product, agents, RAG, data, cloud, evaluation, safety, FinOps và AI operations.",
   "question_count": 476,
   "coverage_note": "Nguồn hiện có 25 cụm Day (Day 01–04 và Day 07–27); Day 05–06 không có repository tương ứng trong snapshot nguồn.",
-  "generation_note": "Các câu hỏi được tổng hợp từ Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng trong tài liệu nguồn; số liệu hoặc gate được giữ ở phạm vi lab/blueprint khi tài liệu ghi rõ.",
+  "generation_note": "Câu hỏi core của từng Day ưu tiên khái niệm trong knowledge Markdown; câu hỏi advanced bổ sung trade-off, boundary, failure mode và production design từ bản tổng hợp theo repository.",
   "questions": [
     {
       "type": "multiple_choice",
-      "question": "System message trong chat completion chủ yếu làm gì?",
+      "question": "LLM học và sinh văn bản theo nguyên lý nào?",
       "options": [
-        "Định nghĩa hành vi và ràng buộc cấp cao của assistant",
-        "Lưu vector embedding",
-        "Đo latency mạng",
-        "Thay thế mọi người dùng message"
+        "Học phân phối xác suất của token và dự đoán token tiếp theo dựa trên context",
+        "Tra cứu nguyên văn từ một database cố định",
+        "Chỉ áp dụng luật if/else viết sẵn",
+        "Tự biết mọi sự thật không cần dữ liệu"
       ],
-      "answer": "Định nghĩa hành vi và ràng buộc cấp cao của assistant",
-      "explanation": "Đáp án đúng là: “Định nghĩa hành vi và ràng buộc cấp cao của assistant”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: System message đặt contract hành vi; không thay thế context hay validation. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án B — “Lưu vector embedding”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án C — “Đo latency mạng”: Phương án này dùng một metric làm đại diện cho toàn bộ correctness. Metric đó có thể hữu ích để theo dõi, nhưng không thay thế được evidence, phân khúc và kiểm tra failure. Phương án D — “Thay thế mọi user message”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Học phân phối xác suất của token và dự đoán token tiếp theo dựa trên context",
+      "explanation": "LLM là mô hình học sâu được huấn luyện trên lượng lớn dữ liệu để học biểu diễn và phân phối xác suất của ngôn ngữ. Với mô hình autoregressive, đầu ra được tạo từng token bằng cách dự đoán token tiếp theo từ các token/context trước đó. Cơ chế này giải thích vì sao LLM có thể sinh câu trả lời mới nhưng không đồng nghĩa với việc nó tra cứu nguyên văn từ database hoặc biết mọi sự thật. Khả năng sinh ngôn ngữ cũng không tự bảo đảm factuality; dữ liệu huấn luyện, context, prompt và cách đánh giá vẫn ảnh hưởng kết quả. Vì vậy cần phân biệt năng lực mô hình với bằng chứng của từng câu trả lời.",
       "difficulty": "easy",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "LLM Theory",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · LLM là gì và pre-training",
+      "source_line_range": "10-32,269-286",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-001",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 363
+      "explanation_word_count": 124
     },
     {
       "type": "multiple_choice",
-      "question": "Temperature tăng thường làm thay đổi điều gì?",
+      "question": "Trong Scaled Dot-Product Attention, Q, K và V lần lượt đóng vai trò gì?",
       "options": [
-        "Tăng context window",
-        "Giảm token đầu vào",
-        "Bật retry",
-        "Tăng độ đa dạng khi sampling"
+        "Q biểu diễn điều đang tìm, K biểu diễn thông tin để đối chiếu, V chứa nội dung được tổng hợp",
+        "Q là output, K là loss, V là tokenizer",
+        "Q và K là hai loại token, V là context window",
+        "Cả ba đều chỉ là positional encoding"
       ],
-      "answer": "Tăng độ đa dạng khi sampling",
-      "explanation": "Đáp án đúng là: “Tăng độ đa dạng khi sampling”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: Temperature điều chỉnh độ ngẫu nhiên của phân phối sinh token. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án A — “Tăng context window”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án B — “Giảm token input”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án C — “Bật retry”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Q biểu diễn điều đang tìm, K biểu diễn thông tin để đối chiếu, V chứa nội dung được tổng hợp",
+      "explanation": "Trong attention, Query biểu diễn thông tin mà vị trí hiện tại đang tìm kiếm, Key là biểu diễn dùng để so sánh mức liên quan, còn Value là nội dung được lấy theo các trọng số attention. Mô hình tính độ tương hợp giữa Q và K, đưa các score qua softmax để có trọng số, sau đó tổng hợp các vector V. Vì vậy V không phải là score, còn Q và K không trực tiếp trở thành output cuối. Phân biệt ba vai trò này giúp hiểu vì sao attention có thể chọn lọc thông tin từ nhiều token và vì sao thay đổi mask hoặc projection có thể làm thay đổi đường truyền context.",
       "difficulty": "easy",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "Transformer · Attention",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · Scaled Dot-Product Attention",
+      "source_line_range": "61-166",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-002",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 351
+      "explanation_word_count": 118
     },
     {
       "type": "multiple_choice",
-      "question": "Vì sao top_p cần được đánh giá trong cùng workload với các tham số sampling khác?",
+      "question": "Vì sao công thức attention chia điểm QKᵀ cho √dₖ?",
       "options": [
-        "Vì top_p luôn làm đầu ra ngắn hơn",
-        "Vì top_p thay thế schema validation",
-        "Vì nó tác động sampling và có thể thay đổi hành vi đầu ra",
-        "Vì top_p chỉ dùng cho embedding"
+        "Giữ độ lớn score ổn định hơn để softmax không bị quá bão hòa khi dimension tăng",
+        "Để giảm số token trong input",
+        "Để biến encoder thành decoder",
+        "Để thay thế residual connection"
       ],
-      "answer": "Vì nó tác động sampling và có thể thay đổi hành vi đầu ra",
-      "explanation": "Đáp án đúng là: “Vì nó tác động sampling và có thể thay đổi hành vi đầu ra”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: Sampling parameters phải được so sánh có kiểm soát. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án A — “Vì top_p luôn làm output ngắn hơn”: Phương án này đặt trách nhiệm kiểm soát vào model hoặc prompt, trong khi boundary có rủi ro phải được enforce bằng runtime policy, validation hoặc tool authorization. Phương án B — “Vì top_p thay thế schema validation”: Phương án này đặt trách nhiệm kiểm soát vào model hoặc prompt, trong khi boundary có rủi ro phải được enforce bằng runtime policy, validation hoặc tool authorization. Phương án D — “Vì top_p chỉ dùng cho embedding”: Phương án này thu hẹp bài toán về một tín hiệu hoặc một bước duy nhất, nên dễ bỏ sót điều kiện, failure mode và bằng chứng cần kiểm tra đồng thời. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Giữ độ lớn score ổn định hơn để softmax không bị quá bão hòa khi dimension tăng",
+      "explanation": "Scaled dot-product attention chia tích QKᵀ cho căn bậc hai của kích thước key nhằm kiểm soát độ lớn của score khi dimension tăng. Nếu score quá lớn, softmax dễ trở nên quá nhọn hoặc bão hòa, làm gradient kém hữu ích và khiến việc học khó ổn định. Phép scale chỉ là một phần của attention; nó không giảm số token, không biến encoder thành decoder và không thay thế residual connection. Khi ôn công thức, cần nối phép toán với mục tiêu tối ưu: Q và K tạo relevance score, scale giữ score trong vùng thuận lợi, softmax tạo trọng số, rồi trọng số tổng hợp các Value.",
       "difficulty": "medium",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "Transformer · Attention",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · Scaled Dot-Product Attention",
+      "source_line_range": "61-104",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-003",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 363
+      "explanation_word_count": 110
     },
     {
       "type": "multiple_choice",
-      "question": "Streaming chunk có thể thiếu content vì lý do nào?",
+      "question": "Positional encoding cần thiết trong Transformer vì lý do nào?",
       "options": [
-        "Retry xóa nội dung",
-        "chunk có thể chỉ chứa metadata, vai trò hoặc kết thúc tín hiệu",
-        "model luôn bỏ token đầu",
-        "JSON schema cấm nội dung"
+        "Bổ sung thông tin thứ tự/vị trí vì self-attention tự nó không chứa thứ tự tuyến tính của token",
+        "Tăng số lượng parameter của vocabulary",
+        "Mã hóa quyền truy cập tài liệu",
+        "Thay thế feed-forward network"
       ],
-      "answer": "chunk có thể chỉ chứa metadata, vai trò hoặc kết thúc tín hiệu",
-      "explanation": "Đáp án đúng là: “Chunk có thể chỉ chứa metadata, role hoặc finish signal”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: Client phải xử lý chunk không có text. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án A — “Retry xóa content”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án C — “Model luôn bỏ token đầu”: Phương án này đặt trách nhiệm kiểm soát vào model hoặc prompt, trong khi boundary có rủi ro phải được enforce bằng runtime policy, validation hoặc tool authorization. Phương án D — “JSON schema cấm content”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Bổ sung thông tin thứ tự/vị trí vì self-attention tự nó không chứa thứ tự tuyến tính của token",
+      "explanation": "Self-attention có thể so sánh các token với nhau nhưng bản thân phép attention không tự mang khái niệm thứ tự tuyến tính như một mạng recurrent. Positional encoding bổ sung tín hiệu cho biết token đang ở vị trí nào, nhờ đó model phân biệt được các chuỗi có cùng token nhưng khác trật tự. Tín hiệu vị trí không phải vocabulary mới, access policy hay feed-forward network. Trong Transformer, positional information kết hợp với embedding trước khi đi qua các lớp; nếu thiếu nó, những quan hệ phụ thuộc vào thứ tự câu sẽ khó được biểu diễn một cách đáng tin cậy.",
       "difficulty": "medium",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "Transformer · Positional Encoding",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · Positional Encoding",
+      "source_line_range": "187-212",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-004",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 353
+      "explanation_word_count": 105
     },
     {
       "type": "multiple_choice",
-      "question": "Nếu max_retries = 2 và lần gọi đầu thất bại, số lần thử tối đa thường là bao nhiêu?",
+      "question": "Khác biệt chính giữa Transformer encoder và decoder là gì?",
       "options": [
-        "3",
-        "2",
-        "1",
-        "4"
+        "Encoder thường đọc context hai chiều; decoder sinh autoregressive và dùng causal mask để không nhìn token tương lai",
+        "Encoder chỉ xử lý ảnh còn decoder chỉ xử lý số",
+        "Decoder không dùng attention",
+        "Encoder luôn cần fine-tuning còn decoder thì không"
       ],
-      "answer": "3",
-      "explanation": "Đáp án đúng là: “3”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: Hai retry cộng với lần thử ban đầu là max_retries + 1. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án B — “2”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án C — “1”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án D — “4”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Encoder thường đọc context hai chiều; decoder sinh autoregressive và dùng causal mask để không nhìn token tương lai",
+      "explanation": "Encoder thường tạo biểu diễn bằng cách cho mỗi vị trí nhìn context hai chiều, phù hợp với các tác vụ như classification hoặc NER. Decoder dùng cơ chế autoregressive: khi dự đoán token hiện tại, nó chỉ được nhìn các token trước đó nhờ causal mask, tránh rò rỉ token tương lai. Decoder vẫn dùng attention; trong kiến trúc encoder-decoder còn có cross-attention để nhận thông tin từ encoder. Sự khác nhau nằm ở hướng truy cập context và mục tiêu sử dụng, không nằm ở loại dữ liệu hay việc một bên luôn phải fine-tune. Khi ôn tập, hãy đối chiếu từng phương án với công thức hoặc cơ chế trong Markdown và phân biệt khái niệm này với các ràng buộc vận hành của hệ thống.",
       "difficulty": "easy",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "Transformer · Encoder vs Decoder",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · Transformer Encoder vs Decoder",
+      "source_line_range": "238-265",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-005",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 342
+      "explanation_word_count": 129
     },
     {
       "type": "multiple_choice",
-      "question": "Structured output có mục đích cốt lõi gì?",
+      "question": "Tokenization ảnh hưởng trực tiếp đến những ràng buộc nào của LLM?",
       "options": [
-        "Làm model luôn thực tế",
-        "Xóa nhu cầu ghi log",
-        "Tăng context window",
-        "Biến đầu ra tự do thành dữ liệu có schema để kiểm tra và tích hợp"
+        "Context window, chi phí và số bước xử lý vì văn bản được quy đổi thành token",
+        "Chỉ màu sắc giao diện",
+        "Quyền authorization của tool",
+        "Độ đúng sự thật được bảo đảm"
       ],
-      "answer": "Biến đầu ra tự do thành dữ liệu có schema để kiểm tra và tích hợp",
-      "explanation": "Đáp án đúng là: “Biến output tự do thành dữ liệu có schema để kiểm tra và tích hợp”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: Schema hỗ trợ downstream validation nhưng không tự bảo đảm nội dung đúng. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án A — “Làm model luôn factual”: Phương án này đặt trách nhiệm kiểm soát vào model hoặc prompt, trong khi boundary có rủi ro phải được enforce bằng runtime policy, validation hoặc tool authorization. Phương án B — “Xóa nhu cầu logging”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án C — “Tăng context window”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Context window, chi phí và số bước xử lý vì văn bản được quy đổi thành token",
+      "explanation": "Tokenizer chuyển văn bản thành các token ID để model có thể xử lý. Số token quyết định một phần context window, ảnh hưởng số bước tính toán, latency và chi phí theo token. Cùng một nội dung có thể tạo ra số token khác nhau tùy tokenizer và ngôn ngữ. Tokenization không cấp authorization cho tool, không quyết định màu giao diện và không bảo đảm câu trả lời đúng sự thật. Khi thiết kế prompt hoặc ước lượng chi phí, cần đếm cả input và output, chừa chỗ cho context cần thiết, đồng thời nhớ rằng token count là một ràng buộc vận hành chứ không phải metric chất lượng độc lập.",
       "difficulty": "easy",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "Tokenization · Context",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · Tokenization",
+      "source_line_range": "287-316",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-006",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 362
+      "explanation_word_count": 114
     },
     {
       "type": "multiple_choice",
-      "question": "Ghi model, tham số, input và output đem lại lợi ích nào?",
+      "question": "Ưu điểm cốt lõi của LoRA so với full fine-tuning là gì?",
       "options": [
-        "Bỏ validation",
-        "Giảm mọi latency",
-        "Làm yêu cầu có thể tái lập và debug",
-        "Tăng temperature"
+        "Đóng băng phần lớn base model và chỉ huấn luyện adapter hạng thấp với ít tham số",
+        "Loại bỏ hoàn toàn dữ liệu huấn luyện",
+        "Tăng context window không giới hạn",
+        "Bảo đảm model không bao giờ quên kiến thức"
       ],
-      "answer": "Làm yêu cầu có thể tái lập và debug",
-      "explanation": "Đáp án đúng là: “Làm request có thể tái lập và debug”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: Đây là evidence để so sánh và truy nguyên regression. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án A — “Bỏ validation”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án B — “Giảm mọi latency”: Phương án này dùng một metric làm đại diện cho toàn bộ correctness. Metric đó có thể hữu ích để theo dõi, nhưng không thay thế được evidence, phân khúc và kiểm tra failure. Phương án D — “Tăng temperature”: Phương án này đặt trách nhiệm kiểm soát vào model hoặc prompt, trong khi boundary có rủi ro phải được enforce bằng runtime policy, validation hoặc tool authorization. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Đóng băng phần lớn base model và chỉ huấn luyện adapter hạng thấp với ít tham số",
+      "explanation": "LoRA giữ phần lớn base model ở trạng thái frozen và học các ma trận adapter hạng thấp tại những layer được chọn. Cách này làm giảm số tham số trainable, memory và chi phí so với cập nhật toàn bộ model. Tuy nhiên LoRA không loại bỏ dữ liệu huấn luyện, không mở rộng context window vô hạn và không bảo đảm model không bị regression hoặc forgetting. Chất lượng còn phụ thuộc dataset, target modules, rank, learning rate, template và evaluation. Vì vậy LoRA là một kỹ thuật tối ưu hóa quá trình fine-tuning, không phải một lời cam kết rằng model mới luôn tốt hơn baseline.",
       "difficulty": "easy",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "Fine-tuning · LoRA",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · Fine-tuning và LoRA",
+      "source_line_range": "318-366",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-007",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 351
+      "explanation_word_count": 109
     },
     {
       "type": "multiple_choice",
-      "question": "Tiêu chí phù hợp khi chọn provider/model cho một job là gì?",
+      "question": "Zero-shot, one-shot và few-shot prompting khác nhau chủ yếu ở đâu?",
       "options": [
-        "Số tham số lớn nhất",
-        "chất lượng đủ dùng, latency chấp nhận được và chi phí/yêu cầu phù hợp",
-        "Tên model nổi tiếng nhất",
-        "Demo đẹp nhất"
+        "Số lượng ví dụ được cung cấp trong prompt để định hướng format hoặc cách giải nhiệm vụ",
+        "Số lượng layer của model",
+        "Số lượng GPU dùng khi inference",
+        "Mức độ quyền truy cập của user"
       ],
-      "answer": "chất lượng đủ dùng, latency chấp nhận được và chi phí/yêu cầu phù hợp",
-      "explanation": "Đáp án đúng là: “Quality đủ dùng, latency chấp nhận được và cost/request phù hợp”. Câu hỏi này thuộc chủ đề LLM API Exploration và tập trung vào khái niệm conceptual. Phân tích cốt lõi: Lựa chọn phải gắn với outcome và unit economics. Điểm khó của câu hỏi không nằm ở việc nhớ một khẩu hiệu, mà ở việc phân biệt nguyên tắc đúng với một phương án chỉ đúng trong một điều kiện hẹp. Khi thiết kế production, cần nối khái niệm với data flow, control flow, authorization, failure mode, metric và owner. Một câu trả lời tốt phải giữ được boundary đó ngay cả khi hệ thống gặp dữ liệu xấu, retry, thay đổi version hoặc rollout theo từng cohort. Vì sao các phương án còn lại dễ gây nhầm: Phương án A — “Số tham số lớn nhất”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Phương án C — “Tên model nổi tiếng nhất”: Phương án này đặt trách nhiệm kiểm soát vào model hoặc prompt, trong khi boundary có rủi ro phải được enforce bằng runtime policy, validation hoặc tool authorization. Phương án D — “Demo đẹp nhất”: Phương án này có vẻ hợp lý ở một bước cục bộ nhưng chưa bao phủ đầy đủ boundary, failure mode hoặc tiêu chí đánh giá mà câu hỏi yêu cầu. Lỗi thường gặp là chọn phương án nghe có vẻ mạnh, nhanh hoặc đơn giản hơn nhưng không kiểm tra trade-off. Hãy tự hỏi: điều gì xảy ra khi metric trung bình đẹp nhưng tail failure xấu, khi một tool có side effect, khi dữ liệu thuộc tenant khác, hoặc khi cần rollback? Ứng dụng ôn tập: hãy tóm tắt câu này thành một quy tắc ngắn, sau đó giải thích vì sao đáp án đúng vẫn đúng khi thay đổi một giả định. Nếu chưa giải thích được boundary và bằng chứng, hãy đánh dấu câu này để ôn lại trước khi dùng trong bài đánh giá.",
+      "answer": "Số lượng ví dụ được cung cấp trong prompt để định hướng format hoặc cách giải nhiệm vụ",
+      "explanation": "Zero-shot yêu cầu model thực hiện nhiệm vụ mà không đưa ví dụ, one-shot đưa một ví dụ, còn few-shot đưa nhiều ví dụ để minh họa pattern hoặc format mong muốn. Ví dụ có thể giúp model hiểu nhiệm vụ tốt hơn nhưng làm tăng input tokens và chiếm context budget; chúng cũng có thể truyền bias hoặc ví dụ sai. Ba khái niệm này mô tả cách thiết kế prompt, không mô tả số layer, số GPU hay quyền truy cập. Dù dùng few-shot, vẫn cần đánh giá trên các case đại diện và không được xem prompt examples là sự thay thế cho validation hoặc authorization.",
       "difficulty": "medium",
       "day": "Day 01",
-      "topic": "LLM API Exploration",
+      "topic": "Prompt Engineering · In-context Learning",
       "source_repos": [
-        "K4-Day01-LLM-API-Exploration",
-        "K3-Day01-LLM-API-Exploration"
+        "Day01_LLM_Theory_Basics_to_Advanced.md"
       ],
-      "source_section": "Day 01",
-      "source_line_range": "7-36",
+      "source_section": "Day 01 · Zero-shot, One-shot, Few-shot",
+      "source_line_range": "419-449",
       "source_basis": "Topic, Keywords, Nội dung chính, Các nội dung cần nắm và 3 nội dung quan trọng",
-      "provenance_scope": "day-level synthesis",
+      "provenance_scope": "knowledge-markdown theory",
       "id": "VAI20K-008",
       "advanced_theory": false,
       "theory_level": "core",
       "question_style": "conceptual",
       "calculation_required": false,
-      "explanation_word_count": 356
+      "explanation_word_count": 109
     },
     {
       "type": "multiple_choice",

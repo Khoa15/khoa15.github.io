@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <title>VinUni AI20k · Learning Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+
+    <div class="app-shell">
+      <header class="app-header">
+        <a class="brand" href="#top" aria-label="VinUni AI20k Learning Lab">
+          <span class="brand-mark" aria-hidden="true">AI</span>
+          <span>
+            <strong>VinUni AI20k</strong>
+            <small>Learning Lab</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <div class="header-stats" aria-label="Tổng quan ngân hàng câu hỏi">
+            <span><strong id="bankTotal">—</strong><small>câu hỏi</small></span>
+            <span><strong id="advancedTotal">—</strong><small>advanced</small></span>
+            <span><strong id="calculationTotal">—</strong><small>tính toán</small></span>
+            <span><strong id="wrongTotal">0</strong><small>câu sai</small></span>
+          </div>
+          <button class="button button-ghost header-navigator" id="navigatorButton" type="button" aria-label="Mở navigator về trang tạo phiên học">
+            Navigator <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="app-layout" id="top">
+        <aside class="filter-panel" aria-label="Bộ lọc luyện tập">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Study controls</span>
+              <h2>Tạo phiên học</h2>
+            </div>
+            <span class="panel-icon" aria-hidden="true">⌘</span>
+          </div>
+
+          <div class="filter-stack">
+            <label class="field-label" for="theoryLevel">Tầng lý thuyết</label>
+            <select id="theoryLevel" class="select-control">
+              <option value="all">Tất cả core + advanced</option>
+              <option value="core">Core theory</option>
+              <option value="advanced">Advanced theory</option>
+            </select>
+
+            <label class="field-label" for="dayFilter">Day</label>
+            <select id="dayFilter" class="select-control">
+              <option value="all">Tất cả Day</option>
+            </select>
+
+            <label class="field-label" for="topicFilter">Topic</label>
+            <select id="topicFilter" class="select-control">
+              <option value="all">Tất cả topic</option>
+            </select>
+
+            <label class="field-label" for="difficultyFilter">Difficulty</label>
+            <select id="difficultyFilter" class="select-control">
+              <option value="all">Tất cả mức độ</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+              <option value="advanced">Advanced</option>
+            </select>
+
+            <label class="field-label" for="typeFilter">Loại câu</label>
+            <select id="typeFilter" class="select-control">
+              <option value="all">Trắc nghiệm + flashcard</option>
+              <option value="multiple_choice">Multiple choice</option>
+              <option value="short_answer">Flashcard tự luận</option>
+            </select>
+
+            <label class="field-label" for="questionStyle">Kiểu tư duy</label>
+            <select id="questionStyle" class="select-control">
+              <option value="all">Conceptual + calculation</option>
+              <option value="calculation">Calculation drills</option>
+              <option value="conceptual">Conceptual theory</option>
+            </select>
+
+            <label class="field-label" for="questionLimit">Số câu trong phiên</label>
+            <select id="questionLimit" class="select-control">
+              <option value="10">10 câu</option>
+              <option value="20" selected>20 câu</option>
+              <option value="40">40 câu</option>
+              <option value="80">80 câu</option>
+              <option value="all">Tất cả kết quả lọc</option>
+            </select>
+          </div>
+
+          <div class="filter-summary" aria-live="polite">
+            <span id="filteredCount">476 câu phù hợp</span>
+            <span id="filteredAdvancedCount">264 advanced</span>
+            <span id="filteredCalculationCount">60 tính toán</span>
+          </div>
+
+          <button class="button button-primary button-wide" id="startQuizButton" type="button">
+            Bắt đầu phiên học <span aria-hidden="true">→</span>
+          </button>
+          <button class="button button-secondary button-wide" id="reviewWrongButton" type="button">
+            Ôn câu sai <span class="button-count" id="reviewWrongCount">0</span>
+          </button>
+          <button class="text-button" id="resetProgressButton" type="button">Xóa tiến độ trên thiết bị</button>
+
+          <div class="academic-note">
+            <span class="note-dot" aria-hidden="true"></span>
+            <p>Advanced theory là bản draft đã review. Hãy dùng để rèn tư duy trước khi dùng cho đánh giá high-stakes.</p>
+          </div>
+        </aside>
+
+        <main class="main-content" id="main-content">
+          <section class="dashboard-view" id="dashboardView" aria-labelledby="pageTitle">
+            <div class="hero-copy">
+              <span class="eyebrow">Theory practice · 2026</span>
+              <h1 id="pageTitle">Luyện lý thuyết<br /><em>AI Engineering</em></h1>
+              <p>Học theo nhịp của bạn với ngân hàng kiến thức VinUni: chọn một lát cắt, trả lời, đọc evidence và quay lại những câu còn yếu.</p>
+            </div>
+
+            <div class="metric-grid" aria-label="Tiến độ học tập">
+              <article class="metric-card accent-card">
+                <span class="metric-label">Đã làm</span>
+                <strong id="answeredTotal">0</strong>
+                <span class="metric-foot">câu duy nhất</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">Accuracy</span>
+                <strong id="heroAccuracy">—</strong>
+                <span class="metric-foot">trắc nghiệm tích lũy</span>
+              </article>
+              <article class="metric-card">
+                <span class="metric-label">Calculation drills</span>
+                <strong id="calculationMetricTotal">60</strong>
+                <span class="metric-foot">câu cần tính nhanh</span>
+              </article>
+            </div>
+
+            <div class="intro-grid">
+              <article class="info-card large-info-card">
+                <div class="info-card-heading">
+                  <span class="section-kicker">Learning loop</span>
+                  <span class="info-number">01</span>
+                </div>
+                <h2>Ôn bằng evidence,<br />không đoán theo cảm giác.</h2>
+                <p>Mỗi câu trả lời đi kèm explanation, topic và provenance để bạn biết mình đang học nguyên lý nào và nguồn kiến thức nằm ở đâu.</p>
+                <button class="inline-action" id="startFromHeroButton" type="button">Chọn bộ câu đầu tiên <span aria-hidden="true">↗</span></button>
+              </article>
+              <article class="info-card">
+                <div class="info-card-heading">
+                  <span class="section-kicker">Your rhythm</span>
+                  <span class="info-number">02</span>
+                </div>
+                <h3>Ôn câu sai<br />để nhớ lâu hơn.</h3>
+                <p>Danh sách câu sai được lưu cục bộ trên trình duyệt, không cần tài khoản hay backend.</p>
+                <div class="wrong-preview"><strong id="wrongPreviewCount">0</strong><span>câu đang chờ bạn</span></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="session-view" id="sessionView" aria-labelledby="sessionTitle" hidden>
+            <div class="session-topbar">
+              <button class="back-button" id="backToDashboardButton" type="button"><span aria-hidden="true">←</span> Dashboard</button>
+              <span class="session-mode-badge" id="sessionModeBadge">Study session</span>
+              <button class="text-button session-finish-button" id="finishSessionButton" type="button">Kết thúc phiên</button>
+            </div>
+            <div class="session-heading">
+              <div>
+                <span class="eyebrow" id="sessionLabel">Selected practice</span>
+                <h2 id="sessionTitle">Theory practice</h2>
+              </div>
+              <div class="session-counter"><strong id="questionNumber">01</strong><span id="questionTotal">/ 20</span></div>
+            </div>
+            <div class="progress-track" aria-label="Tiến độ phiên học"><span id="progressBar"></span></div>
+
+            <article class="question-card" id="questionCard">
+              <div class="question-meta-row">
+                <div class="question-tags">
+                  <span class="tag tag-level" id="questionLevel">Core</span>
+                  <span class="tag" id="questionDifficulty">Medium</span>
+                  <span class="tag" id="questionType">Multiple choice</span>
+                  <span class="tag tag-calculation" id="questionStyleTag" hidden>Calculation</span>
+                </div>
+                <span class="question-id" id="questionId">VAI20K-001</span>
+              </div>
+              <p class="question-context" id="questionMeta">Day 01 · Topic</p>
+              <h3 class="question-text" id="questionText">Đang tải câu hỏi…</h3>
+
+              <div class="option-list" id="optionList"></div>
+
+              <div class="flashcard-input-wrap" id="flashcardInputWrap" hidden>
+                <label class="field-label" for="flashcardNote">Ghi chú suy nghĩ của bạn <span>(không bắt buộc)</span></label>
+                <textarea id="flashcardNote" rows="3" placeholder="Viết vài ý chính trước khi xem đáp án..."></textarea>
+              </div>
+
+              <div class="answer-feedback" id="answerFeedback" hidden>
+                <div class="feedback-header">
+                  <span class="feedback-state" id="feedbackState">Correct</span>
+                  <span class="feedback-answer" id="feedbackAnswer"></span>
+                </div>
+                <div class="explanation-block">
+                  <div class="explanation-label-row"><span class="explanation-label">Why it matters</span><span class="word-count" id="explanationWordCount">— words</span></div>
+                  <div id="explanationText" class="explanation-text" aria-live="polite"></div>
+                </div>
+                <div class="source-block">
+                  <span class="explanation-label">Evidence trail</span>
+                  <p id="sourceMeta"></p>
+                </div>
+              </div>
+
+              <div class="flashcard-actions" id="flashcardActions" hidden>
+                <button class="button button-success" id="masteredButton" type="button">Đã nắm <span aria-hidden="true">✓</span></button>
+                <button class="button button-ghost" id="reviewFlashcardButton" type="button">Cần ôn lại</button>
+              </div>
+
+              <div class="question-footer">
+                <span class="live-message" id="liveMessage" aria-live="polite"></span>
+                <button class="button button-primary next-button" id="nextQuestionButton" type="button" disabled>Câu tiếp theo <span aria-hidden="true">→</span></button>
+              </div>
+            </article>
+          </section>
+
+          <section class="result-view" id="resultView" aria-labelledby="resultTitle" hidden>
+            <div class="result-heading">
+              <span class="eyebrow">Session complete</span>
+              <h2 id="resultTitle">Bạn đã hoàn thành phiên học.</h2>
+              <p id="resultSubtitle">Hãy nhìn vào những câu còn chưa chắc để chọn bước tiếp theo.</p>
+            </div>
+            <div class="result-summary-grid">
+              <article class="result-score-card"><span>Accuracy</span><strong id="resultAccuracy">—</strong><small>chỉ tính multiple choice</small></article>
+              <article class="result-stat-card"><span>Đúng</span><strong id="resultCorrect">0</strong><small>câu</small></article>
+              <article class="result-stat-card"><span>Sai</span><strong id="resultIncorrect">0</strong><small>câu</small></article>
+              <article class="result-stat-card"><span>Flashcard</span><strong id="resultFlashcards">0</strong><small>đã xem</small></article>
+            </div>
+            <div class="result-actions">
+              <button class="button button-primary" id="resultReviewButton" type="button">Ôn các câu sai</button>
+              <button class="button button-secondary" id="resultNewSessionButton" type="button">Tạo phiên mới</button>
+            </div>
+            <div class="wrong-list-section">
+              <div class="section-heading-row"><div><span class="section-kicker">Review queue</span><h3>Câu cần xem lại</h3></div><span id="resultWrongCount">0 câu</span></div>
+              <div class="wrong-list" id="wrongList"></div>
+              <div class="empty-state" id="resultEmptyState" hidden><strong>Rất tốt — không có câu sai.</strong><span>Thử tăng difficulty hoặc chuyển sang Advanced theory cho phiên tiếp theo.</span></div>
+            </div>
+          </section>
+
+          <div class="app-error" id="appError" hidden role="alert">
+            <strong>Không thể nạp ngân hàng câu hỏi.</strong>
+            <p id="appErrorMessage"></p>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="question-bank.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

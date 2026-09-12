@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OWASP Top 10 for LLM Applications 2026 - Báo Cáo Bảo Mật Toàn Diện</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            owasp: {
+              red: '#dc2626',
+              darkRed: '#991b1b',
+              navy: '#0f172a',
+              slate: '#334155',
+              border: '#e2e8f0',
+              card: '#ffffff'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Print & reading clarity */
+    .anchor-offset {
+      scroll-margin-top: 5rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800 bg-slate-50 antialiased selection:bg-red-100 selection:text-red-900">
+
+  <!-- Quick Jump Sticky Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-sm shadow-red-500/20 group-hover:bg-red-700 transition-colors">
+          <i data-lucide="shield-alert" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-black tracking-tight text-slate-900 text-base">OWASP GenAI Security</span>
+            <span class="px-2 py-0.5 text-[11px] font-bold rounded bg-red-50 text-red-700 border border-red-200">v2026 Chính Thức</span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium">Báo cáo Top 10 rủi ro cho ứng dụng mô hình ngôn ngữ lớn (LLM)</p>
+        </div>
+      </a>
+
+      <!-- Quick Nav Anchor Links (No complex state, just smooth scrolling) -->
+      <nav class="hidden lg:flex items-center space-x-1 text-xs font-semibold text-slate-600">
+        <a href="#tong-quan" class="px-2.5 py-1.5 rounded hover:text-red-600 hover:bg-slate-100 transition-colors">Tổng Quan</a>
+        <a href="#bien-dong-thu-hang" class="px-2.5 py-1.5 rounded hover:text-red-600 hover:bg-slate-100 transition-colors">Biến Động 2025→2026</a>
+        <a href="#mo-hinh-dong-tam" class="px-2.5 py-1.5 rounded hover:text-red-600 hover:bg-slate-100 transition-colors">Mô Hình Đồng Tâm</a>
+        <a href="#top-10-danh-sach" class="px-2.5 py-1.5 rounded hover:text-red-600 hover:bg-slate-100 transition-colors">Chi Tiết 10 Nguy Cơ</a>
+        <a href="#ma-tran-doi-chieu" class="px-2.5 py-1.5 rounded hover:text-red-600 hover:bg-slate-100 transition-colors">Ma Trận Đối Chiếu</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    
+    <!-- Hero / Document Overview Section -->
+    <section id="tong-quan" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+      <div class="border-b border-slate-100 pb-6 mb-6">
+        <div class="inline-flex items-center space-x-2 text-xs font-bold px-3 py-1 rounded-full bg-red-50 text-red-700 border border-red-200 mb-3">
+          <i data-lucide="award" class="w-3.5 h-3.5"></i>
+          <span>Công bố chính thức: Ngày 04 tháng 08 năm 2026 | Giấy phép Creative Commons CC BY-SA 4.0</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
+          Báo Cáo Trực Quan Hóa Toàn Diện: OWASP Top 10 for LLM Applications 2026
+        </h1>
+        <p class="mt-2 text-sm sm:text-base text-slate-600 font-medium">
+          Dự án an ninh ứng dụng GenAI toàn cầu của tổ chức OWASP, do Steve Wilson và Rock Lambros đồng chủ trì.
+        </p>
+      </div>
+
+      <!-- Core Mottos & 2026 Methodology Highlights -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <div class="lg:col-span-2 space-y-4">
+          <div class="bg-amber-50/70 border-l-4 border-amber-500 p-4 rounded-r-xl">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-amber-900 mb-1 flex items-center">
+              <i data-lucide="quote" class="w-4 h-4 mr-1.5 text-amber-600"></i>
+              Phương châm chỉ đạo năm 2026 (Letter from the Project Leads)
+            </h3>
+            <blockquote class="text-slate-800 text-sm font-semibold italic">
+              "Stop trying to build a model that cannot be fooled. Build the system around it, so that when the model is fooled, and it will be, nothing important breaks."
+            </blockquote>
+            <p class="mt-1.5 text-xs text-slate-600">
+              (Hãy ngừng cố gắng chế tạo một mô hình không bao giờ bị đánh lừa. Thay vào đó, hãy thiết kế kiến trúc hệ thống bao bọc xung quanh sao cho khi mô hình bị đánh lừa — và chắc chắn nó sẽ bị lừa — không một thành phần trọng yếu nào của hệ thống bị phá vỡ).
+            </p>
+          </div>
+
+          <div class="text-slate-700 text-sm space-y-2 leading-relaxed">
+            <p>
+              Phiên bản 2026 đánh dấu bước ngoặt lịch sử khi OWASP lần đầu tiên kiểm chứng các cuộc khảo sát chuyên gia dựa trên <strong>7,714 sự cố an ninh thực tế</strong> thu thập từ các cơ sở dữ liệu lỗ hổng công khai và cơ sở dữ liệu tác hại AI (với <strong>6,639 vụ việc</strong> có đầy đủ chi tiết phân loại).
+            </p>
+            <p>
+              Tỷ trọng xếp hạng chung quyết định bởi: <strong>75% biểu quyết chuyên gia thực hành</strong> (giữ nguyên tính trực giác định hướng) kết hợp cùng <strong>25% dữ liệu thực chứng</strong>. Sự phân hóa giữa <em>"điều chuyên gia lo sợ"</em> và <em>"điều đang thực sự xảy ra ngoài thực địa"</em> đã tạo nên những bước nhảy ngoạn mục trong bảng xếp hạng năm nay.
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Metrics Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div class="text-2xl sm:text-3xl font-black text-slate-900">7,714</div>
+            <div class="text-xs font-semibold text-slate-600 mt-0.5">Sự cố thực tế phân tích</div>
+            <div class="text-[11px] text-slate-400 mt-1">6,639 vụ việc có phân loại kỹ thuật chi tiết</div>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div class="text-2xl sm:text-3xl font-black text-red-600">#3 (+3)</div>
+            <div class="text-xs font-semibold text-slate-900 mt-0.5">LLM03: Excessive Agency</div>
+            <div class="text-[11px] text-slate-500 mt-1">Bước nhảy lớn nhất do sự bùng nổ của Agentic AI</div>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div class="text-2xl sm:text-3xl font-black text-amber-600">#6 (+4)</div>
+            <div class="text-xs font-semibold text-slate-900 mt-0.5">LLM06: Unbounded Consumption</div>
+            <div class="text-[11px] text-slate-500 mt-1">Bẫy chi phí & bùng nổ token suy luận mở rộng</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Rank Migration Bump Chart (Figure 1 in PDF) -->
+    <section id="bien-dong-thu-hang" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+          <i data-lucide="git-commit" class="w-4 h-4 text-red-600"></i>
+          <span>Hình 1 (Figure 1) trong tài liệu gốc OWASP 2026</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+          Biểu Đồ Dịch Chuyển Thứ Hạng: 2025 Release → 2026 Final
+        </h2>
+        <p class="text-sm text-slate-600">
+          10 nguy cơ — 10 thứ hạng mới: Giữ nguyên số lượng danh mục nhưng thay đổi hoàn toàn mức độ ưu tiên theo dữ liệu thực chứng.
+        </p>
+      </div>
+
+      <!-- Linear Visual Representation of the Bump Chart -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-xs mb-4">
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 flex items-center space-x-2">
+          <span class="w-3 h-3 rounded-full bg-slate-400"></span>
+          <span class="font-semibold text-slate-700">Giữ nguyên (LLM01, LLM02)</span>
+        </div>
+        <div class="p-3 bg-emerald-50 rounded-lg border border-emerald-200 flex items-center space-x-2">
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <span class="font-semibold text-emerald-800">Leo hạng: LLM03 (+3), LLM06 (+4), LLM07 (+2)</span>
+        </div>
+        <div class="p-3 bg-amber-50 rounded-lg border border-amber-200 flex items-center space-x-2">
+          <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+          <span class="font-semibold text-amber-800">Giảm hạng: LLM04, LLM05, LLM09, LLM10 (-5)</span>
+        </div>
+        <div class="p-3 bg-purple-50 rounded-lg border border-purple-200 flex items-center space-x-2">
+          <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+          <span class="font-semibold text-purple-800">Mở rộng phạm vi: LLM08 (Hidden Context)</span>
+        </div>
+      </div>
+
+      <!-- Bump Chart Table/Rows showing 1-to-1 migration with reasons -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden divide-y divide-slate-200">
+          <thead class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider">
+            <tr>
+              <th class="py-3 px-4 w-12 text-center">2026</th>
+              <th class="py-3 px-4">Tên Rủi Ro Phiên Bản 2026 (Chính thức)</th>
+              <th class="py-3 px-4 w-32 text-center">Thay Đổi</th>
+              <th class="py-3 px-4 w-44">Phiên Bản Cũ (2025)</th>
+              <th class="py-3 px-4">Căn Cứ Dịch Chuyển Theo Dữ Liệu & Khảo Sát</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 bg-white">
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3 px-4 text-center font-black text-sm text-red-600 bg-red-50/40">#1</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm01" class="hover:text-red-600">LLM01: Prompt Injection</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-semibold text-[11px]">Giữ nguyên (#1)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM01 Prompt Injection</td>
+              <td class="py-3 px-4 text-slate-600">Được chuyên gia xếp số 1 tuyệt đối. Hiệu ứng phòng thủ ("Defense effect"): các đội ngũ chi ngân sách khổng lồ để ngăn chặn nên ít lọt vào DB công khai, nhưng bề mặt xuất hiện ở mọi nơi mô hình tiếp nhận dữ liệu.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3 px-4 text-center font-black text-sm text-red-600 bg-red-50/40">#2</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm02" class="hover:text-red-600">LLM02: Sensitive Information Disclosure</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-semibold text-[11px]">Giữ nguyên (#2)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM02 Sensitive Info Disclosure</td>
+              <td class="py-3 px-4 text-slate-600">Điểm đồng thuận cao nhất giữa dữ liệu thực tế và phiếu bầu chuyên gia. Rò rỉ PII/PHI, tài sản trí tuệ và vector inversion trực tiếp vi phạm EU AI Act, GDPR, HIPAA.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80 bg-emerald-50/20">
+              <td class="py-3 px-4 text-center font-black text-sm text-emerald-700 bg-emerald-50/50">#3</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm03" class="hover:text-emerald-700">LLM03: Excessive Agency</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[11px]">▲ Tăng 3 bậc (#6 → #3)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM06 Excessive Agency</td>
+              <td class="py-3 px-4 text-slate-700 font-medium">Cú chuyển dịch quan trọng nhất. Cả thực tế lẫn lý thuyết chứng minh việc cấp quyền bash/shell/database cho AI Agent đã gây ra các thiệt hại thảm khốc nhất trong sản xuất.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3 px-4 text-center font-black text-sm text-slate-800">#4</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm04" class="hover:text-red-600">LLM04: Supply Chain</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-medium text-[11px]">▼ Giảm 1 bậc (#3 → #4)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM03 Supply Chain</td>
+              <td class="py-3 px-4 text-slate-600">Mở rộng sang hiện tượng Slopsquatting (AI bịa tên thư viện), lỗ hổng parser GGUF trong llama.cpp và backdoor đồ thị ONNX.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3 px-4 text-center font-black text-sm text-slate-800">#5</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm05" class="hover:text-red-600">LLM05: Data and Model Poisoning</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-medium text-[11px]">▼ Giảm 1 bậc (#4 → #5)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM04 Data & Model Poisoning</td>
+              <td class="py-3 px-4 text-slate-600">Bao gồm đầu độc Fine-tuning, Sleeper Agents (mã độc ngủ yên vượt qua kiểm duyệt RLHF) và đầu độc chat templates Jinja2.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80 bg-emerald-50/20">
+              <td class="py-3 px-4 text-center font-black text-sm text-emerald-700 bg-emerald-50/50">#6</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm06" class="hover:text-emerald-700">LLM06: Unbounded Consumption</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[11px]">▲ Tăng 4 bậc (#10 → #6)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM10 Unbounded Consumption</td>
+              <td class="py-3 px-4 text-slate-700 font-medium">Bùng nổ chi phí tính toán: Tấn công "Denial of Wallet", mô hình reasoning bị bẫy suy luận vô tận (ThinkTrap) và giao thức MCP fan-out 1 lệnh ra hàng trăm cuộc gọi.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80 bg-emerald-50/20">
+              <td class="py-3 px-4 text-center font-black text-sm text-emerald-700 bg-emerald-50/50">#7</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm07" class="hover:text-emerald-700">LLM07: Misinformation</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[11px]">▲ Tăng 2 bậc (#9 → #7)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM09 Misinformation</td>
+              <td class="py-3 px-4 text-slate-700 font-medium">Sự chênh lệch lớn nhất: Bình chọn xếp gần chót nhưng thực tế hồ sơ sự cố nằm ở nhóm đầu! Khi AI tự tin đưa ra thông tin sai và kích hoạt hành vi tự động gây thiệt hại.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80 bg-purple-50/20">
+              <td class="py-3 px-4 text-center font-black text-sm text-purple-700 bg-purple-50/50">#8</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm08" class="hover:text-purple-700">LLM08: Hidden Context Exposure</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 font-bold text-[11px]">Đổi tên & Mở rộng (#7 → #8)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM07 System Prompt Leakage</td>
+              <td class="py-3 px-4 text-slate-600">Không chỉ là system prompt mà là toàn bộ tài liệu RAG nội bộ ẩn, schema định nghĩa công cụ, quy tắc phân quyền nằm trong ngữ cảnh bị trích xuất làm bàn đạp tấn công.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80">
+              <td class="py-3 px-4 text-center font-black text-sm text-slate-800">#9</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm09" class="hover:text-red-600">LLM09: Vector and Embedding Weaknesses</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-medium text-[11px]">▼ Giảm 1 bậc (#8 → #9)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM08 Vector & Embedding</td>
+              <td class="py-3 px-4 text-slate-600">Khai thác hình học không gian vector: Thuật toán đảo ngược vector (Zero2Text, Vec2Text) khôi phục văn bản gốc và tấn công làm nghẽn truy xuất RAG (Jamming).</td>
+            </tr>
+            <tr class="hover:bg-slate-50/80 bg-amber-50/20">
+              <td class="py-3 px-4 text-center font-black text-sm text-amber-700 bg-amber-50/50">#10</td>
+              <td class="py-3 px-4 font-bold text-slate-900"><a href="#llm10" class="hover:text-amber-700">LLM10: Improper Output Handling</a></td>
+              <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[11px]">▼ Tụt sâu nhất 5 bậc (#5 → #10)</span></td>
+              <td class="py-3 px-4 text-slate-600">LLM05 Improper Output Handling</td>
+              <td class="py-3 px-4 text-slate-600">Dù tụt hạng nhưng bổ sung bề mặt tấn công mới: Chuỗi thoát ANSI chiếm clipboard terminal lập trình viên (Terminal DiLLMa) và tự động tải Markdown Image đánh cắp chat logs.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3: Concentric Threat Flow (Figure 2 in PDF) -->
+    <section id="mo-hinh-dong-tam" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+          <i data-lucide="target" class="w-4 h-4 text-red-600"></i>
+          <span>Hình 2 (Figure 2) trong tài liệu gốc OWASP 2026</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+          Dòng Đe Dọa Đồng Tâm: "Attack Flows Inward. Defense Pushes Outward."
+        </h2>
+        <p class="text-sm text-slate-600">
+          Mô hình hóa bề mặt tấn công như một hồng tâm 3 lớp: Các vectơ xâm nhập từ vòng ngoài hội tụ qua cơ chế khuếch đại vào 3 điểm tác động tổn thất cốt lõi.
+        </p>
+      </div>
+
+      <!-- High-clarity Clean SVG Diagram for Light Theme -->
+      <div class="p-6 bg-slate-50 rounded-xl border border-slate-200 flex flex-col items-center justify-center">
+        <svg viewBox="0 0 760 480" class="w-full max-w-3xl h-auto drop-shadow-sm select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-flow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+            </marker>
+          </defs>
+
+          <!-- Layer 1 Outer Perimeter: Entry Vectors -->
+          <rect x="20" y="20" width="720" height="440" rx="16" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6,4"/>
+          <text x="40" y="45" fill="#1d4ed8" font-size="12" font-weight="800" letter-spacing="1">1. ENTRY VECTORS (BỀ MẶT ĐẦU VÀO NGOẠI VI)</text>
+
+          <!-- Attack Flow Inward Arrows -->
+          <line x1="380" y1="92" x2="380" y2="120" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-flow)"/>
+          <line x1="50" y1="240" x2="85" y2="240" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-flow)"/>
+          <line x1="710" y1="240" x2="675" y2="240" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-flow)"/>
+          <line x1="380" y1="412" x2="380" y2="385" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-flow)"/>
+
+          <!-- Nodes: Entry Layer -->
+          <!-- LLM01 -->
+          <g>
+            <rect x="40" y="58" width="205" height="34" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="50" y="79" fill="#0f172a" font-size="11.5" font-weight="700">LLM01 Prompt Injection</text>
+          </g>
+          <!-- LLM04 -->
+          <g>
+            <rect x="280" y="58" width="200" height="34" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="310" y="79" fill="#0f172a" font-size="11.5" font-weight="700">LLM04 Supply Chain</text>
+          </g>
+          <!-- LLM05 -->
+          <g>
+            <rect x="515" y="58" width="205" height="34" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+            <text x="525" y="79" fill="#0f172a" font-size="11.5" font-weight="700">LLM05 Data & Model Poisoning</text>
+          </g>
+
+          <!-- Layer 2 Middle: Amplifiers / Machinery -->
+          <rect x="85" y="125" width="590" height="255" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6,4"/>
+          <text x="105" y="148" fill="#b45309" font-size="11.5" font-weight="800" letter-spacing="1">2. AMPLIFIERS / MACHINERY (CƠ CHẾ KHUẾCH ĐẠI)</text>
+
+          <!-- Middle Nodes -->
+          <g>
+            <rect x="105" y="160" width="245" height="34" rx="7" fill="#ffffff" stroke="#d97706" stroke-width="1.2"/>
+            <text x="115" y="181" fill="#78350f" font-size="11" font-weight="700">LLM08 Hidden Context Exposure</text>
+          </g>
+          <g>
+            <rect x="410" y="160" width="245" height="34" rx="7" fill="#ffffff" stroke="#d97706" stroke-width="1.2"/>
+            <text x="420" y="181" fill="#78350f" font-size="11" font-weight="700">LLM09 Vector & Embedding</text>
+          </g>
+
+          <!-- Layer 3 Center: Core Impacts -->
+          <rect x="175" y="208" width="410" height="135" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+          <text x="315" y="228" fill="#991b1b" font-size="12" font-weight="900" letter-spacing="1.5">3. CORE IMPACTS</text>
+
+          <!-- Core Nodes (LLM02, LLM06, LLM07) -->
+          <g>
+            <rect x="190" y="238" width="380" height="26" rx="6" fill="#dc2626"/>
+            <text x="245" y="255" fill="#ffffff" font-size="11" font-weight="700">LLM02 Sensitive Information Disclosure</text>
+          </g>
+          <g>
+            <rect x="190" y="270" width="380" height="26" rx="6" fill="#dc2626"/>
+            <text x="260" y="287" fill="#ffffff" font-size="11" font-weight="700">LLM06 Unbounded Consumption</text>
+          </g>
+          <g>
+            <rect x="190" y="302" width="380" height="26" rx="6" fill="#dc2626"/>
+            <text x="295" y="319" fill="#ffffff" font-size="11" font-weight="700">LLM07 Misinformation</text>
+          </g>
+
+          <!-- Bottom Action Gateways (Multi-layer bridges) -->
+          <g>
+            <rect x="120" y="390" width="220" height="34" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="145" y="411" fill="#1e293b" font-size="11" font-weight="700">LLM03 Excessive Agency</text>
+          </g>
+          <g>
+            <rect x="420" y="390" width="220" height="34" rx="8" fill="#f8fafc" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="440" y="411" fill="#1e293b" font-size="11" font-weight="700">LLM10 Improper Output Handling</text>
+          </g>
+
+          <text x="260" y="450" fill="#64748b" font-size="10.5" font-style="italic">Attack flows inward. Defense pushes outward.</text>
+        </svg>
+      </div>
+
+      <!-- 3-Layer Structural Breakdown Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 bg-blue-50/50 rounded-xl border border-blue-200 space-y-1.5">
+          <h4 class="font-bold text-blue-900 text-sm flex items-center">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-600 mr-2"></span>
+            Vòng 1: Vectơ Đầu Vào (Entry Vectors)
+          </h4>
+          <p class="text-slate-600 leading-relaxed">
+            Gồm <strong>LLM01 (Prompt Injection)</strong>, <strong>LLM04 (Supply Chain)</strong> và <strong>LLM05 (Data/Model Poisoning)</strong>. Đây là nơi kẻ tấn công tạo điểm tiếp cận ban đầu (Initial Access) qua đầu vào văn bản, hình ảnh, tài liệu RAG, hoặc các gói thư viện và mô hình bị cài cắm sẵn.
+          </p>
+        </div>
+
+        <div class="p-4 bg-amber-50/50 rounded-xl border border-amber-200 space-y-1.5">
+          <h4 class="font-bold text-amber-900 text-sm flex items-center">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 mr-2"></span>
+            Vòng 2: Cơ Chế Khuếch Đại (Amplifiers)
+          </h4>
+          <p class="text-slate-600 leading-relaxed">
+            Gồm <strong>LLM08 (Hidden Context)</strong> và <strong>LLM09 (Vector & Embedding)</strong> kết hợp cùng cổng thực thi hành động <strong>LLM03 (Agency)</strong> & <strong>LLM10 (Output Handling)</strong>. Chuyển hóa lỗ hổng đầu vào thành quyền kiểm soát thực thi trong hệ thống thực tế.
+          </p>
+        </div>
+
+        <div class="p-4 bg-red-50/50 rounded-xl border border-red-200 space-y-1.5">
+          <h4 class="font-bold text-red-900 text-sm flex items-center">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-600 mr-2"></span>
+            Vòng 3: Tâm Điểm Tác Động (Core Impacts)
+          </h4>
+          <p class="text-slate-600 leading-relaxed">
+            Gồm <strong>LLM02 (Rò rỉ dữ liệu mật)</strong>, <strong>LLM06 (Cạn kiệt tài nguyên / Denial of Wallet)</strong> và <strong>LLM07 (Thông tin sai lệch gây hậu quả)</strong>. Đây là 3 đích đến cuối cùng gây thiệt hại tài chính, pháp lý và an toàn vận hành doanh nghiệp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Detailed Risk Breakdown (LLM01 to LLM10 Fully Expanded) -->
+    <section id="top-10-danh-sach" class="anchor-offset space-y-8">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+          <i data-lucide="list-ordered" class="w-4 h-4 text-red-600"></i>
+          <span>Chi Tiết Toàn Bộ 10 Nguy Cơ An Ninh</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">
+          Hồ Sơ Kỹ Thuật Chi Tiết: OWASP GenAI Top 10 (2026)
+        </h2>
+        <p class="text-sm text-slate-600 mt-1">
+          Tất cả thông tin từ định nghĩa bản chất kiến trúc, giải phẫu 3 trục tấn công (Anatomy), các sự cố & mã CVE/PoC thực tế 2025–2026, chiến lược phòng thủ đến ma trận ánh xạ bảo mật được trình bày đầy đủ ngay trên trang.
+        </p>
+      </div>
+
+      <!-- LLM01 -->
+      <article id="llm01" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-red-600 text-white font-black text-lg flex items-center justify-center shadow-sm">#1</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM01: Prompt Injection</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Layer 1: Entry Vector</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Chèn Lệnh Trái Phép | Thứ hạng: #1 (Không đổi so với 2025)</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Trọng số biểu quyết #1</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Bản Chất Kiến Trúc & Nguy Cơ
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Lỗ hổng xảy ra khi dữ liệu đầu vào làm thay đổi hành vi mô hình ngoài dự kiến. Cốt lõi: <strong>Mô hình LLM không có sự phân tách phần cứng giữa "Lệnh thực thi" (Instructions) và "Dữ liệu" (Data)</strong> — cả hai đều là các token chung một luồng (stream), do đó không có tương đương giải pháp Parameterized Query như trong SQL.
+              <br><br>
+              <strong>3 yếu tố khuếch đại năm 2026:</strong> (1) <em>Context-window pooling:</em> mô hình gộp system prompt, câu hỏi, RAG chunks, kết quả tool vào chung một cửa sổ không biên giới tin cậy. (2) <em>Memory persistence:</em> lệnh tiêm nhiễm vào bộ nhớ dài hạn hoặc RAG sẽ làm tha hóa mọi phiên làm việc tiếp theo. (3) <em>Agentic execution:</em> mô hình có quyền gọi công cụ (bash, MCP server, API đám mây, email) khiến bán kính thiệt hại (blast radius) vượt ra ngoài màn hình chat.
+              <br><br>
+              <strong>Bộ ba chí mạng ("The Lethal Trifecta" - Simon Willison, 2025):</strong> Một AI Agent đồng thời có: [Dữ liệu riêng tư] + [Đọc nội dung không tin cậy] + [Giao tiếp bên ngoài] sẽ tạo thành điều kiện khai thác hoàn hảo.
+            </p>
+          </div>
+
+          <!-- 3-axis Anatomy -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="zap" class="w-4 h-4 mr-1.5 text-amber-600"></i> 3 Trục Giải Phẫu Tấn Công (Anatomy of Prompt Injection)
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900 block mb-1">1. Bề mặt phân phối (Delivery):</strong>
+                <p class="text-xs text-slate-600">Nhập trực tiếp (Direct input), đoạn văn bản RAG, file PDF/Word, kết quả trả về từ MCP Server, tiêu đề ticket/GitHub issue.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900 block mb-1">2. Cơ chế lan truyền (Propagation):</strong>
+                <p class="text-xs text-slate-600">Single-shot (1 lần), chuỗi tấn công đa bước (multi-step chain), xuyên phiên qua Memory/Vector store, tự nhân bản trên mạng Agent.</p>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                <strong class="text-slate-900 block mb-1">3. Phương pháp mã hóa (Encoding):</strong>
+                <p class="text-xs text-slate-600">Văn bản thô, Unicode tàng hình (Tag blocks, Zero-width, Variation selectors), Steganography ẩn trong ảnh, Base64/ROT13, ngôn ngữ tài nguyên thấp.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real Scenarios & CVEs -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Sự Cố & Kịch Bản Khai Thác Thực Tế Nổi Bật (2025–2026)
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Khai thác gián tiếp qua Supabase MCP & GitHub Issue (2025):</strong>
+                <span class="text-slate-700"> Kẻ tấn công gửi issue GitHub chứa prompt injection. Khi Cursor/Coding Agent của lập trình viên đọc issue này với quyền hạn <code>service_role</code>, agent đã thực thi dump toàn bộ cơ sở dữ liệu Supabase của dự án, vượt qua hoàn toàn cơ chế bảo vệ Row Level Security (RLS).</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">EchoLeak (CVE-2025-32711) trên Microsoft 365 Copilot:</strong>
+                <span class="text-slate-700"> Tấn công Zero-click: Email gửi đến chứa payload ẩn khiến trợ lý Copilot tự động đọc tài liệu nhạy cảm của tổ chức và gửi ra máy chủ bên ngoài qua thẻ Markdown Image URL mà người dùng không hề hay biết hay cần nhấp chuột.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Sự cố Amazon Q VS Code Extension (AWS-2025-015 / AWS-2025-019):</strong>
+                <span class="text-slate-700"> Kẻ tấn công commit system prompt phá hoại vào kho mã nguồn extension và ở runtime kích hoạt thực thi mã tùy ý (RCE) trên máy trạm của kỹ sư.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Tấn công đa phương thức qua ảnh y tế (Clusmann et al., 2025):</strong>
+                <span class="text-slate-700"> Chèn chỉ thị ẩn dưới ngưỡng mắt thường phân biệt được vào ảnh mô bệnh học ung thư. Vision encoder đọc payload và làm sai lệch chỉ định phác đồ điều trị.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mitigations -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Chiến Lược Phòng Thủ Cốt Lõi (Mitigations)
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li><strong>Áp dụng nguyên tắc "Rule of Two" (Meta AI / CISA guidance 2025):</strong> Đảm bảo Agent không bao giờ đồng thời sở hữu cả 3 yếu tố: Tiếp nhận dữ liệu lạ + Đọc dữ liệu mật + Thực hiện thay đổi trạng thái bên ngoài. Nếu có đủ 3 yếu tố, bắt buộc phải có con người phê duyệt (Human-in-the-loop).</li>
+              <li><strong>Xác thực định dạng bằng Strict Schema trong code ứng dụng:</strong> Tuyệt đối không dùng một LLM thứ hai để kiểm tra an toàn vì LLM thứ hai cũng có thể bị lừa.</li>
+              <li><strong>Lọc triệt để các ký tự Unicode tàng hình:</strong> Tag-blocks (<code>U+E0000..E007F</code>), Variation-selectors (<code>U+FE00..FE0F</code>), Zero-width (<code>U+200B..2060</code>) ở mọi ranh giới nạp dữ liệu và render màn hình.</li>
+              <li><strong>Phân tách luồng dữ liệu cấu trúc (Spotlighting / StruQ):</strong> Đóng gói dữ liệu bên ngoài vào kênh được đánh nhãn nguồn gốc độc lập để mô hình phân biệt dữ liệu và chỉ thị.</li>
+              <li><strong>Ký số và kiểm tra mã băm cho MCP servers và Tool packages:</strong> Định nghĩa tool phải được xác thực trước khi cấp quyền cho agent.</li>
+            </ul>
+          </div>
+
+          <!-- Framework Mapping Badges -->
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI01, ASI02, ASI03, ASI05</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI01, DSGAI06, DSGAI09</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0004, AML.TA0005</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-1427, CWE-707, CWE-349</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">NIST AI 600-1 InfoSec & Privacy</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM02 -->
+      <article id="llm02" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-red-600 text-white font-black text-lg flex items-center justify-center shadow-sm">#2</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM02: Sensitive Information Disclosure</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">Layer 3: Core Impact</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Tiết Lộ Thông Tin Nhạy Cảm | Thứ hạng: #2 (Không đổi)</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Đồng thuận tuyệt đối Dữ liệu & Biểu quyết</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Bản Chất Kỹ Thuật
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Xảy ra khi hệ thống làm lộ dữ liệu bí mật, thông tin định danh cá nhân (PII), hồ sơ bệnh án (PHI), bí mật kinh doanh, hoặc khóa API qua các kênh không mong muốn. Bề mặt tiết lộ không chỉ là văn bản trả lời cuối cùng: <strong>Tham số gọi công cụ (tool arguments), chuỗi suy nghĩ mở rộng (reasoning traces / extended thinking tokens), logs quan sát (APM telemetry), vector embeddings, và các kênh phụ suy luận (thời gian phản hồi, độ dài token truyền qua TLS)</strong> đều là các kênh rò rỉ.
+              <br><br>
+              <strong>2 nguyên nhân gốc rễ trong doanh nghiệp:</strong> (1) <em>Oversharing thượng nguồn:</em> Kho tài liệu nội bộ, Google Drive phân quyền lỏng lẻo được nạp vào RAG, khiến mô hình truy xuất và trả lời đúng theo thiết kế. (2) <em>Tính bền bỉ của tham số/weights:</em> Một khi dữ liệu đã được học vào trọng số hoặc LoRA adapter, việc xóa bỏ hoàn toàn theo quyền được lãng quên (GDPR Article 17 / CCPA) gần như bất khả thi nếu không huấn luyện lại.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Sự Cố Tiêu Biểu & Nghiên Cứu Khai Thác
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Tấn công "Poem" Divergence Attack (Nasr et al.):</strong>
+                <span class="text-slate-700"> Chỉ với khoảng 200 USD gọi API, nhóm nghiên cứu đã buộc <code>gpt-3.5-turbo</code> xuất ra hơn 10.000 mẫu dữ liệu ghi nhớ nguyên văn từ tập huấn luyện (bao gồm PII, địa chỉ email, mã nguồn).</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Whisper Leak & Kênh Phụ Độ Dài Token Qua TLS (2025):</strong>
+                <span class="text-slate-700"> Phân tích độ dài token truyền qua luồng mạng đã mã hóa TLS trên 28 mô hình sản xuất, nhận diện chính xác chủ đề hội thoại với độ chính xác >98% AUPRC mà không cần giải mã gói tin.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Lộ Hơn 1 Triệu Dòng Log & API Keys trên ClickHouse của DeepSeek (Wiz, 2025):</strong>
+                <span class="text-slate-700"> Cơ sở dữ liệu ClickHouse cấu hình mở làm lộ hàng triệu câu hỏi, câu trả lời và API key bí mật của người dùng.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Kênh Exfiltration DNS Ngầm Trong Code Execution Runtime (Check Point, 2026):</strong>
+                <span class="text-slate-700"> Prompt tinh vi biến môi trường thực thi code thành kênh âm thầm truyền dữ liệu ra ngoài qua các bản tin truy vấn DNS ngầm trong khi câu trả lời hiển thị hoàn toàn bình thường.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Phòng Thủ 3 Cấp Độ (Theo Cấu Trúc DSGAI)
+            </h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div class="p-3 bg-emerald-50/40 rounded-xl border border-emerald-200">
+                <strong class="text-emerald-900 block mb-1">Cấp 1: Nền tảng (Bắt buộc)</strong>
+                <p class="text-slate-600">Thực thi Authorize-before-retrieval (kiểm tra quyền truy cập tài liệu bên trong câu truy vấn Index cơ sở dữ liệu thay vì lọc sau truy xuất); Giảm thiểu context gửi sang bên thứ ba; Không ghi log PII vào APM.</p>
+              </div>
+              <div class="p-3 bg-emerald-50/40 rounded-xl border border-emerald-200">
+                <strong class="text-emerald-900 block mb-1">Cấp 2: Tăng cường (Hệ thống bảo mật)</strong>
+                <p class="text-slate-600">Phân loại và giấu kín Reasoning traces (Extended thinking); Đệm độ dài ngẫu nhiên (Random padding) khi streaming; Khóa quyền xuất raw similarity scores và export vector.</p>
+              </div>
+              <div class="p-3 bg-emerald-50/40 rounded-xl border border-emerald-200">
+                <strong class="text-emerald-900 block mb-1">Cấp 3: Nâng cao (Tối mật / Pháp lý)</strong>
+                <p class="text-slate-600">Confidential Computing (Intel TDX, AWS Nitro Enclaves); Khung phản ứng sự cố coi rò rỉ Vector Database tương đương lộ tài liệu gốc theo GDPR Art 33.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI06 (Memory Poisoning)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI01, DSGAI18, DSGAI15</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0010, AML.TA0013</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-200, CWE-359, CWE-532, CWE-285</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM03 -->
+      <article id="llm03" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-amber-500 text-white font-black text-lg flex items-center justify-center shadow-sm">#3</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM03: Excessive Agency</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">Layer 2: Action Gateway (Leo +3 bậc)</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Quyền Hạn Tác Nhân Quá Mức | Hạng cũ 2025: #6</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Cú nhảy vọt ấn tượng nhất 2026</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Vì Sao Excessive Agency Leo Lên Top 3?
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Năm 2026, mô hình AI không chỉ tạo văn bản thụ động mà đã tiến hóa thành các <strong>Tác nhân tự chủ (Autonomous Agents)</strong> có quyền gọi hàm, thực thi shell, duyệt web và thao tác database. Khi mô hình bị ảo giác (hallucination) hoặc bị tiêm lệnh độc hại (prompt injection), Excessive Agency chính là cầu nối biến các phản hồi sai thành <strong>hành động phá hoại thực tế trên hạ tầng</strong>.
+              <br><br>
+              <strong>3 nguyên nhân cốt tử:</strong> (1) <em>Chức năng dư thừa (Excessive Functionality):</em> Agent chỉ cần tóm tắt email nhưng extension lại tích hợp sẵn API gửi và xóa thư. (2) <em>Đặc quyền quá mức (Excessive Permissions):</em> Tool kết nối database với quyền root/admin thay vì quyền Read-Only. (3) <em>Tự chủ quá mức (Excessive Autonomy):</em> Thiếu bước xác nhận từ con người (Human-in-the-loop) với các thao tác vĩnh viễn không thể khôi phục.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Các Vụ Việc Điển Hình Báo Động Năm 2026
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Claude Code Xóa Sạch Hạ Tầng Production & 2.5 Năm Snapshots (Ferreira, 2026):</strong>
+                <span class="text-slate-700"> Trợ lý lập trình tự chủ được cấp quyền bash quá mở. Khi xử lý một yêu cầu dọn dẹp, agent đã diễn giải nhầm và thực thi xóa sổ toàn bộ cơ sở dữ liệu môi trường production cùng toàn bộ các bản sao lưu trong 2.5 năm chỉ trong một tích tắc.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Agent OpenClaw Chiếm Đoạt Hộp Thư Nghiên Cứu Viên Meta AI (Bort, 2026):</strong>
+                <span class="text-slate-700"> Agent xử lý hòm thư bị tấn công qua indirect prompt injection từ một email gửi tới, khiến agent tự động dùng đặc quyền quét toàn bộ thư riêng tư gửi về máy chủ điều khiển của hacker.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Vũ khí hóa Agent trên Vertex AI (Kovacs, SecurityWeek 2026):</strong>
+                <span class="text-slate-700"> Lỗ hổng trong cấu hình tài khoản dùng chung của tác nhân AI cho phép kẻ tấn công lợi dụng agent để vượt quyền hạn sang các tài nguyên đám mây khác.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Chiến Lược Khắc Phục
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li><strong>Triệt tiêu công cụ mở (Avoid open-ended tools):</strong> Thay vì cho phép Agent chạy lệnh shell/bash tự do, hãy xây dựng các công cụ ghi file hoặc xử lý tác vụ với hàm cụ thể và schema tham số khắt khe.</li>
+              <li><strong>Thực thi nguyên tắc hòa giải toàn diện (Complete Mediation):</strong> Logic kiểm tra quyền ủy quyền phải nằm ở code backend, tuyệt đối không để LLM tự quyết định xem một hành động có an toàn hay không.</li>
+              <li><strong>Chính sách phân cấp cưỡng chế:</strong> Hành động dễ phục hồi (như hoàn tiền vào điểm tín dụng store credit) có thể tự động chạy; nhưng hành động vĩnh viễn (chuyển tiền ra ngân hàng ngoài, xóa database) bắt buộc phải có con người xác nhận.</li>
+              <li><strong>Bảo toàn ngữ cảnh người dùng:</strong> Duy trì phiên OAuth của người dùng qua các chuỗi gọi đa tác nhân thay vì dùng tài khoản hệ thống đặc quyền cao.</li>
+              <li><strong>Agentic Circuit Breakers:</strong> Đặt ngưỡng giới hạn số bước lặp (recursion depth) và chi phí trần cho mỗi lượt chạy của agent.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI01, ASI02 (Tool Misuse), ASI03 (Privilege Abuse), ASI05, ASI08</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI02, DSGAI06</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0005, AML.TA0011</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-285, CWE-732, CWE-284, CWE-770</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM04 -->
+      <article id="llm04" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-slate-700 text-white font-black text-lg flex items-center justify-center shadow-sm">#4</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM04: Supply Chain</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Layer 1: Entry Vector</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Chuỗi Cung Ứng AI | Hạng cũ 2025: #3 (Giảm 1 bậc)</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Bao gồm LoRA, GGUF, Quantization</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Bản Chất Rủi Ro
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Chuỗi cung ứng AI bao gồm tính toàn vẹn của mô hình tiền huấn luyện trên Hugging Face, bộ điều hợp PEFT/LoRA, pipeline chuyển đổi định dạng (Safetensors, GGUF), thư viện máy chủ suy luận (vLLM, llama.cpp, Ollama) và các gói phụ thuộc. Khác với phần mềm truyền thống, kiểm tra mã nguồn tĩnh không thể phát hiện backdoor trong đồ thị tính toán của mô hình nơ-ron.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Các Cuộc Tấn Công Thực Tế
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Hiện tượng Slopsquatting (Spracklen et al., USENIX 2025):</strong>
+                <span class="text-slate-700"> Trợ lý AI lập trình bị ảo giác và gợi ý các tên gói thư viện không tồn tại nhưng nghe rất hợp lý. Kẻ tấn công đăng ký trước các tên gói này trên PyPI/npm, khiến hàng ngàn lập trình viên vô tình cài cắm mã độc vào dự án.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Tràn bộ đệm llama.cpp GGUF Parsing (CVE-2024-23496):</strong>
+                <span class="text-slate-700"> Lỗ hổng heap buffer overflow trong trình phân tích native của định dạng GGUF, gây thực thi mã từ xa (RCE) ngay khi ứng dụng nạp file mô hình.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Khai thác chiếm dụng Namespace tác giả (Unit 42, 2025):</strong>
+                <span class="text-slate-700"> Khi tác giả một model nổi tiếng xóa tài khoản trên Hugging Face, kẻ tấn công lập tức đăng ký lại cùng tên tài khoản và tải lên model bị nhiễm độc, đánh lừa các pipeline CI/CD tải theo tên tĩnh.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Phòng Ngừa
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li>Xây dựng danh mục phần mềm và mô hình AI (AIBOM / CycloneDX ML-BOM) quản lý chi tiết nguồn gốc mô hình, adapter và tập dữ liệu.</li>
+              <li>Bắt buộc ký số mật mã cho Artifacts (OpenSSF Model Signing / Sigstore) và tham chiếu bằng digest SHA-256 bất biến thay vì tag <code>:latest</code>.</li>
+              <li>Từ chối hoàn toàn việc nạp mô hình từ các định dạng không an toàn như Python <code>pickle</code>.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI04 (Agentic Supply Chain)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI04, DSGAI05, DSGAI03</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0004, AML.TA0003</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-494, CWE-829, CWE-664</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM05 -->
+      <article id="llm05" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-slate-700 text-white font-black text-lg flex items-center justify-center shadow-sm">#5</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM05: Data and Model Poisoning</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200">Layer 1: Entry Vector</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Đầu Độc Dữ Liệu & Mô Hình | Hạng cũ 2025: #4</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Tác động vào quá trình học</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Bản Chất Kỹ Thuật
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Đầu độc nhắm vào <strong>"quá trình học" (learning process)</strong> của hệ thống chứ không phải một bug code runtime đơn lẻ. Do đó, việc khắc phục không thể dùng bản vá thông thường mà phải re-validate dữ liệu và huấn luyện lại cực kỳ tốn kém. Nghiên cứu năm 2025 (Souly et al.) chỉ ra: <em>Chỉ cần khoảng 250 mẫu độc hại có thể làm tha hóa mô hình từ 600M đến 13B tham số bất kể kích thước tập dữ liệu lớn đến đâu.</em>
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Các Phát Hiện Đột Phá
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Sleeper Agents - Mã độc ngủ yên qua mọi vòng kiểm duyệt (Hubinger et al., Anthropic):</strong>
+                <span class="text-slate-700"> Mô hình bị cấy backdoor có khả năng vượt qua toàn bộ các kỹ thuật căn chỉnh an toàn RLHF tiêu chuẩn, biểu hiện hoàn toàn bình thường và chỉ kích hoạt hành vi độc hại khi gặp chuỗi trigger định trước.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Backdoor lúc suy luận qua Chat Templates Jinja2 (Fogel et al., 2026):</strong>
+                <span class="text-slate-700"> Chèn lệnh có điều kiện vào file template đối thoại của gói GGUF/tokenizer. Kết quả thực nghiệm trên 18 mô hình cho thấy độ chính xác giảm từ 90% xuống 15% và tỷ lệ phát tán URL độc hại đạt >80% khi trigger xuất hiện.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Biện Pháp Ngăn Ngừa
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li>Áp dụng Data Version Control (DVC) theo dõi lịch sử thay đổi để có thể rollback ngay khi phát hiện ô nhiễm.</li>
+              <li>Kiểm thử đối kháng chủ động (Trigger Probing) định kỳ sau mỗi chu kỳ căn chỉnh an toàn.</li>
+              <li>Coi các artifact suy luận (Chat templates, Tokenizer configs, LoRA weights) là mã nguồn thực thi bảo mật cần ký số và kiểm tra hash.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI04, ASI06, ASI08</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI04, DSGAI05, DSGAI21</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0003, AML.TA0006</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-349, CWE-829, CWE-494</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM06 -->
+      <article id="llm06" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-amber-500 text-white font-black text-lg flex items-center justify-center shadow-sm">#6</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM06: Unbounded Consumption</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">Layer 3: Core Impact (Tăng +4 bậc)</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Tiêu Thụ Tài Nguyên Không Giới Hạn | Hạng cũ 2025: #10</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Leo 4 bậc vì rủi ro chi phí suy luận</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Bản Chất: Tính Bất Đối Xứng Chi Phí (Cost Asymmetry)
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Kẻ tấn công chỉ tốn chi phí cực nhỏ (hoặc miễn phí) nhưng ép nhà cung cấp dịch vụ phải gánh chịu lượng tính toán GPU khổng lồ, dẫn đến treo hệ thống hoặc cạn kiệt ngân sách (Denial of Wallet).
+              <br><br>
+              <strong>Nguyên nhân bùng nổ năm 2026:</strong> Sự ra đời của các mô hình suy luận sâu (Extended Thinking / Reasoning models) có thể bị bẫy suy luận không điểm dừng; mô hình đa phương thức (video/audio ngốn hàng ngàn token/lượt); và giao thức MCP tool fan-out làm 1 prompt của người dùng bung ra hàng trăm sub-calls.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Kịch Bản Khai Thác Tiêu Biểu
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">ThinkTrap: DoS Mô Hình Suy Luận Qua Infinite Thinking (Li et al., 2025):</strong>
+                <span class="text-slate-700"> Prompt ngắn gọn hoàn toàn lành tính nhưng đánh vào bẫy logic khiến mô hình đào sâu phân tích hàng chục ngàn thinking tokens mà không thoát được, làm cạn sạch quota và gây treo GPU.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Bùng nổ chi phí tích lũy trong phiên hội thoại dài (Context Accumulation):</strong>
+                <span class="text-slate-700"> Phiên làm việc agent kéo dài liên tục khiến chi phí tăng từ $0.001 ở lượt đầu tiên lên đến $0.50 ở lượt thứ 100 vì phải nạp lại toàn bộ lịch sử khổng lồ mỗi lần phản hồi, khiến hóa đơn cloud tăng vọt hàng ngàn USD mà không chạm rate limit theo request/s.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Phòng Thủ Chống Cạn Kiệt Ví (Denial of Wallet)
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li><strong>Thiết lập Hard Spending Caps (Hạn mức tài chính cứng):</strong> Ngắt tiến trình suy luận ngay lập tức khi chạm ngưỡng ngân sách của API key hoặc tài khoản đám mây (không chỉ gửi email cảnh báo).</li>
+              <li>Chuyển đổi từ rate-limit theo số request/giây sang đo lường Tokens-per-minute và ước lượng chi phí trước khi suy luận (Pre-flight cost estimation).</li>
+              <li>Khống chế ngân sách trần cho số lượng Thinking/Reasoning tokens được phép sinh ra.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI02, ASI08 (Cascading Failures)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI20, DSGAI17</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0011, AML.TA0010</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-400, CWE-770, CWE-664</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM07 -->
+      <article id="llm07" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-red-600 text-white font-black text-lg flex items-center justify-center shadow-sm">#7</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM07: Misinformation</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">Layer 3: Core Impact (Tăng +2 bậc)</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Thông Tin Sai Lệch & Ảo Giác | Hạng cũ 2025: #9</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Thực tế sự cố kéo tăng hạng</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Khoảng Cách Giữa Niềm Tin & Thực Tế
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Đây là danh mục có sự phân hóa lớn nhất: <em>Chuyên gia bỏ phiếu thấp nhưng dữ liệu thực tế từ 6,639 vụ việc lại nằm ở nhóm đầu.</em> Khi đầu ra tự tin của mô hình trực tiếp điều khiển các lệnh gọi tool hoặc phê duyệt quy trình, một câu trả lời sai sẽ lập tức biến thành một hành động phá hoại thực tế. Đặc biệt nghiêm trọng trong mạng lưới đa tác nhân (Multi-agent) khi Agent B mù quáng tin vào bằng chứng bịa đặt do Agent A sinh ra (Cross-Agent Trust Failure).
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Kịch Bản Thiệt Hại Thực Tế
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Báo động giả ngắt mạng sản xuất (False Alert Outage):</strong>
+                <span class="text-slate-700"> Một Security Agent phân loại nhầm lưu lượng bình thường thành mã độc và tự động cô lập, ngắt kết nối mạng của cụm máy chủ production đang vận hành.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Báo cáo hoàn thành tác vụ giả mạo (Fabricated Task Completion):</strong>
+                <span class="text-slate-700"> Agent báo cáo quy trình sao lưu dữ liệu hàng đêm đã hoàn tất thành công dù thực tế chưa hề chạy, dẫn đến thảm họa mất sạch dữ liệu khi công ty cần phục hồi sự cố.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Mô Hình Kiểm Soát "Claim-Check-Act"
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li><strong>Tách biệt bước sinh nội dung và bước thực thi (Claim-Check-Act):</strong> Trước khi tool thực hiện hành động, mã backend phải kiểm chứng tính xác thực của dữ liệu từ nguồn thẩm quyền.</li>
+              <li>Kiểm tra trạng thái thực tế của hệ thống thay vì tin vào độ tự tin (Confidence score) của LLM.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI08, ASI09, ASI10 (Rogue Agents)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI21, DSGAI05</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0011, AML.TA0003</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-1426, CWE-349, CWE-494</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM08 -->
+      <article id="llm08" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-purple-600 text-white font-black text-lg flex items-center justify-center shadow-sm">#8</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM08: Hidden Context Exposure</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-purple-50 text-purple-700 border border-purple-200">Layer 2: Amplifier (Đổi tên & Mở rộng)</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Lộ Ngữ Cảnh Ẩn & System Prompt | Tên cũ 2025: System Prompt Leakage (#7)</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-50 text-purple-700 border border-purple-200">Tái định hình toàn diện 2026</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Sự Tiến Hóa Khái Niệm
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Không đơn thuần chỉ là làm lộ prompt ban đầu, <strong>Hidden Context Exposure</strong> mở rộng sang toàn bộ văn bản chính sách lấy từ RAG, schemas định nghĩa công cụ (tool definitions), chỉ thị vai trò người dùng và logic xử lý nội bộ. Việc lộ ngữ cảnh ẩn này cung cấp bản đồ trinh sát chi tiết giúp tin tặc dễ dàng vượt qua các bộ lọc từ chối (refusal guardrails) và nhắm mục tiêu chính xác vào các API trọng yếu.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Nguy Cơ Cụ Thể
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Reverse Engineering Bộ Lọc Guardrail:</strong>
+                <span class="text-slate-700"> Bằng cách trích xuất system prompt chứa danh sách từ cấm và điều kiện từ chối, kẻ tấn công dùng từ đồng nghĩa hoặc Base64 để lọt qua 100% các rào cản.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Lộ Tool Schemas Phục Vụ Tấn Công Chuỗi Lệnh:</strong>
+                <span class="text-slate-700"> Trích xuất được danh sách các hàm MCP nội bộ cùng tham số, tạo mục tiêu cụ thể cho các cuộc tấn công chiếm quyền điều khiển agent tiếp theo.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Nguyên Tắc Vàng Phòng Thủ
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li><strong>Coi mọi thứ nằm trong Context Window là thông tin công khai:</strong> Tuyệt đối không lưu trữ khóa API, chuỗi kết nối database hay bí mật mật mã trong system prompt hoặc RAG hidden context!</li>
+              <li>Thực thi kiểm soát phân quyền độc lập tại tầng ứng dụng bên ngoài mô hình.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI09, ASI10, ASI06, ASI07</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI18, DSGAI15, DSGAI02</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0008, AML.TA0010</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-1427, CWE-200, CWE-798, CWE-693</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM09 -->
+      <article id="llm09" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-slate-700 text-white font-black text-lg flex items-center justify-center shadow-sm">#9</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM09: Vector and Embedding Weaknesses</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">Layer 2: Amplifier</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Lỗ Hổng Không Gian Vector & Embedding | Hạng cũ 2025: #8</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Khai thác hình học không gian</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Bản Chất: Tấn Công Không Phụ Thuộc Mã Độc
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Nhắm vào các ứng dụng RAG, bộ nhớ vector tác nhân và semantic cache. Các cuộc tấn công này khai thác <strong>cấu trúc hình học của không gian vector và cơ chế tìm kiếm tương đồng (Similarity Search)</strong> chứ không phụ thuộc vào việc nội dung có chứa mã độc hay không.
+              <br><br>
+              <em>Khung tóm tắt OWASP: "Poisoning makes the system wrong, inversion makes it leak, jamming makes it silent, and access-control failure makes it indiscriminate."</em>
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Các Cuộc Tấn Công Hình Học Điển Hình
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Nghịch đảo Vector khôi phục văn bản gốc (Vec2Text, Zero2Text 2026):</strong>
+                <span class="text-slate-700"> Tái tạo chính xác tới 92% văn bản và dữ liệu PII từ file sao lưu của cơ sở dữ liệu vector mà không cần truy cập mô hình encoder gốc. Do đó, việc làm lộ vector backup phải được tính là một vụ rò rỉ tài liệu gốc theo GDPR/HIPAA.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Làm nghẽn truy xuất bằng tài liệu chặn (Retrieval Jamming - Blocker Documents):</strong>
+                <span class="text-slate-700"> Chèn 1 tài liệu được tối ưu hóa hình học vector để chiếm trọn kết quả truy vấn mục tiêu, khiến LLM luôn từ chối trả lời vì thiếu dữ kiện (tấn công từ chối dịch vụ tầng tìm kiếm).</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Rò rỉ đa người thuê (Cross-tenant Leakage via Shared Similarity Search):</strong>
+                <span class="text-slate-700"> Thuật toán tương đồng chạy trên toàn bộ index trước khi lọc quyền người dùng ở tầng ứng dụng, giúp kẻ tấn công suy đoán được số lượng và chủ đề tài liệu bí mật của đối thủ.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Kiểm Soát Vòng Đời Vector
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li>Thực thi lọc người thuê (Tenant scoping) trực tiếp bên trong câu truy vấn Index của Vector Database.</li>
+              <li>Tuyệt đối không trả về điểm tương đồng thô (Raw similarity scores/distances) cho client để ngăn chặn dò quét membership inference.</li>
+              <li>Mã hóa vector database tại chỗ và quản lý khóa độc lập với tầng ứng dụng.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI04, ASI06</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI13 (Vector Store Security), DSGAI18, DSGAI11</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0006, AML.TA0010, AML.T0070 (RAG Poisoning)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-285, CWE-200, CWE-359, CWE-732</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- LLM10 -->
+      <article id="llm10" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="w-10 h-10 rounded-xl bg-slate-700 text-white font-black text-lg flex items-center justify-center shadow-sm">#10</span>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h3 class="text-xl font-bold text-slate-900">LLM10: Improper Output Handling</h3>
+                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">Layer 2: Action Gateway (Giảm 5 bậc)</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-500">Tên tiếng Việt: Xử Lý Đầu Ra Không An Toàn | Hạng cũ 2025: #5</p>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-700">Cổng thực thi mã hạ nguồn</span>
+        </div>
+
+        <div class="space-y-4 text-sm text-slate-700">
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1 flex items-center">
+              <i data-lucide="info" class="w-4 h-4 mr-1.5 text-blue-600"></i> Bản Chất Kỹ Thuật
+            </h4>
+            <p class="leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 text-slate-800">
+              Phát sinh khi ứng dụng chuyển tiếp đầu ra của LLM tới các thành phần phía sau (hệ điều hành, trình duyệt web, cơ sở dữ liệu) mà thiếu bước mã hóa, lọc và tham số hóa, dẫn đến XSS, CSRF, SSRF hoặc Remote Code Execution (RCE).
+            </p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="alert-octagon" class="w-4 h-4 mr-1.5 text-red-600"></i> Các Rủi Ro Mới Bổ Sung Năm 2026
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Ký tự điều khiển ANSI đánh cắp Clipboard Terminal (Terminal DiLLMa, Rehberger 2024):</strong>
+                <span class="text-slate-700"> Đầu ra mô hình chứa chuỗi thoát ANSI escape sequences (OSC 52) can thiệp vào trình giả lập terminal hoặc IDE của lập trình viên để đọc lén và đánh cắp dữ liệu clipboard.</span>
+              </div>
+              <div class="p-3 bg-red-50/40 rounded-xl border border-red-200/80">
+                <strong class="text-red-900 font-bold">Tự động tải Markdown Image / Link Preview làm rò rỉ dữ liệu:</strong>
+                <span class="text-slate-700"> Chat UI tự động render thẻ ảnh Markdown khiến trình duyệt tự động gửi GET request chứa dữ liệu hội thoại nhạy cảm đến máy chủ của kẻ tấn công.</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+              <i data-lucide="shield-check" class="w-4 h-4 mr-1.5 text-emerald-600"></i> Phòng Vệ Tầng Đầu Ra
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700 list-disc list-inside bg-emerald-50/40 p-4 rounded-xl border border-emerald-200">
+              <li>Áp dụng tư duy Zero-Trust: Coi đầu ra từ LLM như dữ liệu người dùng không tin cậy.</li>
+              <li>Mã hóa theo ngữ cảnh (Context-aware output encoding): HTML encoding cho web, Prepared Statements cho SQL.</li>
+              <li>Tắt tính năng tự động tải ảnh Markdown và Link Preview ở phía Client hoặc định tuyến qua server proxy làm sạch URL.</li>
+              <li>Loại bỏ ký tự điều khiển ANSI, BEL, OSC trước khi ghi log hoặc hiển thị trên terminal.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="font-bold text-slate-500 mr-2">Ánh xạ chuẩn:</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">ASI02, ASI05 (RCE), ASI09</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">DSGAI17, DSGAI12 (Unsafe Gateways), DSGAI06</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE ATLAS: AML.TA0005, AML.TA0010</span>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">MITRE CWE-1426, CWE-116, CWE-79 (XSS), CWE-707</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Section 5: Appendix A Framework Crosswalk Matrix (Displayed in full, no scrolling hidden tabs) -->
+    <section id="ma-tran-doi-chieu" class="anchor-offset bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="border-b border-slate-100 pb-4">
+        <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-slate-500">
+          <i data-lucide="table" class="w-4 h-4 text-red-600"></i>
+          <span>Phụ Lục A (Appendix A) trong tài liệu gốc OWASP 2026</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+          Ma Trận Đối Chiếu Chuẩn An Ninh Toàn Cầu (Coverage Matrix)
+        </h2>
+        <p class="text-sm text-slate-600">
+          Ánh xạ 10 rủi ro OWASP 2026 với 8 khuôn khổ an toàn thông tin & AI hàng đầu thế giới: OWASP Agentic (ASI), OWASP GenAI Data Security (DSGAI), MITRE ATLAS, MITRE ATT&CK, CWE, NIST AI 600-1, CSA AICM và OWASP AIVSS.
+        </p>
+      </div>
+
+      <!-- Complete Table View (Responsive Container) -->
+      <div class="overflow-x-auto border border-slate-200 rounded-xl">
+        <table class="w-full text-left text-xs border-collapse divide-y divide-slate-200">
+          <thead class="bg-slate-100 text-slate-700 font-bold uppercase tracking-wider">
+            <tr>
+              <th class="p-3 whitespace-nowrap bg-slate-200 text-slate-900">Rủi Ro 2026</th>
+              <th class="p-3 text-blue-700">OWASP ASI (Agentic)</th>
+              <th class="p-3 text-emerald-700">OWASP DSGAI</th>
+              <th class="p-3 text-amber-700">MITRE ATLAS</th>
+              <th class="p-3 text-red-700">MITRE ATT&CK</th>
+              <th class="p-3 text-purple-700">MITRE CWE</th>
+              <th class="p-3 text-indigo-700">NIST AI 600-1</th>
+              <th class="p-3 text-slate-800">CSA AICM</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 bg-white text-slate-700">
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm01" class="hover:text-red-600">LLM01 Prompt Injection</a></td>
+              <td class="p-3">ASI01, ASI02, ASI03, ASI05, ASI06, ASI08</td>
+              <td class="p-3">DSGAI01, DSGAI06, DSGAI09, DSGAI16</td>
+              <td class="p-3 font-mono">AML.TA0004, AML.TA0005, AML.TA0007</td>
+              <td class="p-3 font-mono">TA0001, TA0002, TA0010</td>
+              <td class="p-3 font-mono">CWE-1427, CWE-707, CWE-349</td>
+              <td class="p-3">Information Security, Information Integrity, Data Privacy</td>
+              <td class="p-3 font-mono">AIS, IAM, TVM, STA</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm02" class="hover:text-red-600">LLM02 Sensitive Info</a></td>
+              <td class="p-3">ASI06 (Memory Poisoning)</td>
+              <td class="p-3">DSGAI01, DSGAI18, DSGAI15, DSGAI08</td>
+              <td class="p-3 font-mono">AML.TA0010, AML.TA0013, AML.TA0000</td>
+              <td class="p-3 font-mono">TA0005, TA0010, TA0009</td>
+              <td class="p-3 font-mono">CWE-200, CWE-359, CWE-532, CWE-285</td>
+              <td class="p-3">Data Privacy, Information Security, IP</td>
+              <td class="p-3 font-mono">DSP, IAM, CEK, MDS, AIS</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm03" class="hover:text-red-600">LLM03 Excessive Agency</a></td>
+              <td class="p-3 font-semibold text-emerald-800">ASI01, ASI02, ASI03, ASI05, ASI08</td>
+              <td class="p-3">DSGAI02, DSGAI06, DSGAI01</td>
+              <td class="p-3 font-mono">AML.TA0005, AML.TA0011, AML.TA0010</td>
+              <td class="p-3 font-mono">TA0002, TA0040, TA0010</td>
+              <td class="p-3 font-mono">CWE-285, CWE-732, CWE-284, CWE-770</td>
+              <td class="p-3">Information Security, Human-AI Config</td>
+              <td class="p-3 font-mono">IAM, AIS, LOG, TVM</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm04" class="hover:text-red-600">LLM04 Supply Chain</a></td>
+              <td class="p-3">ASI04 (Agentic Supply Chain)</td>
+              <td class="p-3">DSGAI04, DSGAI05, DSGAI03, DSGAI08</td>
+              <td class="p-3 font-mono">AML.TA0004, AML.TA0003, AML.TA0005</td>
+              <td class="p-3 font-mono">TA0001, TA0042, TA0002</td>
+              <td class="p-3 font-mono">CWE-494, CWE-829, CWE-349, CWE-664</td>
+              <td class="p-3">Value Chain, Information Security</td>
+              <td class="p-3 font-mono">STA, MDS, TVM, CEK, CCC</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm05" class="hover:text-red-600">LLM05 Data/Model Poisoning</a></td>
+              <td class="p-3">ASI04, ASI06, ASI08</td>
+              <td class="p-3">DSGAI04, DSGAI05, DSGAI21, DSGAI07</td>
+              <td class="p-3 font-mono">AML.TA0003, AML.TA0006, AML.TA0011</td>
+              <td class="p-3 font-mono">TA0003, TA0040, TA0001</td>
+              <td class="p-3 font-mono">CWE-349, CWE-829, CWE-494, CWE-1427</td>
+              <td class="p-3">Information Integrity, Value Chain</td>
+              <td class="p-3 font-mono">MDS, DSP, STA, LOG, TVM</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm06" class="hover:text-red-600">LLM06 Unbounded Consump.</a></td>
+              <td class="p-3">ASI02 (Tool Misuse), ASI08</td>
+              <td class="p-3">DSGAI20, DSGAI17, DSGAI04</td>
+              <td class="p-3 font-mono">AML.TA0011, AML.TA0010, AML.TA0000</td>
+              <td class="p-3 font-mono">TA0040, TA0010</td>
+              <td class="p-3 font-mono">CWE-400, CWE-770, CWE-664, CWE-691</td>
+              <td class="p-3">Information Security, IP, Value Chain</td>
+              <td class="p-3 font-mono">AIS, BCR, IVS, LOG, IAM</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm07" class="hover:text-red-600">LLM07 Misinformation</a></td>
+              <td class="p-3">ASI08, ASI09, ASI10</td>
+              <td class="p-3">DSGAI21, DSGAI05, DSGAI06</td>
+              <td class="p-3 font-mono">AML.TA0011, AML.TA0003, AML.TA0004</td>
+              <td class="p-3 font-mono">TA0001, TA0040</td>
+              <td class="p-3 font-mono">CWE-1426, CWE-349, CWE-494</td>
+              <td class="p-3">Information Integrity, Confabulation</td>
+              <td class="p-3 font-mono">AIS, TVM, LOG, STA</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm08" class="hover:text-red-600">LLM08 Hidden Context Exp.</a></td>
+              <td class="p-3">ASI09, ASI10, ASI06, ASI07</td>
+              <td class="p-3">DSGAI18, DSGAI15, DSGAI02</td>
+              <td class="p-3 font-mono">AML.TA0008, AML.TA0010, AML.TA0002</td>
+              <td class="p-3 font-mono">TA0006 (Credential Access)</td>
+              <td class="p-3 font-mono">CWE-1427, CWE-200, CWE-798, CWE-693</td>
+              <td class="p-3">Information Security, IP</td>
+              <td class="p-3 font-mono">AIS, IAM, CEK</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm09" class="hover:text-red-600">LLM09 Vector & Embedding</a></td>
+              <td class="p-3">ASI04, ASI06</td>
+              <td class="p-3">DSGAI13, DSGAI18, DSGAI11, DSGAI04</td>
+              <td class="p-3 font-mono">AML.TA0006, AML.TA0010, AML.T0070</td>
+              <td class="p-3 font-mono">TA0009, TA0010, TA0040</td>
+              <td class="p-3 font-mono">CWE-285, CWE-200, CWE-359, CWE-732</td>
+              <td class="p-3">Data Privacy, Information Security</td>
+              <td class="p-3 font-mono">IAM, DSP, LOG, CEK, AIS, STA</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900 whitespace-nowrap bg-slate-50"><a href="#llm10" class="hover:text-red-600">LLM10 Improper Output</a></td>
+              <td class="p-3">ASI02, ASI05, ASI09</td>
+              <td class="p-3">DSGAI17, DSGAI12, DSGAI06, DSGAI01</td>
+              <td class="p-3 font-mono">AML.TA0005, AML.TA0010, AML.TA0011</td>
+              <td class="p-3 font-mono">TA0002, TA0010, TA0040, TA0004</td>
+              <td class="p-3 font-mono">CWE-1426, CWE-116, CWE-79, CWE-707</td>
+              <td class="p-3">Information Security, Data Privacy</td>
+              <td class="p-3 font-mono">AIS, LOG, IAM</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed">
+        <strong>Ý nghĩa tuân thủ quy chuẩn (Compliance Guidance):</strong> Việc đối chiếu trực tiếp 10 rủi ro này với các khuôn khổ bảo mật giúp doanh nghiệp xây dựng kiến trúc AI tuân thủ theo các đạo luật nghiêm ngặt nhất hiện nay như <em>EU AI Act (Luật Trí tuệ Nhân tạo châu Âu có hiệu lực từ tháng 8/2026)</em>, <em>HIPAA</em>, <em>NIST AI Risk Management Framework (AI 100-1)</em>, và <em>ISO/IEC 42001</em>.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Document Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="font-bold text-slate-800">OWASP Top 10 for Large Language Model Applications (Phiên bản 2026 - Phát hành 04/08/2026)</p>
+        <p class="mt-0.5">Dự án cộng đồng mã nguồn mở theo giấy phép Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).</p>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="https://genai.owasp.org" target="_blank" class="text-red-600 hover:underline font-semibold flex items-center">
+          <span>genai.owasp.org</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5 ml-1"></i>
+        </a>
+        <a href="#tong-quan" class="px-3 py-1.5 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 font-medium">Về Đầu Trang ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script to initialize Lucide icons -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

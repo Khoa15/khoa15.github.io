@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python DSA — Bộ ôn thi thuật toán</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#172033;--muted:#5c667a;--line:#dfe5ef;--accent:#3157d5;--soft:#edf2ff;--green:#176b47;--amber:#875600;--code-bg:#0f172a;--code-ink:#e2e8f0;--shadow:0 5px 22px rgba(25,40,75,.06)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(135deg,#172554,#3157d5);color:#fff;padding:34px 20px}
+.inner,main{max-width:1000px;margin:auto}
+h1{font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.2;margin:0 0 10px}
+header p{margin:0;color:#e2eaff;max-width:780px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pill{font-size:.84rem;padding:5px 10px;border:1px solid #ffffff55;border-radius:999px;background:#ffffff12}
+nav.toc{position:sticky;top:0;z-index:5;background:#ffffffee;backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+nav.toc .inner{display:flex;gap:6px;overflow-x:auto;padding:9px 16px}
+nav.toc a{white-space:nowrap;font-size:.85rem;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px}
+nav.toc a:hover{border-color:var(--accent);color:var(--accent)}
+main{padding:22px 16px 60px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:16px}
+button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:9px;padding:8px 13px;font:inherit;font-size:.9rem;cursor:pointer}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.note{background:#fff8e8;border:1px solid #f0dfb7;padding:12px 14px;border-radius:10px;color:#654800;margin:12px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px;margin:14px 0;box-shadow:var(--shadow)}
+.topic{margin-top:40px}
+.topic>h2{font-size:1.5rem;margin:0 0 4px}
+.topic>.sub{color:var(--muted);margin:0 0 12px}
+h3{font-size:1.08rem;margin:18px 0 8px}
+h3.k{color:var(--accent)}
+ul.think{margin:6px 0;padding-left:1.2rem}
+ul.think li{margin:4px 0}
+pre{margin:8px 0;background:var(--code-bg);color:var(--code-ink);border-radius:10px;padding:13px 15px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;position:relative}
+pre code{font:inherit}
+.copy{position:absolute;top:6px;right:6px;padding:2px 8px;font-size:.72rem;background:#1e293b;color:#cbd5e1;border-color:#334155;border-radius:6px}
+.copy:hover{color:#fff;border-color:#64748b}
+code.i{background:#eef1f8;padding:1px 6px;border-radius:5px;font:.9em ui-monospace,Menlo,Consolas,monospace}
+.cx{display:inline-block;font-size:.8rem;background:#e8f6ee;color:var(--green);border-radius:6px;padding:2px 8px;margin:2px 6px 2px 0;font-weight:600}
+.ex{border-left:3px solid var(--accent);background:#f8faff;border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0}
+.ex .head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+.ex .head strong{font-size:1.02rem}
+.ex a{font-size:.82rem;color:var(--accent)}
+.lv{font-size:.72rem;font-weight:700;border-radius:6px;padding:2px 8px;text-transform:uppercase;letter-spacing:.04em}
+.lv.easy{background:#e3f6ea;color:#176b47}
+.lv.medium{background:#fff1d6;color:#875600}
+.done{margin-left:auto;font-size:.82rem;color:var(--muted);display:flex;gap:5px;align-items:center;cursor:pointer}
+details{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+summary{cursor:pointer;color:var(--accent);font-weight:650;user-select:none}
+.ans h4{margin:12px 0 4px;font-size:.95rem;color:var(--ink)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px}
+@media(max-width:650px){header{padding:26px 16px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<header><div class="inner">
+<h1>Python DSA<br>Bộ ôn thi thuật toán</h1>
+<p>Ôn tập 8 chủ đề với thư viện chuẩn của Python: mẫu code ngắn gọn, cách tư duy khi gặp từng dạng bài, và bài tập LeetCode mức Easy → Medium kèm đáp án ẩn có giải thích.</p>
+<div class="meta"><span class="pill">8 chủ đề</span><span class="pill">Chỉ dùng thư viện chuẩn</span><span class="pill">Đáp án ẩn + hướng tư duy</span><span class="pill">Tự đánh dấu tiến độ</span></div>
+</div></header>
+<nav class="toc"><div class="inner" id="toc"></div></nav>
+<main>
+<div class="toolbar">
+<div><strong>Cách học:</strong> đọc tư duy → tự giải bài trên giấy/IDE 10–20 phút → mới mở đáp án.</div>
+<div><span id="progress" class="mini" style="color:var(--muted);margin-right:10px"></span><button id="expand" class="primary">Mở tất cả đáp án</button> <button id="resetProg">Xóa tiến độ</button></div>
+</div>
+<div class="note"><strong>Quy trình giải bài khi thi (5 bước):</strong> (1) đọc kỹ ràng buộc <code class="i">n</code> để đoán độ phức tạp cần đạt: n ≤ 20 → brute-force/backtracking, n ≤ 10³ → O(n²), n ≤ 10⁵ → O(n log n) hoặc O(n); (2) thử ví dụ nhỏ bằng tay; (3) nhận dạng mẫu bài; (4) viết giải pháp đơn giản trước, tối ưu sau; (5) test các trường hợp biên: mảng rỗng, 1 phần tử, trùng lặp, số âm, tất cả bằng nhau.</div>
+<div id="topics"></div>
+<section class="topic" id="cheat"></section>
+<section class="topic" id="strategy"></section>
+</main>
+<footer>Python DSA Review · Link đề bài trỏ tới LeetCode; mô tả trong trang đã được viết lại ngắn gọn, hãy đọc đề gốc để nắm đủ ràng buộc.</footer>
+
+<script>
+const LC = s => 'https://leetcode.com/problems/' + s + '/';
+
+const topics = [
+/* ---------------------------------------------------------------- ARRAYS */
+{
+id:'arrays', title:'1. Arrays', sub:'Duyệt tuyến tính, in-place, Kadane, đảo mảng.',
+think:[
+ 'Đề cho mảng và hỏi "tối đa/tối thiểu/đếm" trên đoạn liên tiếp → nghĩ tới <b>duyệt 1 lần giữ trạng thái</b> (Kadane, min-so-far).',
+ 'Yêu cầu <b>O(1) bộ nhớ phụ / in-place</b> → dùng hoán đổi, hai chỉ số đọc/ghi, hoặc đảo mảng.',
+ '"Với mỗi i, cần thông tin bên trái và bên phải" → quét trái→phải rồi phải→trái (hoặc prefix/suffix).',
+ 'Luôn kiểm tra: mảng rỗng, 1 phần tử, toàn số âm (Kadane dễ sai khi khởi tạo bằng 0).'
+],
+templates:[
+ {t:'Kadane — tổng mảng con lớn nhất', cx:['Time O(n)','Space O(1)'], code:`def max_subarray(nums):
+    best = cur = nums[0]
+    for x in nums[1:]:
+        cur = max(x, cur + x)   # bắt đầu lại hoặc nối tiếp
+        best = max(best, cur)
+    return best`},
+ {t:'Xoay mảng bằng 3 lần đảo (in-place)', cx:['Time O(n)','Space O(1)'], code:`def rotate(nums, k):
+    n = len(nums); k %= n
+    nums.reverse()
+    nums[:k] = reversed(nums[:k])
+    nums[k:] = reversed(nums[k:])`},
+ {t:'Ghi đè in-place (read/write pointer)', cx:['Time O(n)','Space O(1)'], code:`def move_zeroes(a):
+    w = 0
+    for x in a:
+        if x != 0:
+            a[w] = x; w += 1
+    for i in range(w, len(a)):
+        a[i] = 0`}
+],
+ex:[
+ {n:'Best Time to Buy and Sell Stock', lv:'easy', slug:'best-time-to-buy-and-sell-stock',
+  q:'Cho mảng giá cổ phiếu theo ngày. Mua 1 ngày và bán ở một ngày sau đó. Tính lợi nhuận lớn nhất (0 nếu không có lãi).',
+  hint:'Tại mỗi ngày p, lợi nhuận tốt nhất nếu bán hôm nay = p − (giá thấp nhất từ trước đến nay).',
+  code:`def max_profit(prices):
+    lo, best = float('inf'), 0
+    for p in prices:
+        lo = min(lo, p)            # giá mua tốt nhất đến hiện tại
+        best = max(best, p - lo)   # bán hôm nay
+    return best
+
+print(max_profit([7,1,5,3,6,4]))  # 5
+print(max_profit([7,6,4,3,1]))    # 0`,
+  why:'Brute-force thử mọi cặp (i<j) là O(n²). Nhận xét: với ngày bán cố định, chỉ cần biết giá thấp nhất trước đó → giữ biến <code class="i">lo</code> khi quét 1 lần. Đây là dạng "duyệt một lần + giữ trạng thái tốt nhất đến nay".',
+  cx:'Time O(n), Space O(1)'},
+ {n:'Product of Array Except Self', lv:'medium', slug:'product-of-array-except-self',
+  q:'Trả về mảng res mà res[i] bằng tích mọi phần tử trừ nums[i]. Không dùng phép chia, yêu cầu O(n).',
+  hint:'res[i] = (tích bên trái i) × (tích bên phải i). Tính 2 lượt.',
+  code:`def product_except_self(nums):
+    n = len(nums)
+    res = [1] * n
+    left = 1
+    for i in range(n):            # res[i] = tích các phần tử bên trái
+        res[i] = left
+        left *= nums[i]
+    right = 1
+    for i in range(n - 1, -1, -1):  # nhân thêm tích bên phải
+        res[i] *= right
+        right *= nums[i]
+    return res
+
+print(product_except_self([1,2,3,4]))  # [24,12,8,6]`,
+  why:'Chia tổng tích cho nums[i] bị cấm (và lỗi khi có số 0). Tách thành prefix-product và suffix-product; tái dùng chính mảng kết quả để giữ bộ nhớ phụ O(1) (không tính mảng output).',
+  cx:'Time O(n), Space O(1) phụ'},
+ {n:'Maximum Subarray', lv:'medium', slug:'maximum-subarray',
+  q:'Tìm tổng lớn nhất của một đoạn con liên tiếp (không rỗng) trong mảng số nguyên.',
+  hint:'Tại mỗi vị trí: hoặc nối tiếp đoạn trước, hoặc bắt đầu đoạn mới. Đoạn trước âm thì bỏ.',
+  code:`def max_sub_array(nums):
+    best = cur = nums[0]
+    for x in nums[1:]:
+        cur = max(x, cur + x)
+        best = max(best, cur)
+    return best
+
+print(max_sub_array([-2,1,-3,4,-1,2,1,-5,4]))  # 6  (4,-1,2,1)
+print(max_sub_array([-3,-1,-2]))               # -1`,
+  why:'<code class="i">cur</code> = tổng lớn nhất của đoạn <i>kết thúc tại</i> i. Nếu cur trước đó &lt; 0 thì kéo theo chỉ làm xấu đi nên bắt đầu lại tại x. Khởi tạo bằng nums[0] (không phải 0) để xử lý mảng toàn số âm.',
+  cx:'Time O(n), Space O(1)'}
+]
+},
+/* ---------------------------------------------------------------- HASH */
+{
+id:'hash', title:'2. Hash Tables', sub:'dict, set, Counter, defaultdict — tra cứu O(1) trung bình.',
+think:[
+ 'Câu hỏi "đã thấy chưa?", "bao nhiêu lần?", "tìm cặp có tổng bằng k?" → <b>dict/set</b> đổi thời gian lấy bộ nhớ.',
+ 'Gom nhóm theo "đặc trưng chuẩn hóa" (anagram → chuỗi đã sort / tuple đếm ký tự) → <b>dict key = đặc trưng</b>.',
+ 'Key phải hashable: dùng <code class="i">tuple</code> thay cho <code class="i">list</code>.',
+ 'Khi lặp mà cần "phần bù" (target − x) → lưu giá trị đã thấy rồi tra cứu ngay.'
+],
+templates:[
+ {t:'Đếm tần suất & gom nhóm', cx:['Tra cứu O(1) TB'], code:`from collections import Counter, defaultdict
+
+cnt = Counter("banana")            # Counter({'a':3,'n':2,'b':1})
+cnt.most_common(2)                 # [('a',3),('n',2)]
+
+groups = defaultdict(list)
+for w in ["eat","tea","tan","ate"]:
+    groups[tuple(sorted(w))].append(w)`},
+ {t:'Mẫu "phần bù" (complement)', cx:['Time O(n)','Space O(n)'], code:`def has_pair(nums, target):
+    seen = set()
+    for x in nums:
+        if target - x in seen:
+            return True
+        seen.add(x)
+    return False`}
+],
+ex:[
+ {n:'Two Sum', lv:'easy', slug:'two-sum',
+  q:'Cho mảng và target, trả về chỉ số của hai phần tử có tổng bằng target (đúng một đáp án, không dùng một phần tử hai lần).',
+  hint:'Với mỗi x, bạn cần target − x. Đã gặp nó chưa? Lưu {giá trị: chỉ số}.',
+  code:`def two_sum(nums, target):
+    seen = {}                      # giá trị -> chỉ số
+    for i, x in enumerate(nums):
+        need = target - x
+        if need in seen:
+            return [seen[need], i]
+        seen[x] = i                # thêm SAU khi kiểm tra
+    return []
+
+print(two_sum([2,7,11,15], 9))  # [0,1]`,
+  why:'Brute-force O(n²). Một lượt với dict: kiểm tra phần bù trước rồi mới thêm phần tử hiện tại để không dùng một phần tử hai lần.',
+  cx:'Time O(n), Space O(n)'},
+ {n:'Group Anagrams', lv:'medium', slug:'group-anagrams',
+  q:'Gom các chuỗi là hoán vị ký tự của nhau thành từng nhóm.',
+  hint:'Hai chuỗi là anagram ⇔ sau khi sort ký tự thì bằng nhau. Dùng dạng đã sort làm key.',
+  code:`from collections import defaultdict
+
+def group_anagrams(strs):
+    g = defaultdict(list)
+    for s in strs:
+        g[''.join(sorted(s))].append(s)
+    return list(g.values())
+
+print(group_anagrams(["eat","tea","tan","ate","nat","bat"]))
+# [['eat','tea','ate'],['tan','nat'],['bat']]`,
+  why:'Key chuẩn hóa = chuỗi sort (O(k log k) mỗi chuỗi dài k). Cách tối ưu hơn: key là tuple 26 phần tử đếm ký tự → O(k). Nhớ: list không hashable, nên dùng str/tuple.',
+  cx:'Time O(n·k log k), Space O(n·k)'},
+ {n:'Longest Consecutive Sequence', lv:'medium', slug:'longest-consecutive-sequence',
+  q:'Cho mảng chưa sắp xếp, tìm độ dài dãy số nguyên liên tiếp dài nhất (không cần liền kề trong mảng). Yêu cầu O(n).',
+  hint:'Sort là O(n log n). Dùng set; chỉ bắt đầu đếm từ những số x mà x−1 KHÔNG có trong set.',
+  code:`def longest_consecutive(nums):
+    s = set(nums)
+    best = 0
+    for x in s:
+        if x - 1 not in s:        # x là điểm bắt đầu một dãy
+            y = x
+            while y + 1 in s:
+                y += 1
+            best = max(best, y - x + 1)
+    return best
+
+print(longest_consecutive([100,4,200,1,3,2]))  # 4`,
+  why:'Mỗi dãy chỉ được đi một lần từ đầu dãy nên tổng số bước while ≤ n → O(n) dù có vòng lặp lồng. Điểm mấu chốt là điều kiện "x−1 not in s" để tránh đếm lại.',
+  cx:'Time O(n), Space O(n)'}
+]
+},
+/* ---------------------------------------------------------------- SORT/SEARCH */
+{
+id:'sortsearch', title:'3. Sorting & Searching', sub:'sort/sorted, key, bisect, binary search và binary search trên đáp án.',
+think:[
+ 'Dữ liệu <b>đã sort</b> (hoặc có thể sort) + tìm kiếm → binary search O(log n).',
+ 'Bài về <b>khoảng/lịch</b> (intervals) → sort theo điểm đầu rồi quét.',
+ '"Tìm giá trị nhỏ nhất thỏa điều kiện, mà điều kiện đơn điệu (sai…sai đúng…đúng)" → <b>binary search trên đáp án</b>.',
+ 'Sort ổn định (stable) của Python: sort nhiều khóa bằng <code class="i">key=lambda x: (a, -b)</code>.',
+ 'Biên vòng lặp: <code class="i">lo &lt;= hi</code> (tìm đúng phần tử) vs <code class="i">lo &lt; hi</code> (tìm vị trí đầu tiên thỏa).'
+],
+templates:[
+ {t:'Binary search cổ điển + bisect', cx:['Time O(log n)'], code:`from bisect import bisect_left, bisect_right
+
+def binary_search(a, t):
+    lo, hi = 0, len(a) - 1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if a[mid] == t: return mid
+        if a[mid] < t:  lo = mid + 1
+        else:           hi = mid - 1
+    return -1
+
+a = [1,2,2,2,5]
+bisect_left(a, 2)    # 1  (vị trí đầu tiên >= 2)
+bisect_right(a, 2)   # 4  (vị trí đầu tiên > 2)`},
+ {t:'Binary search trên đáp án (tìm giá trị nhỏ nhất hợp lệ)', cx:['Time O(log R · check)'], code:`def min_feasible(lo, hi, ok):
+    # ok(x) đơn điệu: False..False True..True
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if ok(mid): hi = mid      # mid hợp lệ -> thử nhỏ hơn
+        else:       lo = mid + 1
+    return lo`},
+ {t:'Sort với key', cx:['Time O(n log n)'], code:`people = [("An", 20), ("Binh", 25), ("Chi", 20)]
+people.sort(key=lambda p: (p[1], p[0]))        # tuổi tăng, tên tăng
+people.sort(key=lambda p: (-p[1], p[0]))       # tuổi GIẢM, tên tăng
+sorted(["bb","a","ccc"], key=len, reverse=True)`}
+],
+ex:[
+ {n:'Binary Search', lv:'easy', slug:'binary-search',
+  q:'Cho mảng số nguyên đã sắp xếp tăng dần và target, trả về chỉ số của target hoặc −1.',
+  hint:'Mỗi bước loại bỏ một nửa. Cẩn thận cập nhật lo/hi để không lặp vô hạn.',
+  code:`def search(nums, target):
+    lo, hi = 0, len(nums) - 1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
+
+print(search([-1,0,3,5,9,12], 9))  # 4`,
+  why:'Bất biến: nếu target tồn tại thì nó nằm trong [lo, hi]. Dùng <code class="i">mid±1</code> để đảm bảo khoảng luôn thu hẹp.',
+  cx:'Time O(log n), Space O(1)'},
+ {n:'Search in Rotated Sorted Array', lv:'medium', slug:'search-in-rotated-sorted-array',
+  q:'Mảng tăng dần (không trùng) bị xoay tại một điểm chưa biết. Tìm chỉ số của target trong O(log n).',
+  hint:'Tại mỗi mid, ít nhất một nửa [lo..mid] hoặc [mid..hi] là đã sắp xếp. Xác định nửa nào sorted rồi xem target có nằm trong đó không.',
+  code:`def search_rotated(nums, target):
+    lo, hi = 0, len(nums) - 1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if nums[mid] == target:
+            return mid
+        if nums[lo] <= nums[mid]:               # nửa trái sorted
+            if nums[lo] <= target < nums[mid]:
+                hi = mid - 1
+            else:
+                lo = mid + 1
+        else:                                   # nửa phải sorted
+            if nums[mid] < target <= nums[hi]:
+                lo = mid + 1
+            else:
+                hi = mid - 1
+    return -1
+
+print(search_rotated([4,5,6,7,0,1,2], 0))  # 4`,
+  why:'Không cần tìm điểm xoay trước. Dùng so sánh <code class="i">nums[lo] &lt;= nums[mid]</code> (dấu <= quan trọng khi lo == mid) để biết nửa nào đơn điệu, rồi kiểm tra target thuộc khoảng của nửa đó.',
+  cx:'Time O(log n), Space O(1)'},
+ {n:'Merge Intervals', lv:'medium', slug:'merge-intervals',
+  q:'Cho danh sách các đoạn [start, end], gộp tất cả các đoạn chồng lấp.',
+  hint:'Sort theo start. Đoạn mới chồng lấp với đoạn cuối trong kết quả nếu start ≤ end của đoạn cuối.',
+  code:`def merge(intervals):
+    intervals.sort(key=lambda x: x[0])
+    res = [intervals[0][:]]
+    for s, e in intervals[1:]:
+        if s <= res[-1][1]:                 # chồng lấp
+            res[-1][1] = max(res[-1][1], e)
+        else:
+            res.append([s, e])
+    return res
+
+print(merge([[1,3],[2,6],[8,10],[15,18]]))  # [[1,6],[8,10],[15,18]]`,
+  why:'Sau khi sort theo start, chỉ cần so sánh với đoạn cuối đã gộp. Dùng <code class="i">max</code> cho end vì đoạn sau có thể nằm gọn trong đoạn trước ([1,10] và [2,3]).',
+  cx:'Time O(n log n), Space O(n)'},
+ {n:'Koko Eating Bananas', lv:'medium', slug:'koko-eating-bananas',
+  q:'Có các đống chuối piles và h giờ. Mỗi giờ Koko chọn 1 đống và ăn tối đa k quả. Tìm k nhỏ nhất để ăn hết trong h giờ.',
+  hint:'Nếu tốc độ k đủ thì mọi k lớn hơn cũng đủ → đơn điệu → binary search trên k ∈ [1, max(piles)].',
+  code:`def min_eating_speed(piles, h):
+    lo, hi = 1, max(piles)
+    while lo < hi:
+        mid = (lo + hi) // 2
+        hours = sum((p + mid - 1) // mid for p in piles)   # ceil(p/mid)
+        if hours <= h:
+            hi = mid          # đủ nhanh -> thử chậm hơn
+        else:
+            lo = mid + 1
+    return lo
+
+print(min_eating_speed([3,6,7,11], 8))  # 4`,
+  why:'Đây là mẫu "binary search trên đáp án": hàm kiểm tra O(n), không gian đáp án tối đa max(piles). Trần phép chia: <code class="i">(p + k - 1) // k</code>.',
+  cx:'Time O(n log max), Space O(1)'}
+]
+},
+/* ---------------------------------------------------------------- PREFIX */
+{
+id:'prefix', title:'4. Prefix Sums', sub:'Tổng đoạn O(1), đếm đoạn con có tổng k, kết hợp hash map.',
+think:[
+ 'Nhiều truy vấn "tổng đoạn [l, r]" → xây mảng prefix một lần, mỗi truy vấn O(1).',
+ '"Đếm/tìm đoạn con liên tiếp có tổng = k" (có thể có số âm) → <b>prefix + dict</b>: <code class="i">pre[j] − pre[i] = k</code>.',
+ 'Biến đổi bài về tổng: 0/1 → −1/+1 để bài "bằng số 0 và 1" thành "tổng = 0".',
+ 'Quy ước: <code class="i">pre[0] = 0</code>, <code class="i">sum(l..r) = pre[r+1] − pre[l]</code> — dễ sai lệch chỉ số nhất!'
+],
+templates:[
+ {t:'Xây prefix và truy vấn đoạn', cx:['Build O(n)','Query O(1)'], code:`from itertools import accumulate
+
+nums = [3, 1, 4, 1, 5]
+pre = [0] + list(accumulate(nums))   # [0,3,4,8,9,14]
+def range_sum(l, r):                 # bao gồm cả l và r
+    return pre[r + 1] - pre[l]`},
+ {t:'Prefix 2D', cx:['Build O(mn)','Query O(1)'], code:`def build(g):
+    m, n = len(g), len(g[0])
+    P = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(m):
+        for j in range(n):
+            P[i+1][j+1] = g[i][j] + P[i][j+1] + P[i+1][j] - P[i][j]
+    return P
+
+def region(P, r1, c1, r2, c2):       # hình chữ nhật (r1,c1)-(r2,c2)
+    return P[r2+1][c2+1] - P[r1][c2+1] - P[r2+1][c1] + P[r1][c1]`}
+],
+ex:[
+ {n:'Range Sum Query – Immutable', lv:'easy', slug:'range-sum-query-immutable',
+  q:'Thiết kế lớp nhận mảng một lần, sau đó trả lời nhiều truy vấn sumRange(left, right) nhanh.',
+  hint:'Tính trước prefix. Mỗi truy vấn chỉ là một phép trừ.',
+  code:`class NumArray:
+    def __init__(self, nums):
+        self.pre = [0]
+        for x in nums:
+            self.pre.append(self.pre[-1] + x)
+
+    def sumRange(self, left, right):
+        return self.pre[right + 1] - self.pre[left]
+
+na = NumArray([-2,0,3,-5,2,-1])
+print(na.sumRange(0,2), na.sumRange(2,5))  # 1  -1`,
+  why:'Tốn O(n) để xây, mỗi truy vấn O(1) thay vì O(n). Có phần tử đệm <code class="i">pre[0]=0</code> để không cần xử lý riêng l = 0.',
+  cx:'Init O(n), Query O(1)'},
+ {n:'Subarray Sum Equals K', lv:'medium', slug:'subarray-sum-equals-k',
+  q:'Đếm số đoạn con liên tiếp của mảng (có thể có số âm) có tổng đúng bằng k.',
+  hint:'Tại vị trí j có prefix S. Có bao nhiêu i<j với prefix = S − k? Lưu tần suất các prefix đã gặp. Two pointers KHÔNG dùng được vì có số âm.',
+  code:`def subarray_sum(nums, k):
+    count = {0: 1}          # prefix rỗng
+    s = res = 0
+    for x in nums:
+        s += x
+        res += count.get(s - k, 0)
+        count[s] = count.get(s, 0) + 1
+    return res
+
+print(subarray_sum([1,1,1], 2))   # 2
+print(subarray_sum([1,2,3], 3))   # 2  ([1,2] và [3])`,
+  why:'Đoạn (i, j] có tổng k ⇔ pre[j] − pre[i] = k. Duyệt j, tra số lượng prefix bằng pre[j] − k trong dict. Khởi tạo <code class="i">{0:1}</code> để đếm các đoạn bắt đầu từ đầu mảng.',
+  cx:'Time O(n), Space O(n)'},
+ {n:'Contiguous Array', lv:'medium', slug:'contiguous-array',
+  q:'Cho mảng nhị phân, tìm độ dài đoạn con dài nhất có số 0 và số 1 bằng nhau.',
+  hint:'Đổi 0 → −1. Khi đó cần đoạn có tổng 0 ⇒ hai prefix bằng nhau. Lưu vị trí xuất hiện ĐẦU TIÊN của mỗi prefix.',
+  code:`def find_max_length(nums):
+    first = {0: -1}        # prefix 0 xuất hiện "trước" chỉ số 0
+    bal = best = 0
+    for i, x in enumerate(nums):
+        bal += 1 if x == 1 else -1
+        if bal in first:
+            best = max(best, i - first[bal])
+        else:
+            first[bal] = i
+    return best
+
+print(find_max_length([0,1,0,1,1,0]))  # 6`,
+  why:'Hai prefix bằng nhau tại i và j ⇒ đoạn (i, j] có tổng 0 ⇒ số 0 = số 1. Để đoạn dài nhất, chỉ ghi lần đầu mỗi giá trị (không ghi đè).',
+  cx:'Time O(n), Space O(n)'}
+]
+},
+/* ---------------------------------------------------------------- TWO POINTERS */
+{
+id:'twoptr', title:'5. Two Pointers', sub:'Hai đầu, nhanh–chậm, cửa sổ trượt.',
+think:[
+ 'Mảng <b>đã sort</b> + tìm cặp/bộ ba theo tổng → hai con trỏ từ hai đầu (tổng nhỏ → tăng trái, lớn → giảm phải).',
+ 'Bài chuỗi/mảng cần "đoạn con dài nhất/ngắn nhất thỏa điều kiện" với số không âm → <b>sliding window</b>.',
+ 'Xóa/lọc in-place → con trỏ đọc và con trỏ ghi.',
+ 'Cần bỏ qua trùng lặp → sort rồi nhảy qua phần tử bằng phần tử trước.',
+ 'Chứng minh: mỗi bước loại bỏ ít nhất một ứng viên không thể tối ưu.'
+],
+templates:[
+ {t:'Hai đầu trên mảng đã sort', cx:['Time O(n)','Space O(1)'], code:`def pair_sum_sorted(a, target):
+    l, r = 0, len(a) - 1
+    while l < r:
+        s = a[l] + a[r]
+        if s == target: return (l, r)
+        if s < target:  l += 1
+        else:           r -= 1
+    return None`},
+ {t:'Sliding window — chuỗi con dài nhất không lặp ký tự', cx:['Time O(n)','Space O(Σ)'], code:`def longest_unique(s):
+    last = {}                      # ký tự -> vị trí xuất hiện gần nhất
+    l = best = 0
+    for r, c in enumerate(s):
+        if c in last and last[c] >= l:
+            l = last[c] + 1        # co cửa sổ bên trái
+        last[c] = r
+        best = max(best, r - l + 1)
+    return best`},
+ {t:'Đọc/ghi: xóa trùng trong mảng sorted', cx:['Time O(n)','Space O(1)'], code:`def dedup(a):
+    w = 0
+    for x in a:
+        if w == 0 or x != a[w - 1]:
+            a[w] = x; w += 1
+    return w                       # độ dài mới`}
+],
+ex:[
+ {n:'Valid Palindrome', lv:'easy', slug:'valid-palindrome',
+  q:'Cho chuỗi, bỏ qua ký tự không phải chữ/số và không phân biệt hoa thường, kiểm tra có phải palindrome không.',
+  hint:'Hai con trỏ từ hai đầu, bỏ qua ký tự không hợp lệ, so sánh khi cả hai hợp lệ.',
+  code:`def is_palindrome(s):
+    i, j = 0, len(s) - 1
+    while i < j:
+        while i < j and not s[i].isalnum():
+            i += 1
+        while i < j and not s[j].isalnum():
+            j -= 1
+        if s[i].lower() != s[j].lower():
+            return False
+        i += 1; j -= 1
+    return True
+
+print(is_palindrome("A man, a plan, a canal: Panama"))  # True
+print(is_palindrome("race a car"))                      # False`,
+  why:'Không cần tạo chuỗi mới (O(1) bộ nhớ). Nhớ điều kiện <code class="i">i &lt; j</code> trong các vòng while lồng để không vượt biên.',
+  cx:'Time O(n), Space O(1)'},
+ {n:'Container With Most Water', lv:'medium', slug:'container-with-most-water',
+  q:'Cho các cột có chiều cao h[i]. Chọn hai cột để chứa nhiều nước nhất (diện tích = min(h) × khoảng cách).',
+  hint:'Bắt đầu với hai cột ở hai đầu (chiều rộng lớn nhất). Di chuyển cột THẤP hơn vì di chuyển cột cao không thể cải thiện.',
+  code:`def max_area(h):
+    l, r = 0, len(h) - 1
+    best = 0
+    while l < r:
+        best = max(best, min(h[l], h[r]) * (r - l))
+        if h[l] < h[r]:
+            l += 1
+        else:
+            r -= 1
+    return best
+
+print(max_area([1,8,6,2,5,4,8,3,7]))  # 49`,
+  why:'Diện tích bị giới hạn bởi cột thấp. Nếu giữ cột thấp và dịch cột cao, chiều rộng giảm mà chiều cao không vượt quá cột thấp ⇒ không tốt hơn. Vậy loại cột thấp an toàn.',
+  cx:'Time O(n), Space O(1)'},
+ {n:'3Sum', lv:'medium', slug:'3sum',
+  q:'Tìm mọi bộ ba (không trùng lặp) trong mảng có tổng bằng 0.',
+  hint:'Sort. Cố định i, rồi dùng hai đầu (l, r) cho phần còn lại. Bỏ qua giá trị trùng để tránh bộ ba lặp.',
+  code:`def three_sum(nums):
+    nums.sort()
+    res = []
+    for i in range(len(nums) - 2):
+        if nums[i] > 0: break                  # tổng không thể = 0
+        if i and nums[i] == nums[i - 1]: continue
+        l, r = i + 1, len(nums) - 1
+        while l < r:
+            s = nums[i] + nums[l] + nums[r]
+            if s < 0:   l += 1
+            elif s > 0: r -= 1
+            else:
+                res.append([nums[i], nums[l], nums[r]])
+                l += 1; r -= 1
+                while l < r and nums[l] == nums[l - 1]:
+                    l += 1
+    return res
+
+print(three_sum([-1,0,1,2,-1,-4]))  # [[-1,-1,2],[-1,0,1]]`,
+  why:'Giảm 3Sum về 2Sum trên mảng sort: O(n²) tổng thể. Xử lý trùng: bỏ qua i trùng i−1, và sau khi tìm được một bộ ba thì đẩy l qua các giá trị bằng nhau.',
+  cx:'Time O(n²), Space O(1) phụ'}
+]
+},
+/* ---------------------------------------------------------------- DP */
+{
+id:'dp', title:'6. Dynamic Programming', sub:'Trạng thái, công thức truy hồi, memo/bảng, tối ưu bộ nhớ.',
+think:[
+ 'Dấu hiệu: "đếm số cách", "tối đa/tối thiểu", "có thể hay không", và bài toán lớn gồm các bài con <b>chồng lấp</b>.',
+ '4 bước: (1) định nghĩa <code class="i">dp[i]</code> nghĩa là gì; (2) công thức chuyển; (3) trạng thái cơ sở; (4) thứ tự tính / đáp án nằm ở đâu.',
+ 'Bắt đầu từ đệ quy brute-force → thêm memo (<code class="i">functools.cache</code>) → chuyển thành bảng bottom-up → nén bộ nhớ.',
+ 'Hai khung hay gặp: chuỗi 1 chiều (stairs, rob, coin) và 2 chiều trên 2 chuỗi (LCS, edit distance), knapsack.'
+],
+templates:[
+ {t:'Memoization nhanh với functools.cache', cx:['Từ đệ quy → DP'], code:`from functools import cache
+
+@cache
+def fib(n):
+    return n if n < 2 else fib(n - 1) + fib(n - 2)`},
+ {t:'0/1 Knapsack nén 1 chiều (duyệt ngược)', cx:['Time O(nW)','Space O(W)'], code:`def knapsack(weights, values, W):
+    dp = [0] * (W + 1)
+    for w, v in zip(weights, values):
+        for c in range(W, w - 1, -1):      # ngược để mỗi món dùng 1 lần
+            dp[c] = max(dp[c], dp[c - w] + v)
+    return dp[W]`},
+ {t:'LIS O(n log n) bằng bisect', cx:['Time O(n log n)'], code:`from bisect import bisect_left
+
+def lis(nums):
+    tails = []                 # tails[k] = đuôi nhỏ nhất của dãy tăng dài k+1
+    for x in nums:
+        i = bisect_left(tails, x)
+        if i == len(tails): tails.append(x)
+        else:               tails[i] = x
+    return len(tails)`}
+],
+ex:[
+ {n:'Climbing Stairs', lv:'easy', slug:'climbing-stairs',
+  q:'Leo n bậc, mỗi lần bước 1 hoặc 2 bậc. Có bao nhiêu cách lên đỉnh?',
+  hint:'Để đến bậc n, bước cuối là từ n−1 hoặc n−2. Đó chính là Fibonacci.',
+  code:`def climb_stairs(n):
+    a, b = 1, 1                 # cách đến bậc 0 và 1
+    for _ in range(n - 1):
+        a, b = b, a + b
+    return b
+
+print(climb_stairs(2), climb_stairs(5))  # 2  8`,
+  why:'dp[i] = dp[i−1] + dp[i−2], dp[0]=dp[1]=1. Chỉ cần hai giá trị gần nhất nên nén còn O(1) bộ nhớ.',
+  cx:'Time O(n), Space O(1)'},
+ {n:'House Robber', lv:'medium', slug:'house-robber',
+  q:'Các căn nhà xếp hàng có tiền nums[i]. Không được trộm hai nhà liền kề. Tối đa lấy được bao nhiêu?',
+  hint:'Tại mỗi nhà: trộm (cộng với kết quả bỏ nhà trước) hoặc bỏ qua (giữ kết quả tốt nhất trước đó).',
+  code:`def rob(nums):
+    take, skip = 0, 0           # take: có trộm nhà hiện tại; skip: không trộm
+    for x in nums:
+        take, skip = skip + x, max(take, skip)
+    return max(take, skip)
+
+print(rob([1,2,3,1]))      # 4
+print(rob([2,7,9,3,1]))    # 12`,
+  why:'dp[i] = max(dp[i−1], dp[i−2] + nums[i]). Viết lại với hai biến để chỉ dùng O(1) bộ nhớ. Khi cập nhật đồng thời bằng tuple-assignment, cả hai giá trị mới dùng giá trị cũ.',
+  cx:'Time O(n), Space O(1)'},
+ {n:'Coin Change', lv:'medium', slug:'coin-change',
+  q:'Cho các mệnh giá xu (dùng không giới hạn) và số tiền amount. Tìm số xu ít nhất để tạo đúng amount, hoặc −1.',
+  hint:'dp[a] = số xu ít nhất để đạt a. Thử từng mệnh giá cuối cùng c: dp[a] = min(dp[a − c] + 1).',
+  code:`def coin_change(coins, amount):
+    INF = amount + 1
+    dp = [0] + [INF] * amount
+    for a in range(1, amount + 1):
+        for c in coins:
+            if c <= a:
+                dp[a] = min(dp[a], dp[a - c] + 1)
+    return dp[amount] if dp[amount] < INF else -1
+
+print(coin_change([1,2,5], 11))  # 3  (5+5+1)
+print(coin_change([2], 3))       # -1`,
+  why:'Greedy (luôn lấy xu lớn nhất) sai với ví dụ như coins=[1,3,4], amount=6 (greedy: 4+1+1=3 xu; tối ưu 3+3=2 xu). DP xét mọi khả năng. INF = amount+1 là giá trị "không thể" đủ lớn.',
+  cx:'Time O(amount × len(coins)), Space O(amount)'},
+ {n:'Longest Common Subsequence', lv:'medium', slug:'longest-common-subsequence',
+  q:'Cho hai chuỗi, tìm độ dài dãy con chung dài nhất (các ký tự không cần liền kề nhưng giữ thứ tự).',
+  hint:'dp[i][j] = LCS của a[:i] và b[:j]. Nếu a[i−1] == b[j−1] thì cộng 1 từ đường chéo; ngược lại lấy max của trên/trái.',
+  code:`def lcs(a, b):
+    m, n = len(a), len(b)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(m):
+        for j in range(n):
+            if a[i] == b[j]:
+                dp[i+1][j+1] = dp[i][j] + 1
+            else:
+                dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j])
+    return dp[m][n]
+
+print(lcs("abcde", "ace"))  # 3`,
+  why:'Đây là khung DP 2 chiều trên hai chuỗi — cũng là nền của Edit Distance. Hàng/cột 0 là cơ sở (chuỗi rỗng → 0). Có thể nén còn 2 hàng để O(min(m,n)) bộ nhớ.',
+  cx:'Time O(mn), Space O(mn)'}
+]
+},
+/* ---------------------------------------------------------------- GRAPH */
+{
+id:'graph', title:'7. Graph Algorithms', sub:'BFS, DFS, topological sort, Dijkstra, Union-Find.',
+think:[
+ '<b>Lưới (grid)</b> hay <b>quan hệ</b> (đồ thị ngầm) → mỗi ô/nút là đỉnh, 4 hướng/cạnh kề là cạnh.',
+ '<b>Đường đi ngắn nhất, đồ thị không trọng số</b> → BFS. <b>Trọng số không âm</b> → Dijkstra (heapq).',
+ '<b>Đếm thành phần liên thông</b> → DFS/BFS hoặc Union-Find.',
+ '<b>Thứ tự phụ thuộc / phát hiện chu trình trong đồ thị có hướng</b> → topological sort (Kahn).',
+ 'Nhiều nguồn cùng lan (rotting oranges) → <b>multi-source BFS</b>: nạp mọi nguồn vào queue từ đầu.',
+ 'Python: dùng stack tự quản/BFS hoặc <code class="i">sys.setrecursionlimit</code> để tránh tràn đệ quy với đồ thị sâu.'
+],
+templates:[
+ {t:'Biểu diễn + BFS đường ngắn nhất', cx:['Time O(V+E)'], code:`from collections import deque
+
+def bfs(adj, src):
+    dist = {src: 0}
+    q = deque([src])
+    while q:
+        u = q.popleft()
+        for v in adj[u]:
+            if v not in dist:
+                dist[v] = dist[u] + 1
+                q.append(v)
+    return dist`},
+ {t:'DFS (đệ quy) và 4 hướng trên lưới', cx:['Time O(V+E)'], code:`DIRS = ((1,0), (-1,0), (0,1), (0,-1))
+
+def dfs(adj, u, seen):
+    seen.add(u)
+    for v in adj[u]:
+        if v not in seen:
+            dfs(adj, v, seen)
+
+# duyệt hàng xóm trong lưới m x n
+# for dx, dy in DIRS:
+#     a, b = x + dx, y + dy
+#     if 0 <= a < m and 0 <= b < n: ...`},
+ {t:'Union-Find (DSU)', cx:['Gần O(1) mỗi thao tác'], code:`class DSU:
+    def __init__(self, n):
+        self.p = list(range(n))
+    def find(self, x):
+        while self.p[x] != x:
+            self.p[x] = self.p[self.p[x]]   # path compression
+            x = self.p[x]
+        return x
+    def union(self, a, b):
+        ra, rb = self.find(a), self.find(b)
+        if ra == rb: return False           # đã cùng thành phần -> có chu trình
+        self.p[ra] = rb
+        return True`}
+],
+ex:[
+ {n:'Number of Islands', lv:'medium', slug:'number-of-islands',
+  q:'Lưới các ký tự "1" (đất) và "0" (nước). Đếm số hòn đảo (các ô "1" liền kề 4 hướng).',
+  hint:'Duyệt lưới; gặp "1" chưa thăm thì đếm +1 rồi lan ra toàn bộ đảo (đánh dấu đã thăm).',
+  code:`def num_islands(grid):
+    m, n = len(grid), len(grid[0])
+    count = 0
+    for i in range(m):
+        for j in range(n):
+            if grid[i][j] != '1':
+                continue
+            count += 1
+            grid[i][j] = '0'                 # đánh dấu đã thăm
+            stack = [(i, j)]
+            while stack:
+                x, y = stack.pop()
+                for dx, dy in ((1,0), (-1,0), (0,1), (0,-1)):
+                    a, b = x + dx, y + dy
+                    if 0 <= a < m and 0 <= b < n and grid[a][b] == '1':
+                        grid[a][b] = '0'
+                        stack.append((a, b))
+    return count
+
+g = [list("11000"), list("11000"), list("00100"), list("00011")]
+print(num_islands(g))  # 3`,
+  why:'Mỗi thành phần liên thông = 1 đảo. Dùng stack tự quản thay đệ quy để tránh tràn stack với lưới lớn. Đánh dấu ngay khi PUSH (không phải khi POP) để mỗi ô vào stack tối đa một lần. Lưu ý: đề bài thay đổi input; nếu không được sửa, dùng set <code class="i">seen</code>.',
+  cx:'Time O(mn), Space O(mn) tệ nhất'},
+ {n:'Course Schedule', lv:'medium', slug:'course-schedule',
+  q:'Có n môn, prereq [a, b] nghĩa là phải học b trước a. Có thể học xong mọi môn không (đồ thị có chu trình hay không)?',
+  hint:'Topological sort (Kahn): lặp lấy các môn có bậc vào 0. Nếu xử lý đủ n môn → không có chu trình.',
+  code:`from collections import deque
+
+def can_finish(n, prereq):
+    adj = [[] for _ in range(n)]
+    indeg = [0] * n
+    for a, b in prereq:
+        adj[b].append(a)
+        indeg[a] += 1
+    q = deque(i for i in range(n) if indeg[i] == 0)
+    done = 0
+    while q:
+        u = q.popleft()
+        done += 1
+        for v in adj[u]:
+            indeg[v] -= 1
+            if indeg[v] == 0:
+                q.append(v)
+    return done == n
+
+print(can_finish(2, [[1,0]]))        # True
+print(can_finish(2, [[1,0],[0,1]]))  # False`,
+  why:'Nếu có chu trình, các đỉnh trong chu trình không bao giờ có bậc vào về 0 nên không được xử lý ⇒ done &lt; n. Mẫu này cũng cho thứ tự học (Course Schedule II) bằng cách ghi lại thứ tự pop.',
+  cx:'Time O(V+E), Space O(V+E)'},
+ {n:'Rotting Oranges', lv:'medium', slug:'rotting-oranges',
+  q:'Lưới: 0 trống, 1 cam tươi, 2 cam thối. Mỗi phút cam thối làm thối 4 ô kề. Tìm số phút để hết cam tươi, hoặc −1.',
+  hint:'Nhiều nguồn lan cùng lúc theo từng "lớp" thời gian → multi-source BFS, đếm số lớp.',
+  code:`from collections import deque
+
+def oranges_rotting(grid):
+    m, n = len(grid), len(grid[0])
+    q, fresh = deque(), 0
+    for i in range(m):
+        for j in range(n):
+            if grid[i][j] == 2: q.append((i, j))
+            elif grid[i][j] == 1: fresh += 1
+    minutes = 0
+    while q and fresh:
+        for _ in range(len(q)):              # xử lý trọn một lớp = 1 phút
+            x, y = q.popleft()
+            for dx, dy in ((1,0), (-1,0), (0,1), (0,-1)):
+                a, b = x + dx, y + dy
+                if 0 <= a < m and 0 <= b < n and grid[a][b] == 1:
+                    grid[a][b] = 2
+                    fresh -= 1
+                    q.append((a, b))
+        minutes += 1
+    return minutes if fresh == 0 else -1
+
+print(oranges_rotting([[2,1,1],[1,1,0],[0,1,1]]))  # 4`,
+  why:'BFS theo lớp: <code class="i">for _ in range(len(q))</code> xử lý đúng các ô của phút hiện tại. Điều kiện <code class="i">while q and fresh</code> dừng ngay khi không còn cam tươi để không đếm thừa phút cuối. Còn cam tươi không với tới → −1.',
+  cx:'Time O(mn), Space O(mn)'},
+ {n:'Network Delay Time', lv:'medium', slug:'network-delay-time',
+  q:'Mạng có n nút (1..n), cạnh có hướng (u, v, w). Gửi tín hiệu từ nút k. Sau bao lâu mọi nút nhận được? Trả −1 nếu có nút không tới được.',
+  hint:'Đường đi ngắn nhất từ một nguồn với trọng số không âm → Dijkstra. Đáp án = max khoảng cách.',
+  code:`import heapq
+
+def network_delay(times, n, k):
+    adj = [[] for _ in range(n + 1)]
+    for u, v, w in times:
+        adj[u].append((v, w))
+    dist = [float('inf')] * (n + 1)
+    dist[k] = 0
+    pq = [(0, k)]
+    while pq:
+        d, u = heapq.heappop(pq)
+        if d > dist[u]:
+            continue                       # bản ghi cũ, bỏ qua
+        for v, w in adj[u]:
+            if d + w < dist[v]:
+                dist[v] = d + w
+                heapq.heappush(pq, (dist[v], v))
+    ans = max(dist[1:])
+    return ans if ans < float('inf') else -1
+
+print(network_delay([[2,1,1],[2,3,1],[3,4,1]], 4, 2))  # 2`,
+  why:'Dijkstra với min-heap. "Lazy deletion": thay vì decrease-key, đẩy bản ghi mới và bỏ qua bản ghi lỗi thời (<code class="i">d &gt; dist[u]</code>). Không dùng được khi có cạnh âm (khi đó dùng Bellman-Ford).',
+  cx:'Time O(E log V), Space O(V+E)'}
+]
+},
+/* ---------------------------------------------------------------- DS & COMPLEXITY */
+{
+id:'ds', title:'8. Data Structures & Complexity Analysis', sub:'Stack, queue/deque, heap, phân tích độ phức tạp của built-in Python.',
+think:[
+ '<b>Ghép cặp lồng nhau, undo, "gần nhất bên trái"</b> → stack (list).',
+ '<b>Xử lý theo thứ tự đến, BFS, cửa sổ trượt</b> → <code class="i">deque</code> (popleft O(1); <code class="i">list.pop(0)</code> là O(n)!).',
+ '<b>Top-K, K lớn/nhỏ nhất, luôn lấy min/max</b> → <code class="i">heapq</code> (min-heap; max-heap: đẩy số âm).',
+ 'Phân tích: đếm vòng lặp lồng nhau, để ý các thao tác ẩn như <code class="i">in list</code>, <code class="i">s += c</code>, slicing, <code class="i">sorted()</code> bên trong vòng lặp.',
+ 'Trình bày độ phức tạp theo cả <b>thời gian</b> và <b>bộ nhớ phụ</b>; tính cả dữ liệu đầu ra khi cần.'
+],
+templates:[
+ {t:'deque và heapq', cx:['deque O(1) hai đầu','heap O(log n)'], code:`from collections import deque
+import heapq
+
+dq = deque([1, 2, 3])
+dq.appendleft(0); dq.pop(); dq.popleft()
+
+h = []
+for x in [5, 1, 4]:
+    heapq.heappush(h, x)
+heapq.heappop(h)                  # 1  (nhỏ nhất)
+
+maxh = []
+heapq.heappush(maxh, -7)          # max-heap bằng số âm
+-heapq.heappop(maxh)              # 7
+
+heapq.nlargest(2, [5, 1, 9, 3])   # [9, 5]
+arr = [5, 1, 4]; heapq.heapify(arr)   # O(n)`},
+ {t:'Stack đơn điệu — phần tử lớn hơn kế tiếp', cx:['Time O(n)','Space O(n)'], code:`def next_greater(a):
+    res, st = [-1] * len(a), []        # st chứa chỉ số, giá trị giảm dần
+    for i, x in enumerate(a):
+        while st and a[st[-1]] < x:
+            res[st.pop()] = x
+        st.append(i)
+    return res`}
+],
+ex:[
+ {n:'Valid Parentheses', lv:'easy', slug:'valid-parentheses',
+  q:'Chuỗi chỉ gồm ()[]{}. Kiểm tra các ngoặc có đóng đúng loại và đúng thứ tự không.',
+  hint:'Ngoặc đóng phải khớp với ngoặc mở GẦN NHẤT chưa đóng → stack.',
+  code:`def is_valid(s):
+    pair = {')': '(', ']': '[', '}': '{'}
+    st = []
+    for c in s:
+        if c in pair:
+            if not st or st.pop() != pair[c]:
+                return False
+        else:
+            st.append(c)
+    return not st
+
+print(is_valid("()[]{}"), is_valid("(]"), is_valid("([)]"))  # True False False`,
+  why:'Cuối chuỗi stack phải rỗng (còn dư ngoặc mở là sai). Kiểm tra <code class="i">not st</code> trước khi pop để tránh lỗi khi chuỗi bắt đầu bằng ngoặc đóng.',
+  cx:'Time O(n), Space O(n)'},
+ {n:'Min Stack', lv:'medium', slug:'min-stack',
+  q:'Thiết kế stack hỗ trợ push, pop, top và getMin đều trong O(1).',
+  hint:'Lưu cùng mỗi phần tử giá trị min tại thời điểm đó (min của toàn bộ stack bên dưới + nó).',
+  code:`class MinStack:
+    def __init__(self):
+        self.st = []                       # (giá trị, min đến vị trí này)
+
+    def push(self, x):
+        m = min(x, self.st[-1][1]) if self.st else x
+        self.st.append((x, m))
+
+    def pop(self):
+        self.st.pop()
+
+    def top(self):
+        return self.st[-1][0]
+
+    def getMin(self):
+        return self.st[-1][1]
+
+s = MinStack(); s.push(-2); s.push(0); s.push(-3)
+print(s.getMin()); s.pop(); print(s.top(), s.getMin())  # -3  0 -2`,
+  why:'Khi pop, min tự "quay lui" về giá trị trước đó nhờ đã lưu sẵn. Đây là kỹ thuật "tăng cường cấu trúc dữ liệu" (augment) thường gặp trong câu hỏi thiết kế.',
+  cx:'Mọi thao tác O(1), Space O(n)'},
+ {n:'Top K Frequent Elements', lv:'medium', slug:'top-k-frequent-elements',
+  q:'Trả về k phần tử xuất hiện nhiều nhất trong mảng. Yêu cầu tốt hơn O(n log n).',
+  hint:'Đếm bằng Counter; rồi chọn top-k bằng heap O(n log k) hoặc bucket theo tần suất O(n).',
+  code:`from collections import Counter
+import heapq
+
+def top_k_heap(nums, k):
+    cnt = Counter(nums)
+    return heapq.nlargest(k, cnt.keys(), key=cnt.get)     # O(n log k)
+
+def top_k_bucket(nums, k):
+    cnt = Counter(nums)
+    buckets = [[] for _ in range(len(nums) + 1)]          # index = tần suất
+    for x, c in cnt.items():
+        buckets[c].append(x)
+    res = []
+    for c in range(len(buckets) - 1, 0, -1):
+        for x in buckets[c]:
+            res.append(x)
+            if len(res) == k:
+                return res
+    return res
+
+print(top_k_heap([1,1,1,2,2,3], 2))     # [1,2]
+print(top_k_bucket([1,1,1,2,2,3], 2))   # [1,2]`,
+  why:'Tần suất tối đa là n nên có thể bucket-sort tần suất thay vì sort ⇒ O(n). Khi k nhỏ, heap kích thước k cho O(n log k) và dễ viết hơn bằng <code class="i">nlargest</code>.',
+  cx:'Heap O(n log k) · Bucket O(n)'},
+ {n:'Kth Largest Element in an Array', lv:'medium', slug:'kth-largest-element-in-an-array',
+  q:'Tìm phần tử lớn thứ k trong mảng (theo thứ tự sắp xếp, không phải k giá trị phân biệt).',
+  hint:'Giữ một min-heap kích thước k: đỉnh heap chính là phần tử lớn thứ k.',
+  code:`import heapq
+
+def find_kth_largest(nums, k):
+    h = []
+    for x in nums:
+        heapq.heappush(h, x)
+        if len(h) > k:
+            heapq.heappop(h)      # loại phần tử nhỏ nhất
+    return h[0]
+
+print(find_kth_largest([3,2,1,5,6,4], 2))  # 5
+print(find_kth_largest([3,2,3,1,2,4,5,5,6], 4))  # 4`,
+  why:'Sort O(n log n) đã được chấp nhận nhưng heap kích thước k có O(n log k) và dùng O(k) bộ nhớ. (Quickselect cho O(n) trung bình nhưng tệ nhất O(n²).) Nên nêu cả hai khi được hỏi trong phỏng vấn.',
+  cx:'Time O(n log k), Space O(k)'}
+]
+}
+];
+
+/* ------------------------------------------------------------------ RENDER */
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+let storage = null;
+try { storage = window.localStorage; storage.getItem('x'); } catch (e) { storage = null; }
+const KEY = 'pydsa-done-v1';
+let done = {};
+try { done = JSON.parse(storage.getItem(KEY) || '{}'); } catch (e) { done = {}; }
+function saveDone(){ try { storage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
+
+function codeBlock(code){
+  const pre = document.createElement('pre');
+  const c = document.createElement('code');
+  c.textContent = code;
+  const b = document.createElement('button');
+  b.className = 'copy'; b.textContent = 'Copy';
+  b.addEventListener('click', () => {
+    if (!navigator.clipboard) return;
+    navigator.clipboard.writeText(code).then(() => { b.textContent = 'Đã copy'; setTimeout(() => b.textContent = 'Copy', 1200); });
+  });
+  pre.append(c, b);
+  return pre;
+}
+function el(tag, cls, html){ const e = document.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
+
+const root = document.getElementById('topics');
+const toc = document.getElementById('toc');
+let totalEx = 0;
+
+topics.forEach(t => {
+  const a = el('a', '', esc(t.title)); a.href = '#' + t.id; toc.appendChild(a);
+  const sec = el('section', 'topic'); sec.id = t.id;
+  sec.append(el('h2', '', esc(t.title)), el('p', 'sub', esc(t.sub)));
+
+  const thinkCard = el('div', 'card');
+  thinkCard.append(el('h3', 'k', '🧠 Tư duy: khi nào nghĩ tới chủ đề này?'));
+  const ul = el('ul', 'think'); t.think.forEach(x => ul.appendChild(el('li', '', x)));
+  thinkCard.appendChild(ul);
+
+  thinkCard.append(el('h3', 'k', '⚙️ Mẫu code cần thuộc'));
+  t.templates.forEach(tp => {
+    thinkCard.appendChild(el('h3', '', esc(tp.t) + ' ' + tp.cx.map(c => '<span class="cx">' + esc(c) + '</span>').join('')));
+    thinkCard.appendChild(codeBlock(tp.code));
+  });
+  sec.appendChild(thinkCard);
+
+  const exCard = el('div', 'card');
+  exCard.appendChild(el('h3', 'k', '✍️ Bài tập (LeetCode)'));
+  t.ex.forEach((x, i) => {
+    totalEx++;
+    const id = t.id + '-' + i;
+    const box = el('div', 'ex');
+    const head = el('div', 'head');
+    head.innerHTML = '<strong>' + (i + 1) + '. ' + esc(x.n) + '</strong><span class="lv ' + x.lv + '">' + x.lv + '</span><a href="' + LC(x.slug) + '" target="_blank" rel="noopener">Mở trên LeetCode ↗</a>';
+    const lab = el('label', 'done');
+    const cb = document.createElement('input'); cb.type = 'checkbox'; cb.checked = !!done[id];
+    cb.addEventListener('change', () => { if (cb.checked) done[id] = 1; else delete done[id]; saveDone(); updateProgress(); });
+    lab.append(cb, document.createTextNode('Đã làm'));
+    head.appendChild(lab);
+    box.append(head, el('p', '', '<b>Đề:</b> ' + x.q));
+    const d = document.createElement('details');
+    d.innerHTML = '<summary>Đáp án &amp; hướng tư duy</summary>';
+    const ans = el('div', 'ans');
+    ans.append(el('h4', '', '💡 Gợi ý tư duy'), el('p', '', x.hint), el('h4', '', '🐍 Lời giải Python'));
+    ans.appendChild(codeBlock(x.code));
+    ans.append(el('h4', '', '📖 Giải thích'), el('p', '', x.why), el('p', '', '<span class="cx">' + esc(x.cx) + '</span>'));
+    d.appendChild(ans);
+    box.appendChild(d);
+    exCard.appendChild(box);
+  });
+  sec.appendChild(exCard);
+  root.appendChild(sec);
+});
+
+function updateProgress(){
+  const n = Object.keys(done).length;
+  document.getElementById('progress').textContent = 'Tiến độ: ' + n + '/' + totalEx + ' bài';
+}
+updateProgress();
+
+/* ------------------------------------------------------------ cheat sheet */
+const cheat = document.getElementById('cheat');
+cheat.innerHTML = '<h2>📋 Bảng độ phức tạp của built-in Python</h2><p class="sub">Câu hỏi lý thuyết rất hay xuất hiện trong bài thi.</p><div class="card"><table>' +
+'<tr><th>Cấu trúc / thao tác</th><th>Độ phức tạp</th><th>Ghi chú</th></tr>' +
+'<tr><td><code class="i">list</code>: index, append, pop()</td><td>O(1) (append: amortized)</td><td>Dynamic array</td></tr>' +
+'<tr><td><code class="i">list</code>: insert(0,x), pop(0), <code class="i">x in list</code>, remove, index</td><td>O(n)</td><td>Cần dịch/duyệt; dùng deque nếu cần pop đầu</td></tr>' +
+'<tr><td><code class="i">list</code>: slicing a[i:j]</td><td>O(j−i)</td><td>Tạo bản sao mới</td></tr>' +
+'<tr><td><code class="i">sort()</code> / <code class="i">sorted()</code></td><td>O(n log n)</td><td>Timsort, ổn định; gần O(n) với dữ liệu gần sorted</td></tr>' +
+'<tr><td><code class="i">dict</code>/<code class="i">set</code>: get, set, in, delete</td><td>O(1) trung bình, O(n) tệ nhất</td><td>Key phải hashable</td></tr>' +
+'<tr><td><code class="i">deque</code>: append/pop/appendleft/popleft</td><td>O(1)</td><td>Truy cập giữa d[i] là O(n)</td></tr>' +
+'<tr><td><code class="i">heapq</code>: heappush, heappop</td><td>O(log n)</td><td>heap[0] là min: O(1); heapify: O(n)</td></tr>' +
+'<tr><td><code class="i">bisect</code>: bisect_left/right</td><td>O(log n)</td><td>insort vẫn O(n) do dịch phần tử</td></tr>' +
+'<tr><td>Nối chuỗi <code class="i">s += c</code> trong vòng lặp</td><td>O(n²) tổng</td><td>Dùng <code class="i">"".join(list)</code> → O(n)</td></tr>' +
+'<tr><td><code class="i">max/min/sum(iterable)</code>, <code class="i">len</code></td><td>O(n) / O(1)</td><td>len là O(1)</td></tr>' +
+'</table></div>' +
+'<div class="card"><h3 class="k">Đoán độ phức tạp nhanh từ ràng buộc</h3><table>' +
+'<tr><th>n tối đa</th><th>Độ phức tạp chấp nhận</th><th>Kỹ thuật thường gặp</th></tr>' +
+'<tr><td>≤ 20</td><td>O(2ⁿ), O(n!)</td><td>Backtracking, bitmask</td></tr>' +
+'<tr><td>≤ 500</td><td>O(n³)</td><td>DP 3 chiều, Floyd–Warshall</td></tr>' +
+'<tr><td>≤ 5 000</td><td>O(n²)</td><td>DP 2 chiều, brute-force cặp</td></tr>' +
+'<tr><td>≤ 10⁵</td><td>O(n log n)</td><td>Sort, heap, binary search, Dijkstra</td></tr>' +
+'<tr><td>≤ 10⁶ – 10⁷</td><td>O(n)</td><td>Hash map, prefix, two pointers, BFS/DFS</td></tr>' +
+'<tr><td>≤ 10⁹ hoặc lớn hơn</td><td>O(log n), O(1)</td><td>Binary search, công thức toán</td></tr>' +
+'</table></div>';
+
+/* --------------------------------------------------------------- strategy */
+document.getElementById('strategy').innerHTML = '<h2>🎯 Chiến lược làm bài thi</h2><div class="card"><ul class="think">' +
+'<li><b>Phân loại nhanh:</b> sorted → binary search/two pointers; "đoạn con" → prefix/sliding window; "đếm cách/tối ưu" → DP; lưới/quan hệ → graph; cần tra cứu nhanh → hash.</li>' +
+'<li><b>Nói trước khi viết:</b> nêu brute-force và độ phức tạp của nó, rồi chỉ ra điểm nghẽn và cách tối ưu. Điểm thi thường nằm ở lập luận.</li>' +
+'<li><b>Viết code sạch:</b> đặt tên biến có nghĩa (<code class="i">lo, hi, seen, dist</code>), tách hàm phụ, tránh trick khó đọc.</li>' +
+'<li><b>Tự test bằng tay:</b> chạy ví dụ nhỏ (3–5 phần tử), rồi các biên: rỗng, 1 phần tử, trùng lặp, toàn số âm, đã sort ngược.</li>' +
+'<li><b>Lỗi hay gặp:</b> sai biên <code class="i">&lt;</code> / <code class="i">&lt;=</code> khi binary search; quên <code class="i">pre[0]=0</code>; sửa list khi đang duyệt; mutable default argument; dùng <code class="i">list.pop(0)</code> làm queue; đệ quy quá sâu (giới hạn mặc định ~1000).</li>' +
+'<li><b>Lịch ôn gợi ý 7 ngày:</b> mỗi ngày một chủ đề (đọc tư duy → gõ lại mẫu code từ trí nhớ → giải bài chưa xem đáp án); ngày cuối làm lại các bài đã sai và tự bấm giờ 25 phút/bài.</li>' +
+'</ul></div>';
+
+document.getElementById('expand').addEventListener('click', e => {
+  const ds = [...document.querySelectorAll('details')];
+  const allOpen = ds.every(d => d.open);
+  ds.forEach(d => d.open = !allOpen);
+  e.target.textContent = allOpen ? 'Mở tất cả đáp án' : 'Ẩn tất cả đáp án';
+});
+document.getElementById('resetProg').addEventListener('click', () => {
+  done = {}; saveDone();
+  document.querySelectorAll('.done input').forEach(c => c.checked = false);
+  updateProgress();
+});
+</script>
+</body>
+</html>

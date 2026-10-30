@@ -16,7 +16,7 @@
         @media (max-width: 800px) { .column { flex: 50%; max-width: 50%; } }
         @media (max-width: 600px) { .column { flex: 100%; max-width: 100%; } }
         
-        .certification-section { margin-top: 2rem; background: #fff; padding: 2rem; border-radius: 8px; border: 1px solid #eee; }
+        .certification-section { margin-top: 2rem; }
         .course-item { margin-bottom: 1rem; transition: transform 0.2s; }
         .course-item:hover { transform: scale(1.02); }
     </style>
@@ -26,31 +26,44 @@
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
             <div class="profile-header">
-                <h1 class="name">Khoa Nguyen</h1>
-                <p class="title" style="margin-bottom: 0.5rem;">Engineer & Researcher</p>
+                <a href="index.html" class="name">Khoa Nguyen</a>
+                <p class="title">Engineer &amp; Researcher</p>
             </div>
-            
+
+            <input type="checkbox" id="nav-check" class="nav-check" aria-hidden="true">
+            <label for="nav-check" class="nav-toggle">Menu</label>
+
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-item">Home</a></li>
                 <li><a href="projects.html" class="nav-item">Projects</a></li>
                 <li><a href="publications.html" class="nav-item">Publications</a></li>
                 <li><a href="cv.html" class="nav-item">Curriculum Vitae</a></li>
-                <li><a href="contact.html" class="nav-item">Contact</a></li>
                 <li><a href="certifications.html" class="nav-item active">Certificates</a></li>
+                <li><a href="contact.html" class="nav-item">Contact</a></li>
             </ul>
 
             <div class="sidebar-footer">
-                <p>&copy; 2026 Khoa Nguyen.</p>
+                <div class="social-links">
+                    <a href="https://github.com/Khoa15" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ntd-khoa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:khoa15503.work@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="more-links">
+                    <a href="blog/index.html">Blog</a>
+                    <a href="ml_math_study_pack-3.html">Maths &amp; ML Study Pack</a>
+                    <a href="python_dsa_review.html">Python DSA Review</a>
+                </div>
+                <p>&copy; 2026 Khoa Nguyen</p>
             </div>
         </nav>
 
         <!-- Main Content Area -->
         <main class="main-content">
             <div class="fade-in">
-                <h2 class="section-title">Certifications & Courses</h2>
+                <h2 class="section-title">Certifications &amp; Courses</h2>
                 
                 <div class="certification-section" id="myCertifications">
-                    <h3 style="font-family: 'Times New Roman', serif; margin-bottom: 1.5rem;">Professional Certifications</h3>
+                    <h3>Professional Certifications</h3>
                     <div class="row">
                         <div class="column">
                             <img src="old/cv/assets/certifications/IELTS_NguyenTrongDangKhoa_10.jpg" fetchpriority="high" width="100%" alt="IELTS Certification">
@@ -63,13 +76,13 @@
                         </div>
                         <div class="column">
                             <img src="old/cv/assets/certifications/IntermediateAlgorithm_NguyenTrongDangKhoa.jpg" width="100%" alt="Intermediate Algorithm">
-                            <img src="cv/assets/certifications/certificate_icdam_Trong Dang Khoa Nguyen.jpg" width="100%" alt="">
+                            <img src="old/cv/assets/certifications/certificate_icdam_Trong Dang Khoa Nguyen.jpg" width="100%" alt="">
                         </div>
                     </div>
                 </div>
 
                 <div class="certification-section" id="myCourses" style="margin-top: 2rem;">
-                    <h3 style="font-family: 'Times New Roman', serif; margin-bottom: 1.5rem;">Course Certificates</h3>
+                    <h3>Course Certificates</h3>
                     <div class="row" id="myCourseslist">
                     </div>
                 </div>
@@ -176,7 +189,7 @@
             courseDiv.className = 'col-md-4 p-2 course-item';
             courseDiv.innerHTML = `
                 <a data-bs-toggle="tooltip" data-bs-title="Open in new tab" data-bs-placement="top" class="d-flex" href="${course.link}" target="_blank">
-                    <img class="lazy" data-src="${course.img}" width="100%" alt="${course.title}" style="border-radius: 4px; border: 1px solid #ddd; object-fit: contain;">
+                    <img class="lazy" data-src="${course.img}" width="100%" alt="${course.title}" style="border-radius: 6px; border: 1px solid var(--border-color); object-fit: contain;">
                 </a>
             `;
             container.appendChild(courseDiv);

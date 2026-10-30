@@ -200,6 +200,26 @@
             margin-top: 0.15rem;
             color: #333;
         }
+
+        .break-page {
+            break-before: page;
+            page-break-before: always;
+        }
+
+        .ieee-ref {
+            display: flex;
+            gap: 0.5rem;
+            text-align: justify;
+        }
+
+        .ieee-label {
+            flex: 0 0 auto;
+        }
+
+        .pub-role {
+            margin-left: 1.25rem;
+            margin-top: 0.2rem;
+        }
     </style>
 </head>
 
@@ -215,24 +235,70 @@
 href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa</a>
     </div>
 
-    <!-- <div class="section-title">SUMMARY</div>
+    <!-- <div class="section-title">About Me</div>
     <div class="entry" style="margin-top: 0.25rem;">
-        Software Engineer with experience in Computer Vision and Generative AI. Proficient in Python, PyTorch, LangChain, and REST API design. Hands‑on with Vision-Language Models based on CLIP architecture, object detection pipelines, OCR systems, and AI automation workflows. Familiar with building embedding vectors for RAG tasks.
+        I am an AI engineer who turns open questions into working systems. I am drawn to what we do not yet understand about AI: how models learn, generalize, and fail. I have taken ideas from papers to products, and I keep looking for research opportunities where I can ask harder questions and share what I learn with a community.
     </div> -->
 
-    <div class="section-title">Education</div>
-    <div class="entry">
-        <div class="entry-header">
-            <span>Ho Chi Minh City University of Industry and Trade</span>
-            <span>08/2021 &ndash; 04/2025</span>
+    <!-- <div class="section-title">Skills</div>
+    <div class="entry skills-container">
+        <div class="skill-category">
+            <div class="skill-category-label">Backend</div>
+            <div class="skill-tags">
+                Python, FastAPI, REST APIs, Redis, PostgreSQL
+            </div>
         </div>
-        <div class="entry-sub-header">
-            <span>Bachelor of Science in Information Technology</span>
-            <span>Ho Chi Minh City, Vietnam</span>
+        <div class="skill-category">
+            <div class="skill-category-label">Frontend</div>
+            <div class="skill-tags">
+                ReactJS, NextJS
+            </div>
         </div>
-    </div>
+        <div class="skill-category">
+            <div class="skill-category-label">AI Systems</div>
+            <div class="skill-tags">
+                LangChain, LangGraph, LlamaIndex, LangFuse, RAG, RAGAS
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-category-label">Vector Database</div>
+            <div class="skill-tags">
+                Qdrant
+            </div>
+        </div>
+        <div class="skill-category">
+            <div class="skill-category-label">Tools/Others</div>
+            <div class="skill-tags">
+                Claude Code, Git, GitHub, Docker, Linux, Google Cloud, GitHub Actions, Terraform, CI/CD, MLOps
+            </div>
+        </div>
+        <div class="skill-category full-width">
+            <div class="skill-category-label">Language</div>
+            <div class="skill-tags">
+                Vietnamese (native), English (IELTS 6.0, TOEIC 720)
+            </div>
+        </div>
+    </div> -->
 
     <div class="section-title">Professional Experience</div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>AI Engineer</span>
+            <span>AI in Action (AI20K), VinUniversity</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Ha Noi, Vietnam</span>
+            <span>07/2026 &ndash; 10/2026</span>
+        </div>
+        <ul>
+            <li>Built Lina, an AI learning assistant that brings academic data for teachers and students into one place and personalizes study paths using each learner's preferences, habits, and competency scores.</li>
+            <li>Designed a Study Plan Agent (LangGraph, with Human-in-the-Loop checks) that turns learning materials into structured, checkpointed study plans and tracks progress.</li>
+            <li>Shipped Lina's core services with automated scheduling and email delivery, keeping them reliable through error handling, logging, and automated testing.</li>
+            <li>Built an OTA travel product: an AI travel assistant that streams answers and plans itineraries, grounded in travel data through embedding-based retrieval (RAG, Qdrant).</li>
+            <li>Set up automated GCP deployment and monitoring (GitHub Actions, Terraform, Cloud Monitoring) so releases are safer and problems are spotted faster.</li>
+        </ul>
+    </div>
 
     <div class="entry">
         <div class="entry-header">
@@ -241,10 +307,10 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
         </div>
         <div class="entry-sub-header">
             <span>Ho Chi Minh City, Vietnam</span>
-            <span>12/2025 &ndash; Present</span>
+            <span>12/2025 &ndash; 07/2026</span>
         </div>
         <ul>
-            <li>Supported users across multiple departments and resolved system-related issues in a timely manner.</li>
+            <li>Supported users across multiple departments and resolved system-related issues.</li>
             <li>Maintained core services and automation workflows to improve availability and operational reliability.</li>
             <li>Handled large operational datasets and improved workflow performance through process optimization.</li>
             <li>Streamlined the return-order process to reduce manual effort and accelerate daily operations.</li>
@@ -262,7 +328,7 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
         </div>
         <ul>
             <li>Built an AI-driven assistant to automate task management and improve user productivity.</li>
-            <li>Extended platform capabilities with reusable integrations and custom workflow components.</li>
+            <li>Extended N8N platform capabilities with reusable integrations and custom workflow components.</li>
         </ul>
     </div>
 
@@ -276,62 +342,97 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
             <span>09/2024 &ndash; 12/2024</span>
         </div>
         <ul>
-            <li>Improved an object-detection training and inference pipeline, increasing model accuracy through data augmentation and parameter tuning.</li>
-            <li>Supported maintenance and deployment of remote monitoring stations to ensure reliable data collection and processing.</li>
+            <li>Improved an object-detection pipeline, raising model accuracy through data augmentation and tuning.</li>
+            <li>Helped keep remote monitoring stations deployed and running, so data collection stayed reliable.</li>
         </ul>
     </div>
 
+    <!-- <div class="break-page"></div> -->
 
-    <div class="section-title">Skills</div>
-    <div class="entry skills-container">
-        <div class="skill-category">
-            <div class="skill-category-label">AI</div>
-            <div class="skill-tags">
-                LangChain, LlamaIndex, Llama, RAG
-            </div>
+    <!-- <div class="section-title">Publications</div>
+    <div class="entry">
+        <div class="ieee-ref">
+            <span class="ieee-label">[1]</span>
+            <span>Ngoc Cuong Pham, Phat Hien Le, Thanh Tuan Tai, Trong Dang Khoa Nguyen, Thi Cam Tu Lu, and Duc Luu Ngo, "A Vietnamese Beverage Product Dataset for Retail Recognition," in Proc. 7th Int. Conf. Data Analytics &amp; Management (ICDAM), 2026.</span>
         </div>
-        <div class="skill-category">
-            <div class="skill-category-label">Backend</div>
-            <div class="skill-tags">
-                Python, FastAPI, NodeJS
-            </div>
+        <div class="pub-role"><strong>Key Responsibilities:</strong> Manuscript preparation; formulating the team's research direction; conducting a literature survey.</div>
+    </div> -->
+
+
+    <div class="section-title">Education</div>
+    <div class="entry">
+        <div class="entry-header">
+            <span>Ho Chi Minh City University of Industry and Trade</span>
+            <span>08/2021 &ndash; 04/2025</span>
         </div>
-        <div class="skill-category">
-            <div class="skill-category-label">Frontend</div>
-            <div class="skill-tags">
-                React
-            </div>
-        </div>
-        <div class="skill-category">
-            <div class="skill-category-label">Automation</div>
-            <div class="skill-tags">
-                N8N
-            </div>
-        </div>
-        <div class="skill-category">
-            <div class="skill-category-label">Database</div>
-            <div class="skill-tags">
-                MySQL, PostgreSQL, Qdrant
-            </div>
-        </div>
-        <div class="skill-category">
-            <div class="skill-category-label">Tools</div>
-            <div class="skill-tags">
-                Git, Docker, Linux, VS Code, Codex CLI
-            </div>
-        </div>
-        <div class="skill-category full-width">
-            <div class="skill-category-label">Language</div>
-            <div class="skill-tags">
-                Vietnamese (native), English (IELTS 6.0, TOEIC 720)
-            </div>
+        <div class="entry-sub-header">
+            <span>Bachelor of Science in Information Technology</span>
+            <span>Ho Chi Minh City, Vietnam</span>
         </div>
     </div>
+
+
+    <div class="section-title">Honors & Awards</div>
+    <div class="entry">
+        <ul class="two-cols-list">
+            <li>
+                <div>
+                    <span class="col-title">Encouragement Award for <em>"Emergent Products and Topics in the Information Technology Field"</em> &mdash; HUIT</span>
+                    <span class="col-date">2023</span>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <span class="col-title">First Prize, <em>"Young Coder's Competition"</em> &mdash; HUIT</span>
+                    <span class="col-date">2023</span>
+                </div>
+            </li>
+            <!-- <li>
+                <div>
+                    <span class="col-title">Third Prize, <em>"Science Fair"</em> &mdash; Tran Khai Nguyen High School</span>
+                    <span class="col-date">2020</span>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <!-- <div class="break-page"></div> -->
     
+
+    <div class="section-title">Projects</div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>Lina: AI Academic Assistant (Team Project)</span>
+            <span>VinUni AI20K Build Phase</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Contributor</span>
+        </div>
+        <ul>
+            <li>Built streaming chat and quiz features with Server-Sent Events, Next.js, TypeScript, and React, showing live progress in English and Vietnamese.</li>
+            <li>Implemented secure login with HttpOnly cookies, refresh token rotation, and token revocation on logout across Next.js and FastAPI.</li>
+            <li>Developed quiz personalization based on student profiles, with Alembic migrations on PostgreSQL and document upload to Google Cloud Storage.</li>
+            <li>Verified changes with 72 passing backend tests and 20 passing frontend tests on the feature branch.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-header">
+            <span>Travel Recommendation Product (Team Project)</span>
+        </div>
+        <div class="entry-sub-header">
+            <span>Contributor</span>
+        </div>
+        <ul>
+            <li>Maintained deployment workflows on Google Cloud Platform, loading application settings from Secret Manager and configuring Cloud Monitoring alerts for staging servers.</li>
+            <li>Fixed a cross-site request forgery origin check behind a reverse proxy, and added structured frontend logging for error reporting.</li>
+            <li>Fixed a crawler monitor startup failure on a virtual machine and resolved merge conflicts across pull requests.</li>
+        </ul>
+    </div>
 
     <!-- <div class="section-title">Projects</div>
 
-    
+
 
     <div class="entry">
         <div class="entry-header">
@@ -349,35 +450,8 @@ href="https://linkedin.com/in/ntd-khoa" target="_blank">linkedin.com/in/ntd-khoa
         </ul>
     </div> -->
 
-    <div class="section-title">Publications</div>
-    <div class="entry">
-        <ul>
-            <li>Ngoc Cuong Pham, Phat Hien Le, Thanh Tuan Tai, Trong Dang Khoa Nguyen, Thi Cam Tu Lu, and Duc Luu Ngo. <em>A Vietnamese Beverage Product Dataset for Retail Recognition. In Proceedings of the 7th International Conference on Data Analytics &amp; Management (ICDAM 2026)</em>, 2026.</li>
-        </ul>
-    </div>
-    <div class="section-title">Honors & Awards</div>
-    <div class="entry">
-        <ul class="two-cols-list">
-            <li>
-                <div>
-                    <span class="col-title">Encouragement Award for <em>"Emergent Products and Topics in the Information Technology Field"</em> &mdash; HUIT</span>
-                    <span class="col-date">2023</span>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <span class="col-title">First Prize, <em>"Young Coder's Competition"</em> &mdash; HUIT</span>
-                    <span class="col-date">2023</span>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <span class="col-title">Third Prize, <em>"Science Fair"</em> &mdash; Tran Khai Nguyen High School</span>
-                    <span class="col-date">2020</span>
-                </div>
-            </li>
-        </ul>
-    </div>
+
+
 
 
     <script>

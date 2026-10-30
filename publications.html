@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoa Nguyen - Publications</title>
-    <!-- System Fonts Used (Times New Roman) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <div class="app-container">
         <!-- Sidebar Navigation -->
         <nav class="sidebar">
             <div class="profile-header">
-                <h1 class="name">Khoa Nguyen</h1>
-                <p class="title" style="margin-bottom: 0.5rem;">Engineer & Researcher</p>
-
-
+                <a href="index.html" class="name">Khoa Nguyen</a>
+                <p class="title">Engineer &amp; Researcher</p>
             </div>
+
+            <input type="checkbox" id="nav-check" class="nav-check" aria-hidden="true">
+            <label for="nav-check" class="nav-toggle">Menu</label>
 
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-item">Home</a></li>
                 <li><a href="projects.html" class="nav-item">Projects</a></li>
                 <li><a href="publications.html" class="nav-item active">Publications</a></li>
                 <li><a href="cv.html" class="nav-item">Curriculum Vitae</a></li>
-                <li><a href="contact.html" class="nav-item">Contact</a></li>
                 <li><a href="certifications.html" class="nav-item">Certificates</a></li>
+                <li><a href="contact.html" class="nav-item">Contact</a></li>
             </ul>
 
             <div class="sidebar-footer">
-                <p>&copy; 2026 Khoa Nguyen.</p>
+                <div class="social-links">
+                    <a href="https://github.com/Khoa15" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ntd-khoa" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:khoa15503.work@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="more-links">
+                    <a href="blog/index.html">Blog</a>
+                    <a href="ml_math_study_pack-3.html">Maths &amp; ML Study Pack</a>
+                    <a href="python_dsa_review.html">Python DSA Review</a>
+                </div>
+                <p>&copy; 2026 Khoa Nguyen</p>
             </div>
         </nav>
 
@@ -39,63 +47,38 @@
         <main class="main-content">
             <div class="fade-in">
                 <h2 class="section-title">Publications</h2>
-                <!-- Publication 1 -->
-                <div class="publication-item"
-                    style="margin-top: 2rem; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; transition: transform 0.2s; background: #fff;">
-                    <h3 style="margin-bottom: 0.25rem; font-family: 'Times New Roman', serif; font-size: 1.25rem;">
-                        <a href="publications/dataset_paper.html"
-                            style="color: #0056b3; text-decoration: none;">Vietnamese Beverage Dataset (Data in Brief)</a>
-                    </h3>
-                    <p
-                        style="color: #666; font-family: 'Times New Roman', serif; margin-bottom: 1rem; font-size: 0.95rem;">
-                        <span style="display: inline-block; background-color: #f0ad4e; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem; margin-right: 0.5rem; position: relative; top: -1px;">In Preparation</span>
-                        A comprehensive data article covering the methodology and statistical insights for building a high-quality domestic datasets in Vietnam.
-                    </p>
-                    <a href="publications/dataset_paper.html"
-                        style="display: inline-block; padding: 0.5rem 1rem; background: #0056b3; color: white; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-family: 'Times New Roman', serif;">View
-                        Details</a>
-                </div>
+                <p class="section-subtitle">Research articles and data papers in computer vision, language modelling and dataset construction.</p>
 
-                <!-- Publication 2 -->
-                <div class="publication-item"
-                    style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; transition: transform 0.2s; background: #fff;">
-                    <h3 style="margin-bottom: 0.25rem; font-family: 'Times New Roman', serif; font-size: 1.25rem;">
-                        <a href="publications/text_compression_paper.html"
-                            style="color: #0056b3; text-decoration: none;">Optimizing Arithmetic Compression Pipeline using MLM</a>
-                    </h3>
-                    <p
-                        style="color: #666; font-family: 'Times New Roman', serif; margin-bottom: 1rem; font-size: 0.95rem;">
-                        <span style="display: inline-block; background-color: #f0ad4e; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem; margin-right: 0.5rem; position: relative; top: -1px;">In Preparation</span>
-                        Research presenting a novel approach to parallelize full-sentence processing with standard batch token generation effectively tackling mathematical drifts.
-                    </p>
-                    <a href="publications/text_compression_paper.html"
-                        style="display: inline-block; padding: 0.5rem 1rem; background: #0056b3; color: white; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-family: 'Times New Roman', serif;">View
-                        Details</a>
-                </div>
+                <div class="pub-list">
+                    <article class="pub-card">
+                        <div class="pub-meta">
+                            <span class="badge badge-progress">In Preparation</span>
+                        </div>
+                        <h3><a href="publications/dataset_paper.html">Vietnamese Beverage Dataset (Data in Brief)</a></h3>
+                        <p>A comprehensive data article covering the methodology and statistical insights for building a high-quality domestic datasets in Vietnam.</p>
+                        <a href="publications/dataset_paper.html" class="btn">View details <i class="fas fa-arrow-right"></i></a>
+                    </article>
 
-                <!-- Publication 3 -->
-                <div class="publication-item"
-                    style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; transition: transform 0.2s; background: #fff;">
-                    <h3 style="margin-bottom: 0.25rem; font-family: 'Times New Roman', serif; font-size: 1.25rem;">
-                        <a href="publications/efficientnetb0_domestic_products.html"
-                            style="color: #0056b3; text-decoration: none;">My First Publication: EfficientNetB0 Domestic
-                            Products</a>
-                    </h3>
-                    <div style="margin-bottom: 0.75rem; color: #888; font-size: 0.85rem; font-family: 'Times New Roman', serif;">
-                        <i class="fas fa-calendar-alt"></i> March 2026
-                    </div>
-                    <p
-                        style="color: #666; font-family: 'Times New Roman', serif; margin-bottom: 1rem; font-size: 0.95rem;">
-                        A detailed study on applying the EfficientNetB0 architecture for classifying and recognizing
-                        domestic products.
-                    </p>
-                    <a href="publications/efficientnetb0_domestic_products.html"
-                        style="display: inline-block; padding: 0.5rem 1rem; background: #0056b3; color: white; text-decoration: none; border-radius: 4px; font-size: 0.9rem; font-family: 'Times New Roman', serif;">View
-                        Details</a>
+                    <article class="pub-card">
+                        <div class="pub-meta">
+                            <span class="badge badge-progress">In Preparation</span>
+                        </div>
+                        <h3><a href="publications/text_compression_paper.html">Optimizing Arithmetic Compression Pipeline using MLM</a></h3>
+                        <p>Research presenting a novel approach to parallelize full-sentence processing with standard batch token generation effectively tackling mathematical drifts.</p>
+                        <a href="publications/text_compression_paper.html" class="btn">View details <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="pub-card">
+                        <div class="pub-meta">
+                            <i class="fas fa-calendar-alt"></i> <span>March 2026</span>
+                        </div>
+                        <h3><a href="publications/efficientnetb0_domestic_products.html">My First Publication: EfficientNetB0 Domestic Products</a></h3>
+                        <p>A detailed study on applying the EfficientNetB0 architecture for classifying and recognizing domestic products.</p>
+                        <a href="publications/efficientnetb0_domestic_products.html" class="btn">View details <i class="fas fa-arrow-right"></i></a>
+                    </article>
                 </div>
             </div>
         </main>
     </div>
 </body>
-
 </html>
